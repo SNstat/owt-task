@@ -1,0 +1,70 @@
+html {
+    overflow-x: hidden;
+}
+
+/* body */
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+}
+
+
+/* nav */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background-color: #4fa08e;
+    font-size: large;
+}
+
+nav ul li {
+    float: left;
+    text-align: center;
+    padding: 1%;
+}
+
+nav ul a li {
+    color: #F4FFF8;
+    text-decoration: none;
+}
+
+nav ul a li:hover {
+    background-color: #212829;
+    color: #DFD9E2;
+}
+
+.naziv-poduzeca {
+    color: #F4FFF8;
+    font-weight: bold;
+}
+
+
+
+
+
+/* main */
+main {
+    margin: 1% 1% 5% 1%;
+}
+
+
+
+
+
+/* footer */
+footer {
+    background-color: #181d19;
+    padding: 1%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    text-align: center;
+    color: #F4FFF8;
+    margin: 1.2%;
+}
