@@ -55,7 +55,7 @@ main {
 
 /* footer */
 footer {
-    background-color: #181d19;
+    background-color: #212829;
     padding: 1%;
     position: absolute;
     left: 0;
@@ -66,5 +66,5 @@ footer {
 footer p {
     text-align: center;
     color: #F4FFF8;
-    margin: 1.2%;
+    margin: 1%;
 }
