@@ -1,12 +1,27 @@
 html {
     overflow-x: hidden;
+    height: 100%;
 }
+
+
+
+
 
 /* body */
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
+    height: 100%;
 }
+
+.struktura_stranice {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+
 
 
 /* nav */
@@ -47,6 +62,7 @@ nav ul a li:hover {
 /* main */
 main {
     margin: 1% 1% 5% 1%;
+    flex-grow: 1;
 }
 
 
@@ -57,9 +73,6 @@ main {
 footer {
     background-color: #212829;
     padding: 1%;
-    position: absolute;
-    left: 0;
-    bottom: 0;
     width: 100%;
 }
 
