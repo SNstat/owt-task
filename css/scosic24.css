@@ -27,32 +27,25 @@ body {
 /* nav */
 nav ul {
     list-style-type: none;
-    padding: 0;
     margin: 0;
-    overflow: hidden;
     background-color: #4fa08e;
     font-size: large;
+    color: #F4FFF8;
 }
 
 nav ul li {
-    float: left;
-    text-align: center;
-    padding: 1%;
+    display: inline-block;
+    padding: 0.75rem;
 }
 
-nav ul a li {
+nav ul li a {
     color: #F4FFF8;
+    padding: 0.75rem;
     text-decoration: none;
 }
 
-nav ul a li:hover {
-    background-color: #212829;
-    color: #DFD9E2;
-}
-
-.naziv-poduzeca {
-    color: #F4FFF8;
-    font-weight: bold;
+nav ul li a:hover {
+    color: #212829;
 }
 
 
