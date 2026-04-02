@@ -77,9 +77,8 @@ main > h1 {
     text-align: center;
     font-size: x-large;
     margin-top: 30px;
-    color: rgb(15, 127, 80);
+    color: #1d8770;
 }
-
 
 
 
@@ -98,73 +97,17 @@ footer p {
 
 
 
-
-/* upute */
-
-.okvir-50-50 {
-    display: grid;
-}
-
-
-
-
-
-/* placanje */
-
-.placanje-okvir {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 2% 10% 0% 10%;
-    font-size: smaller;
-
-    display: flex;
-    gap: 5%;
-}
-
-.placanje-cijena-okvir {
-    flex: 1;
-    padding: 1.5rem;
-    border-radius: 25px;
-
-    box-shadow:
-		0px 1px 4px rgba(3, 7, 18, 0.02),
-		0px 5px 16px rgba(57, 81, 150, 0.03),
-		0px 12px 36px rgba(3, 7, 18, 0.05),
-		0px 20px 64px rgba(3, 7, 18, 0.06),
-		0px 32px 100px rgba(3, 7, 18, 0.08);
-}
-
-.placanje-cijena-okvir h2 {
-    font-weight: bold;
-}
-
-.placanje-zeleni-okvir {
-    color: #F4FFF8;
-    border: 2px solid #4a756b;
-    background-color: #1d8770;
-}
-
-.placanje-cijena-okvir p {
-    margin-top: 7.5%;
-    margin-bottom: 7.5%;
-}
-
-.placanje-cijena-okvir ul {
-    text-align: left;
-} 
-
-.placanje-cijena-okvir li {
-    margin-bottom: 10px;
-}
-
-
+/* tipke */
 
 .bijela-tipka {
+    display: inline-block;
+    text-decoration: none;
     font-weight: bold;
-    padding: 13px 25px;
+    font-size: large;
+    padding: 17px 35px;
     margin: 10px;
-    border: 2px solid #4fa08e;
+    color: #1d8770;
+    border: 2px solid #1d8770;
     background-color: white;
     border-radius: 20px;
 
@@ -177,16 +120,19 @@ footer p {
 }
 
 .bijela-tipka:hover {
-    background-color: #4fa08e;
+    background-color: #1d8770;
     color: white;
 }
 
 .zelena-tipka {
+    display: inline-block;
+    text-decoration: none;
     font-weight: bold;
-    padding: 13px 25px;
+    font-size: large;
+    padding: 17px 35px;
     margin: 10px;
     color: white;
-    border: 2px solid #abc7c2;
+    border: 2px solid white;
     background-color: #1d8770;
     border-radius: 20px;
 
@@ -200,6 +146,32 @@ footer p {
 
 .zelena-tipka:hover {
     background-color: white;
+    color: #1d8770;
+}
+
+
+/* jednostavan okvir*/
+.jednostavan-okvir {
+    margin: 2%;
+    display: flex;
+}
+
+.jednostavan-okvir > div {
+    flex: 1;
+}
+
+.jednostavan-okvir h1 {
+    color: #1d8770;
+    margin-top: 0;
+}
+
+.jednostavan-okvir h2 {
+    font-size: larger;
+    color: #1d8770;
+    margin-top: 40px;
+}
+
+b {
     color: #1d8770;
 }
 
@@ -230,6 +202,12 @@ footer p {
     }
 
 
+    /* opce */
+    .jednostavan-okvir {
+        flex-direction: column;
+        margin: 6%;
+    }
+
 
     /* placanje */
 
@@ -244,8 +222,23 @@ footer p {
 
 
 
-    /* kontakt */
+    /* pocetna stranica */
 
+    .glavni-okvir-za-proizvod {
+        flex-direction: column;
+        text-align: center;
+        width: 75%;
+        margin: 10%;
+    }
+
+    .okvir-za-statistiku {
+        flex-direction: column;
+    }
+
+    /* proizvod */
+    .proizvod-tipka {
+        margin-bottom: 50px;
+    }
 
 
     /* podnozje */

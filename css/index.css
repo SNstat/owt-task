@@ -15,10 +15,6 @@
 		0px 32px 100px rgba(3, 7, 18, 0.08);
 }
 
-b {
-    color: rgb(15, 127, 80);
-}
-
 .glavni-okvir-tekst-proizvoda {
     margin-left: 4%;
 }
@@ -61,14 +57,5 @@ b {
 
 
 @media (max-width: 1000px) {
-    .glavni-okvir-za-proizvod {
-        flex-direction: column;
-        text-align: center;
-        width: 75%;
-        margin: 10%;
-    }
-
-    .okvir-za-statistiku {
-        flex-direction: column;
-    }	
+    
 }

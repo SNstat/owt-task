@@ -1,0 +1,75 @@
+.proizvod-tipka {
+    margin-top: 3%;
+}
+
+.okvir-video-hidroponika {
+    margin: 0;
+    background-color: rgb(236, 238, 236);
+    text-align: center;
+    padding: 20px;
+}
+
+.okvir-video-hidroponika h1 {
+    text-align: center;
+    margin-top: 30px;
+    color: rgb(41, 105, 80);
+}
+
+.okvir-video-hidroponika iframe {
+    margin: 2% 0 3% 0;
+    border: 0;
+}
+
+.galerija-slika {
+    display: grid;
+    place-items: center; 
+    
+    margin: 3% 0 3% 0;
+    overflow: hidden;
+    max-height: 400px;
+    width: 100%;
+}
+
+.galerija-slika img {
+    grid-area: 1 / 1;
+
+    max-height: 400px;
+    
+    object-fit: contain; 
+    
+    opacity: 0;
+    animation: galerijaSlika 18s infinite;
+}
+
+
+@keyframes galerijaSlika {
+    0%   { opacity: 0; }
+    5%   { opacity: 1; }
+    20%  { opacity: 1; }
+    25%  { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+
+.galerija-slika .galerija-slika1 {
+    animation-delay: 0s;
+}
+
+.galerija-slika .galerija-slika2 {
+    animation-delay: 3s;
+}
+
+.galerija-slika .galerija-slika3 {
+    animation-delay: 6s;
+}
+.galerija-slika .galerija-slika4 {
+    animation-delay: 9s;
+}
+
+.galerija-slika .galerija-slika5 {
+    animation-delay: 12s;
+}
+
+.galerija-slika .galerija-slika6 {
+    animation-delay: 15s;
+}
