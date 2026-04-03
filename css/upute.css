@@ -14,3 +14,27 @@
 .okvir-korisnickog-prirucnika li {
     margin: 8px;
 }
+
+table {
+    text-align: center;
+    margin: 2%;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+th {
+    padding: 10px;
+    border: 1px solid black;
+    background-color: rgb(215, 231, 217);
+}
+
+td {
+    padding: 10px;
+    border: 1px solid black;
+}
+
+caption {
+    font-size: large;
+    margin: 2% 0 2% 0;
+    text-align: left;
+}

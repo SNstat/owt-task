@@ -1,14 +1,15 @@
-.placanje-okvir {
+.katalog-okvir {
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 2% 10% 0% 10%;
+    font-size: medium;
 
     display: flex;
     gap: 5%;
 }
 
-.placanje-cijena-okvir {
+.katalog-cijena-okvir {
     flex: 1;
     padding: 1.5rem;
     border-radius: 25px;
@@ -21,25 +22,25 @@
 		0px 32px 100px rgba(3, 7, 18, 0.08);
 }
 
-.placanje-cijena-okvir h2 {
+.katalog-cijena-okvir h2 {
     font-weight: bold;
 }
 
-.placanje-zeleni-okvir {
+.katalog-zeleni-okvir {
     color: #F4FFF8;
     border: 2px solid #4a756b;
     background-color: #1d8770;
 }
 
-.placanje-cijena-okvir p {
+.katalog-cijena-okvir p {
     margin-top: 7.5%;
     margin-bottom: 7.5%;
 }
 
-.placanje-cijena-okvir ul {
+.katalog-cijena-okvir ul {
     text-align: left;
 } 
 
-.placanje-cijena-okvir li {
+.katalog-cijena-okvir li {
     margin-bottom: 10px;
 }

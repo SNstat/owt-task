@@ -209,14 +209,14 @@ b {
     }
 
 
-    /* placanje */
+    /* katalog */
 
-    .placanje-okvir {
+    .katalog-okvir {
         flex-direction: column;
         padding: 3% 13% 3% 13%;
     }
 
-    .placanje-cijena-okvir {
+    .katalog-cijena-okvir {
         margin-bottom: 10%;
     }
 
