@@ -1,0 +1,23 @@
+.okvir-slike-tim {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.okvir-slike-tim > div {
+    margin: 3%;
+}
+
+.okvir-slike-tim img {
+    width: 200px;
+    border-radius: 50%;
+
+    box-shadow:
+		0px 1px 4px rgba(3, 7, 18, 0.02),
+		0px 5px 16px rgba(57, 81, 150, 0.03),
+		0px 12px 36px rgba(3, 7, 18, 0.05),
+		0px 20px 64px rgba(3, 7, 18, 0.06),
+		0px 32px 100px rgba(3, 7, 18, 0.08);
+}
+

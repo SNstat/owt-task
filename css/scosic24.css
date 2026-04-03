@@ -198,7 +198,7 @@ footer img {
 
 /* media prilagodba */
 
-@media (max-width: 1000px) {
+@media screen and (max-width: 1000px) {
 	/* navigacija */
     nav ul {
 		flex-direction: column;
@@ -235,6 +235,12 @@ footer img {
 
     .katalog-cijena-okvir {
         margin-bottom: 10%;
+    }
+
+
+    /* Tim */
+    .okvir-slike-tim {
+        flex-direction: column;
     }
 
 
