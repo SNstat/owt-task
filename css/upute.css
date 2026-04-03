@@ -17,7 +17,7 @@
 
 table {
     text-align: center;
-    margin: 2%;
+    margin: 2% 8% 2% 2%;
     border-collapse: collapse;
     border: 1px solid black;
 }
@@ -37,4 +37,18 @@ caption {
     font-size: large;
     margin: 2% 0 2% 0;
     text-align: left;
+}
+
+.opis-slike {
+    font-size: large;
+    margin: 6% 0 0 2%;
+}
+
+ol ol {
+    list-style-type: lower-alpha;
+}
+
+.slika-upravljacka-ploca {
+    width: 70%;
+    margin:2%;
 }

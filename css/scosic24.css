@@ -22,7 +22,7 @@ body {
 
 
 
-/* nav */
+/* navigacijska traka */
 nav ul {
     list-style-type: none;
     margin: 0;
@@ -80,6 +80,19 @@ main > h1 {
     color: #1d8770;
 }
 
+.masni-tekst {
+    font-weight: bold;
+    color: #1d8770;
+}
+
+.kurzivni-tekst {
+    font-style: italic;
+}
+
+.bijeli-tekst {
+    color: white;
+}
+
 
 
 
@@ -87,12 +100,20 @@ main > h1 {
 footer {
     background-color: #212829;
     width: 100%;
+    padding: 30px;
+    gap: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 footer p {
     text-align: center;
     color: #F4FFF8;
-    margin: 2%;
+}
+
+footer img {
+    width: 50px;
 }
 
 
@@ -169,10 +190,6 @@ footer p {
     font-size: larger;
     color: #1d8770;
     margin-top: 40px;
-}
-
-b {
-    color: #1d8770;
 }
 
 
