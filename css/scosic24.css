@@ -51,7 +51,6 @@ nav ul li a:hover {
 
 .naslov-stranice {
     font-weight: bold;
-    pointer-events: none;
     background-color: white;
 	color: #4fa08e;
     padding: 3px;
