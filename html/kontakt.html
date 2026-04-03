@@ -25,9 +25,7 @@
         </nav>
     </header>
     <main>
-        <div class="kontakt-okvir">
-            <div>
-                <div class="okvir-za-formu">
+            <div class="okvir-za-formu">
                 <h1>Kontaktirajte nas!</h1>
                 <p></p>
                 <form action="">
@@ -40,22 +38,29 @@
                     <label for="unos-email">E-mail adresa:</label>
                     <input type="text" id="unos-email" placeholder="netko@mail.com">
                     
-                    <label for="odabir-razlog">Razlog:</label>
-                    <select name="" id="odabir-razlog">
-                        <option value="">Pitanja</option>
+                    <label for="odabir-razlog">Razlog poruke:</label>
+                    <select name="odabir-razlog" id="odabir-razlog">
+                        <option value="">Pitanje</option>
+                        <option value="">Reklamacija</option>
                     </select>
                     
                     <label for="odabir-posjedovanje-paketa">Posjedujete li naš proizvod:</label>
-                    <select name="" id="odabir-razlog">
-                        <option value="">Pitanja</option>
+                    <select name="odabir-posjedovanje-paketa" id="odabir-posjedovanje-paketa">
+                        <option value="">Ne posjedujem</option>
+                        <option value="">Posjedujem 1 HiPo proizvod</option>
+                        <option value="">Posjedujem više od 1 HiPo proizvod</option>
                     </select>
+
+                    <caption for="unos-poruka">Poruka:</caption>
+                    <textarea name="unos-poruka" id="unos-poruka"></textarea>
 
 
 
                     <input type="submit" value="Pošalji" class="bijela-tipka">
                 </form>
-            </div>
-            </div>
+        </div>
+
+        </div>
         </div>
 
     </main>
