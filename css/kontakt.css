@@ -2,8 +2,8 @@
 
 .okvir-za-formu {
     border-radius: 25px;
-    padding: 30px;
-    margin: 2% 20% 2% 20%;
+    padding: 40px;
+    margin: 1%;
     font-size: smaller;
     
     box-shadow:
@@ -15,23 +15,39 @@
 }
 
 label {
-    display: block;
-    margin: 1% 0 1% 0;
+    margin: 2% 0 2% 0;
+}
+
+.okvir-za-formu p {
+    width: 75%;
+    margin-bottom: 4%;
+}
+
+.prazni-prostor {
+    padding: 15px;
+}
+
+.opis-odabira {
+    display: inline;
 }
 
 input[type=text] {
-    display: block;
     width: 40%;
-    padding: 10px;
+    margin: 1.5%;
+    padding: 6px;
     border: 1px solid gray;
 }
 
-select {
+input[type=submit] {
+    margin-top: 5%;
     display: block;
+}
+
+select {
     border: 1px solid gray;
     background-color: white;
-    padding: 8px 15px;
-    margin: 1% 0 1% 0;
+    padding: 6px 6px;
+    margin: 1.5%;
 }
 
 textarea {
