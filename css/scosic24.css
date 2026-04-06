@@ -192,12 +192,17 @@ footer img {
 }
 
 
+/* TEMP */
+.skica-zaslona {
+    width: 50%;
+    margin:1%;
+}
 
 
 
 /* media prilagodba */
 
-@media screen and (max-width: 1000px) {
+@media (max-width: 1000px) {
 	/* navigacija */
     nav ul {
 		flex-direction: column;

@@ -38,7 +38,7 @@
     object-fit: contain; 
     
     opacity: 0;
-    animation: galerijaSlika 18s infinite;
+    animation: galerijaSlika 15s infinite;
 }
 
 
@@ -68,8 +68,4 @@
 
 .galerija-slika .galerija-slika5 {
     animation-delay: 12s;
-}
-
-.galerija-slika .galerija-slika6 {
-    animation-delay: 15s;
 }

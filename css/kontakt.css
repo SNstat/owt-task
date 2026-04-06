@@ -31,12 +31,14 @@ label {
     display: inline;
 }
 
-input[type=text] {
-    width: 40%;
+input[type=text], input[type=file] {
+    width: 50%;
     margin: 1.5%;
     padding: 6px;
     border: 1px solid gray;
 }
+
+
 
 input[type=submit] {
     margin-top: 5%;
