@@ -31,7 +31,7 @@
                 <h1>Kontaktirajte nas!</h1>
                 <p>Obratite nam se s povjerenjem. Odgovoriti ćemo na sva Vaša pitanja, kritike i pohvale u najbržem mogućem roku!</p>
                 
-                <form action="#">
+                <form action="https://spider.foi.hr/OWT/materijali/ispis_forme.php">
                     <label for="unos-ime">Ime:</label>
                     <input type="text" id="unos-ime" name="unos-ime" placeholder="..."> <br>
                     
@@ -49,16 +49,16 @@
                     
                     <label for="odabir-razlog">Razlog poruke:</label>
                     <select name="odabir-razlog" id="odabir-razlog">
-                        <option value="">Pitanje</option>
-                        <option value="">Recenzija</option>
-                        <option value="">Reklamacija</option>
+                        <option value="Pitanje">Pitanje</option>
+                        <option value="Recenzija">Recenzija</option>
+                        <option value="Reklamacija">Reklamacija</option>
                     </select> <br>
                     
                     <label for="odabir-posjedovanje-paketa">Posjedovanje proizvoda:</label>
                     <select name="odabir-posjedovanje-paketa" id="odabir-posjedovanje-paketa">
-                        <option value="0">Ne posjedujem</option>
-                        <option value="1">Posjedujem jedan HiPo proizvod</option>
-                        <option value="2">Posjedujem više od jednog HiPo proizvoda</option>
+                        <option value="Ne posjedujem niti jedan HiPo proizvod">Ne posjedujem niti jedan HiPo proizvod</option>
+                        <option value="Posjedujem jedan HiPo proizvod">Posjedujem jedan HiPo proizvod</option>
+                        <option value="Posjedujem više od jednog HiPo proizvoda">Posjedujem više od jednog HiPo proizvoda</option>
                     </select> <br>
 
                     <div class="prazni-prostor"></div>
@@ -69,8 +69,8 @@
                     <label for="unos-sadrzaj-poruke">Sadržaj poruke:</label>
                     <textarea name="unos-sadrzaj-poruke" id="unos-sadrzaj-poruke"></textarea>
 
-                    <label for="odabir-datoteke">Prenesite datoteku:</label>
-                    <input type="file" id="odabir-datoteke" name="odabir-datoteke"> <br>
+                    <label for="datoteka">Prenesite datoteku:</label>
+                    <input type="file" id="datoteka" name="datoteka"> <br>
 
                     <input type="checkbox" id="odabir-obavijesti" name="odabir-obavijesti">
                     <label for="odabir-obavijesti" class="opis-odabira">Želim dobivati obavijesti na e-mail</label>
@@ -87,8 +87,8 @@
         <p>
             &copy; Šimun Ćosić
         </p>
-        <img src="https://spider.foi.hr/OWT/materijali/slike/HTML5.png" alt="Ikona HTML5 validatora">
-        <img src="https://spider.foi.hr/OWT/materijali/slike/CSS3.png" alt="Ikona CSS validatora">
+        <a href="#"><img src="https://spider.foi.hr/OWT/materijali/slike/HTML5.png" alt="Ikona HTML5 validatora"></a>
+        <a href="#"><img src="https://spider.foi.hr/OWT/materijali/slike/CSS3.png" alt="Ikona CSS validatora"></a>
     </footer>
 </body>
 </html>
