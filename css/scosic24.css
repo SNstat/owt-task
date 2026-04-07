@@ -40,13 +40,7 @@ nav ul a {
 
 nav ul li a:hover {
     color: #383f41;
-
-    box-shadow:
-		0px 1px 4px rgba(3, 7, 18, 0.02),
-		0px 5px 16px rgba(3, 7, 18, 0.03),
-		0px 12px 36px rgba(3, 7, 18, 0.05),
-		0px 20px 64px rgba(3, 7, 18, 0.06),
-		0px 32px 100px rgba(3, 7, 18, 0.08);
+    background-color: rgb(194, 211, 206);
 }
 
 .naslov-stranice {
@@ -130,13 +124,6 @@ footer img {
     border: 2px solid #1d8770;
     background-color: white;
     border-radius: 20px;
-
-    box-shadow:
-		0px 1px 4px rgba(3, 7, 18, 0.02),
-		0px 5px 16px rgba(57, 81, 150, 0.03),
-		0px 12px 36px rgba(3, 7, 18, 0.05),
-		0px 20px 64px rgba(3, 7, 18, 0.06),
-		0px 32px 100px rgba(3, 7, 18, 0.08);
 }
 
 .bijela-tipka:hover {
@@ -155,13 +142,6 @@ footer img {
     border: 2px solid white;
     background-color: #1d8770;
     border-radius: 20px;
-
-    box-shadow:
-		0px 1px 4px rgba(3, 7, 18, 0.02),
-		0px 5px 16px rgba(57, 81, 150, 0.03),
-		0px 12px 36px rgba(3, 7, 18, 0.05),
-		0px 20px 64px rgba(3, 7, 18, 0.06),
-		0px 32px 100px rgba(3, 7, 18, 0.08);
 }
 
 .zelena-tipka:hover {
