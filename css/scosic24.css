@@ -106,11 +106,6 @@ footer {
     justify-content: center;
 }
 
-footer p {
-    text-align: center;
-    color: #F4FFF8;
-}
-
 footer img {
     width: 50px;
 }
@@ -328,12 +323,5 @@ footer img {
     /* proizvod */
     .proizvod-tipka {
         margin-bottom: 50px;
-    }
-
-
-    /* podnozje */
-
-    footer p {
-        margin: 4%;
     }
 }
