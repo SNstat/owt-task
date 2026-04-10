@@ -63,4 +63,8 @@ ol ol {
   table {
     font-size: small;
   }
+
+  table th,td {
+    padding: 3px;
+  }
 }
