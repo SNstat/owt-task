@@ -1,58 +1,57 @@
 .okvir-za-formu {
-    border-radius: 25px;
-    padding: 40px;
-    margin: 1%;
-    font-size: smaller;
-    
-    box-shadow:
-		0px 1px 4px rgba(3, 7, 18, 0.02),
-		0px 5px 16px rgba(57, 81, 150, 0.03),
-		0px 12px 36px rgba(3, 7, 18, 0.05),
-		0px 20px 64px rgba(3, 7, 18, 0.06),
-		0px 32px 100px rgba(3, 7, 18, 0.08);
+  border-radius: 25px;
+  padding: 40px;
+  margin: 1%;
+  font-size: smaller;
+
+  box-shadow:
+    0px 1px 4px rgba(3, 7, 18, 0.02),
+    0px 5px 16px rgba(57, 81, 150, 0.03),
+    0px 12px 36px rgba(3, 7, 18, 0.05),
+    0px 20px 64px rgba(3, 7, 18, 0.06),
+    0px 32px 100px rgba(3, 7, 18, 0.08);
 }
 
 label {
-    margin: 2% 0 2% 0;
+  margin: 2% 0 2% 0;
 }
 
 .okvir-za-formu p {
-    width: 75%;
-    margin-bottom: 4%;
+  width: 75%;
+  margin-bottom: 4%;
 }
 
 .prazni-prostor {
-    padding: 15px;
+  padding: 15px;
 }
 
 .opis-odabira {
-    display: inline;
+  display: inline;
 }
 
-input[type=text], input[type=file] {
-    width: 50%;
-    margin: 1.5%;
-    padding: 6px;
-    border: 1px solid gray;
+input[type="text"],
+input[type="file"] {
+  width: 50%;
+  margin: 1.5%;
+  padding: 6px;
+  border: 1px solid gray;
 }
 
-
-
-input[type=submit] {
-    margin-top: 5%;
-    display: block;
+input[type="submit"] {
+  margin-top: 5%;
+  display: block;
 }
 
 select {
-    border: 1px solid gray;
-    background-color: white;
-    padding: 6px 6px;
-    margin: 1.5%;
+  border: 1px solid gray;
+  background-color: white;
+  padding: 6px 6px;
+  margin: 1.5%;
 }
 
 textarea {
-    display: block;
-    min-height: 100px;
-    width: 90%;
-    margin: 1% 0 1% 0;
+  display: block;
+  min-height: 100px;
+  width: 90%;
+  margin: 1% 0 1% 0;
 }

@@ -1,88 +1,96 @@
 .tipka-prema-uputama-koristenja {
-    margin: 20px 20px 20px 0;
+  margin: 20px 20px 20px 0;
 }
 
 .okvir-video-hidroponika {
-    margin: 0;
-    background-color: rgb(236, 238, 236);
-    text-align: center;
-    padding: 20px;
+  margin: 0;
+  background-color: rgb(236, 238, 236);
+  text-align: center;
+  padding: 20px;
 }
 
 .okvir-video-hidroponika h1 {
-    text-align: center;
-    margin-top: 30px;
-    color: rgb(41, 105, 80);
+  text-align: center;
+  margin-top: 30px;
+  color: rgb(41, 105, 80);
 }
 
 #video-youtube {
-    margin: 2% 0 3% 0;
-    border: 0;
-    aspect-ratio: 16 / 9;
-    width: 50%;
-    height: auto;
+  margin: 2% 0 3% 0;
+  border: 0;
+  aspect-ratio: 16 / 9;
+  width: 50%;
+  height: auto;
 }
 
 .galerija-slika {
-    display: grid;
-    place-items: center; 
-    
-    margin: 3% 0 3% 0;
-    overflow: hidden;
-    max-height: 400px;
-    width: 100%;
+  display: grid;
+  place-items: center;
+
+  margin: 3% 0 3% 0;
+  overflow: hidden;
+  max-height: 400px;
+  width: 100%;
 }
 
 .galerija-slika img {
-    grid-area: 1 / 1;
+  grid-area: 1 / 1;
 
-    max-height: 400px;
-    
-    object-fit: contain; 
-    
-    opacity: 0;
-    animation: galerijaSlika 15s infinite;
+  max-height: 400px;
+
+  object-fit: contain;
+
+  opacity: 0;
+  animation: galerijaSlika 15s infinite;
 }
 
 /* definicija animacije galerije slika */
 
 @keyframes galerijaSlika {
-    0%   { opacity: 0; }
-    5%   { opacity: 1; }
-    20%  { opacity: 1; }
-    25%  { opacity: 0; }
-    100% { opacity: 0; }
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 #galerija-slika1 {
-    animation-delay: 0s;
+  animation-delay: 0s;
 }
 
 #galerija-slika2 {
-    animation-delay: 3s;
+  animation-delay: 3s;
 }
 
 #galerija-slika3 {
-    animation-delay: 6s;
+  animation-delay: 6s;
 }
 #galerija-slika4 {
-    animation-delay: 9s;
+  animation-delay: 9s;
 }
 
 #galerija-slika5 {
-    animation-delay: 12s;
+  animation-delay: 12s;
 }
-
-
 
 /* media prilagodba */
 
 @media (max-width: 1000px) {
-    #video-youtube {
-        width: 80%;
-    }
+  #video-youtube {
+    width: 80%;
+  }
 
-    .galerija-slika img {
-        max-width: 80%;
-    }
+  .galerija-slika img {
+    max-width: 80%;
+  }
 }

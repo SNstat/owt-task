@@ -1,62 +1,60 @@
 .katalog-okvir {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 2% 10% 0% 10%;
-    margin-bottom: 5%;
-    font-size: medium;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2% 10% 0% 10%;
+  margin-bottom: 5%;
+  font-size: medium;
 
-    display: flex;
-    gap: 5%;
+  display: flex;
+  gap: 5%;
 }
 
 .katalog-cijena-okvir {
-    flex: 1;
-    padding: 15px;
-    border-radius: 25px;
+  flex: 1;
+  padding: 15px;
+  border-radius: 25px;
 
-    box-shadow:
-		0px 1px 4px rgba(3, 7, 18, 0.02),
-		0px 5px 16px rgba(57, 81, 150, 0.03),
-		0px 12px 36px rgba(3, 7, 18, 0.05),
-		0px 20px 64px rgba(3, 7, 18, 0.06),
-		0px 32px 100px rgba(3, 7, 18, 0.08);
+  box-shadow:
+    0px 1px 4px rgba(3, 7, 18, 0.02),
+    0px 5px 16px rgba(57, 81, 150, 0.03),
+    0px 12px 36px rgba(3, 7, 18, 0.05),
+    0px 20px 64px rgba(3, 7, 18, 0.06),
+    0px 32px 100px rgba(3, 7, 18, 0.08);
 }
 
 .katalog-cijena-okvir h2 {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .katalog-zeleni-okvir {
-    color: #F4FFF8;
-    border: 2px solid #4a756b;
-    background-color: #1d8770;
+  color: #f4fff8;
+  border: 2px solid #4a756b;
+  background-color: #1d8770;
 }
 
 .katalog-cijena-okvir p {
-    margin-top: 7.5%;
-    margin-bottom: 7.5%;
+  margin-top: 7.5%;
+  margin-bottom: 7.5%;
 }
 
 .katalog-cijena-okvir ul {
-    text-align: left;
-} 
-
-.katalog-cijena-okvir li {
-    margin-bottom: 10px;
+  text-align: left;
 }
 
-
+.katalog-cijena-okvir li {
+  margin-bottom: 10px;
+}
 
 /* media prilagodba */
 
 @media (max-width: 1000px) {
-    .katalog-okvir {
-        flex-direction: column;
-        padding: 3% 13% 3% 13%;
-    }
+  .katalog-okvir {
+    flex-direction: column;
+    padding: 3% 13% 3% 13%;
+  }
 
-    .katalog-cijena-okvir {
-        margin-bottom: 10%;
-    }
+  .katalog-cijena-okvir {
+    margin-bottom: 10%;
+  }
 }
