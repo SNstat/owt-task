@@ -29,12 +29,12 @@ nav ul {
     background-color: #4fa08e;
     color: #F4FFF8;
     display: flex;
-    padding: 0.75rem;
+    padding: 15px;
 }
 
 nav ul a {
     color: #F4FFF8;
-    padding: 0.75rem;
+    padding: 15px;
     text-decoration: none;
 }
 
@@ -98,7 +98,7 @@ main > h1 {
 /* footer */
 footer {
     background-color: #212829;
-    width: 100%;
+    max-width: 100%;
     padding: 30px;
     gap: 30px;
     display: flex;
@@ -187,11 +187,7 @@ footer img {
 }
 
 
-/* TEMP */
-.skica-zaslona {
-    width: 50%;
-    margin:1%;
-}
+
 
 /* Pocetna stranica */
 
@@ -261,7 +257,7 @@ footer img {
 /* media prilagodba */
 
 @media (max-width: 1000px) {
-	/* navigacija */
+	/* navigacijska traka */
     nav ul {
 		flex-direction: column;
         text-align: center;
@@ -272,7 +268,7 @@ footer img {
     }
 
     nav ul a {
-        padding: 0.5rem;
+        padding: 10px;
     }
 
     .aktivna-stranica {
@@ -281,32 +277,13 @@ footer img {
     }
 
 
-    /* opce */
+    /* opce koristeni elementi */
     .jednostavan-okvir {
         flex-direction: column;
         margin: 6%;
     }
 
-
-    /* katalog */
-
-    .katalog-okvir {
-        flex-direction: column;
-        padding: 3% 13% 3% 13%;
-    }
-
-    .katalog-cijena-okvir {
-        margin-bottom: 10%;
-    }
-
-
-    /* Tim */
-    .okvir-slike-tim {
-        flex-direction: column;
-    }
-
-
-
+    
     /* pocetna stranica */
 
     .glavni-okvir-za-proizvod {
@@ -318,10 +295,5 @@ footer img {
 
     .okvir-za-statistiku {
         flex-direction: column;
-    }
-
-    /* proizvod */
-    .proizvod-tipka {
-        margin-bottom: 50px;
     }
 }

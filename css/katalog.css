@@ -12,7 +12,7 @@
 
 .katalog-cijena-okvir {
     flex: 1;
-    padding: 1.5rem;
+    padding: 15px;
     border-radius: 25px;
 
     box-shadow:
@@ -44,4 +44,19 @@
 
 .katalog-cijena-okvir li {
     margin-bottom: 10px;
+}
+
+
+
+/* media prilagodba */
+
+@media (max-width: 1000px) {
+    .katalog-okvir {
+        flex-direction: column;
+        padding: 3% 13% 3% 13%;
+    }
+
+    .katalog-cijena-okvir {
+        margin-bottom: 10%;
+    }
 }

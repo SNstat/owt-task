@@ -1,5 +1,5 @@
-.proizvod-tipka {
-    margin-top: 3%;
+.tipka-prema-uputama-koristenja {
+    margin: 20px 20px 20px 0;
 }
 
 .okvir-video-hidroponika {
@@ -15,9 +15,12 @@
     color: rgb(41, 105, 80);
 }
 
-.okvir-video-hidroponika iframe {
+#video-youtube {
     margin: 2% 0 3% 0;
     border: 0;
+    aspect-ratio: 16 / 9;
+    width: 50%;
+    height: auto;
 }
 
 .galerija-slika {
@@ -41,6 +44,7 @@
     animation: galerijaSlika 15s infinite;
 }
 
+/* definicija animacije galerije slika */
 
 @keyframes galerijaSlika {
     0%   { opacity: 0; }
@@ -50,22 +54,35 @@
     100% { opacity: 0; }
 }
 
-
-.galerija-slika .galerija-slika1 {
+#galerija-slika1 {
     animation-delay: 0s;
 }
 
-.galerija-slika .galerija-slika2 {
+#galerija-slika2 {
     animation-delay: 3s;
 }
 
-.galerija-slika .galerija-slika3 {
+#galerija-slika3 {
     animation-delay: 6s;
 }
-.galerija-slika .galerija-slika4 {
+#galerija-slika4 {
     animation-delay: 9s;
 }
 
-.galerija-slika .galerija-slika5 {
+#galerija-slika5 {
     animation-delay: 12s;
+}
+
+
+
+/* media prilagodba */
+
+@media (max-width: 1000px) {
+    #video-youtube {
+        width: 80%;
+    }
+
+    .galerija-slika img {
+        max-width: 80%;
+    }
 }

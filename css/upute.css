@@ -1,6 +1,6 @@
 .okvir-korisnickog-prirucnika {
     border-radius: 25px;
-    padding: 2%;
+    padding: 30px;
     margin-right: 8%;
 
     box-shadow:
@@ -51,4 +51,14 @@ ol ol {
 .slika-upravljacka-ploca {
     width: 70%;
     margin:2%;
+}
+
+
+
+/* media prilagodba */
+
+@media (max-width: 1000px) {
+    table {
+        font-size: small;  
+    }
 }
