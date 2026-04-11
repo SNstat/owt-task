@@ -46,9 +46,9 @@
   margin-bottom: 10px;
 }
 
-/* media prilagodba */
+/* media prilagodba TABLET I MOBITEL*/
 
-@media (max-width: 1000px) {
+@media (max-width: 1050px) {
   .katalog-okvir {
     flex-direction: column;
     padding: 3% 13% 3% 13%;

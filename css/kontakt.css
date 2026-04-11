@@ -57,3 +57,51 @@ textarea {
   width: 90%;
   margin: 1% 0 1% 0;
 }
+
+/* media prilagodba - TABLET*/
+
+@media (max-width: 1050px) {
+  input,
+  select,
+  textarea {
+    font-size: large;
+  }
+
+  option {
+    font-size: small;
+  }
+}
+
+/* media prilagodba - MOBITEL*/
+
+@media (max-width: 600px) {
+  select {
+    max-width: 80%;
+    display: block;
+  }
+
+  input[type="submit"] {
+    width: 80%;
+    display: block;
+  }
+
+  input[type="text"],
+  input[type="file"],
+  input[type="email"],
+  input[type="tel"] {
+    width: 80%;
+    display: block;
+  }
+
+  textarea {
+    margin-bottom: 7%;
+  }
+
+  label {
+    font-size: large;
+  }
+
+  p {
+    padding-bottom: 20px;
+  }
+}

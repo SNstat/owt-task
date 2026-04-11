@@ -182,7 +182,7 @@ footer img {
   border-radius: 25px;
   display: flex;
   flex-grow: 1;
-  margin: 50px auto 50px auto;
+  margin: 5% auto 6% auto;
   padding: 20px;
   gap: 40px;
   width: 60%;
@@ -231,11 +231,24 @@ footer img {
   margin-top: 0;
 }
 
-/* media prilagodba */
+/* media prilagodba - TABLET i MOBITEL*/
 
-@media (max-width: 1000px) {
+@media (max-width: 1050px) {
+  body {
+    font-size: larger;
+  }
+
+  main p {
+    font-size: large;
+  }
+
+  main ul {
+    font-size: large;
+  }
+
   /* navigacijska traka */
   nav ul {
+    font-size: larger;
     flex-direction: column;
     text-align: center;
   }
@@ -259,6 +272,12 @@ footer img {
     margin: 6%;
   }
 
+  /* footer */
+
+  footer img {
+    width: 70px;
+  }
+
   /* pocetna stranica */
 
   .glavni-okvir-za-proizvod {
@@ -269,5 +288,21 @@ footer img {
 
   .okvir-za-statistiku {
     flex-direction: column;
+  }
+}
+
+/* media prilagodba - dodatno za MOBITEL */
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: xx-large;
+  }
+
+  nav ul {
+    font-size: large;
+  }
+
+  footer img {
+    width: 60px;
   }
 }

@@ -81,9 +81,9 @@
   animation-delay: 12s;
 }
 
-/* media prilagodba */
+/* media prilagodba - TABLET i MOBITEL*/
 
-@media (max-width: 1000px) {
+@media (max-width: 1050px) {
   #video-youtube {
     width: 80%;
   }

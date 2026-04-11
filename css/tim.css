@@ -21,10 +21,26 @@
     0px 32px 100px rgba(3, 7, 18, 0.08);
 }
 
-/* media prilagodba */
+/* media prilagodba TABLET*/
 
-@media (max-width: 1000px) {
+@media (max-width: 1050px) {
   .okvir-slike-tim {
     flex-direction: column;
+  }
+
+  .okvir-slike-tim img {
+    width: 300px;
+  }
+}
+
+/* media prilagodba MOBITEL*/
+
+@media (max-width: 600px) {
+  .okvir-slike-tim {
+    flex-direction: column;
+  }
+
+  .okvir-slike-tim img {
+    max-width: 200px;
   }
 }

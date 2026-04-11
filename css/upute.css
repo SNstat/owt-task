@@ -53,18 +53,28 @@ ol ol {
   margin: 2%;
 }
 
-/* media prilagodba */
+/* media prilagodba - TABLET*/
 
-@media (max-width: 1000px) {
+@media (max-width: 1050px) {
   .okvir-korisnickog-prirucnika {
     margin: 0;
   }
+}
+
+/* media prilagodba - MOBITEL*/
+
+@media (max-width: 600px) {
+
+  .slika-upravljacka-ploca {
+    width: 100%;
+  } 
 
   table {
     font-size: small;
+    margin: 0;
   }
 
   table th,td {
-    padding: 3px;
+    padding: 1px;
   }
 }
