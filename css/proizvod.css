@@ -38,8 +38,6 @@
 
   max-height: 400px;
 
-  object-fit: contain;
-
   opacity: 0;
   animation: galerijaSlika 15s infinite;
 }

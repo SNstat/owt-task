@@ -30,7 +30,9 @@ label {
 }
 
 input[type="text"],
-input[type="file"] {
+input[type="file"],
+input[type="email"],
+input[type="tel"] {
   width: 50%;
   margin: 1.5%;
   padding: 6px;
