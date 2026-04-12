@@ -3,18 +3,14 @@ html {
   height: 100%;
 }
 
-/* body */
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: 0;
-  height: 100%;
-}
-
-.struktura_stranice {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
+
 
 /* navigacijska traka */
 nav ul {
@@ -43,7 +39,7 @@ nav ul li a:hover {
     0px 32px 100px rgba(3, 7, 18, 0.08);
 }
 
-.naslov-stranice {
+nav ul li:first-child a {
   font-weight: bold;
   background-color: white;
   color: #4fa08e;
@@ -57,7 +53,7 @@ nav ul li a:hover {
   font-weight: bold;
 }
 
-/* main */
+/* struktura stranice i okvir */
 main {
   flex-grow: 1;
 }
@@ -68,6 +64,28 @@ main > h1 {
   margin-top: 30px;
   color: #1d8770;
 }
+
+.jednostavan-okvir {
+  margin: 2%;
+  display: flex;
+}
+
+.jednostavan-okvir > div {
+  flex: 1;
+}
+
+.jednostavan-okvir h1 {
+  color: #1d8770;
+  margin-top: 0;
+}
+
+.jednostavan-okvir h2 {
+  font-size: larger;
+  color: #1d8770;
+  margin-top: 40px;
+}
+
+/* cesta stilska oblikovanja teksta */
 
 .masni-tekst {
   font-weight: bold;
@@ -97,7 +115,7 @@ footer img {
   width: 50px;
 }
 
-/* tipke */
+/* oblikovanja tipka */
 
 .bijela-tipka {
   display: inline-block;
@@ -147,27 +165,6 @@ footer img {
 .zelena-tipka:hover {
   background-color: white;
   color: #1d8770;
-}
-
-/* jednostavan okvir*/
-.jednostavan-okvir {
-  margin: 2%;
-  display: flex;
-}
-
-.jednostavan-okvir > div {
-  flex: 1;
-}
-
-.jednostavan-okvir h1 {
-  color: #1d8770;
-  margin-top: 0;
-}
-
-.jednostavan-okvir h2 {
-  font-size: larger;
-  color: #1d8770;
-  margin-top: 40px;
 }
 
 /* Pocetna stranica */

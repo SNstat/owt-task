@@ -16,16 +16,12 @@ label {
   margin: 2% 0 2% 0;
 }
 
-.okvir-za-formu p {
+p {
   width: 75%;
-  margin-bottom: 4%;
+  padding-bottom: 20px;
 }
 
-.prazni-prostor {
-  padding: 15px;
-}
-
-.opis-odabira {
+label[for="odabir-obavijesti"] {
   display: inline;
 }
 
@@ -99,9 +95,5 @@ textarea {
 
   label {
     font-size: large;
-  }
-
-  p {
-    padding-bottom: 20px;
   }
 }

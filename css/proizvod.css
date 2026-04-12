@@ -15,7 +15,7 @@
   color: rgb(41, 105, 80);
 }
 
-#video-youtube {
+iframe {
   margin: 2% 0 3% 0;
   border: 0;
   aspect-ratio: 16 / 9;
@@ -84,7 +84,7 @@
 /* media prilagodba - TABLET i MOBITEL*/
 
 @media (max-width: 1050px) {
-  #video-youtube {
+  iframe {
     width: 80%;
   }
 
