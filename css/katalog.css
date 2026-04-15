@@ -10,7 +10,7 @@ main > div {
   gap: 5%;
 }
 
-.ovir-kataloga-cijena {
+.okvirKatalogaCijena {
   flex: 1;
   padding: 15px;
   border-radius: 25px;
@@ -23,27 +23,27 @@ main > div {
     0px 32px 100px rgba(3, 7, 18, 0.08);
 }
 
-.ovir-kataloga-cijena h2 {
+.okvirKatalogaCijena h2 {
   font-weight: bold;
 }
 
-.katalog-zeleni-okvir {
-  color: #f4fff8;
-  border: 2px solid #4a756b;
-  background-color: #1d8770;
-}
-
-.ovir-kataloga-cijena p {
+.okvirKatalogaCijena p {
   margin-top: 7.5%;
   margin-bottom: 7.5%;
 }
 
-.ovir-kataloga-cijena ul {
+.okvirKatalogaCijena ul {
   text-align: left;
 }
 
-.ovir-kataloga-cijena li {
+.okvirKatalogaCijena li {
   margin-bottom: 10px;
+}
+
+.katalogZeleniOkvir {
+  color: #f4fff8;
+  border: 2px solid #4a756b;
+  background-color: #1d8770;
 }
 
 /* media prilagodba TABLET I MOBITEL*/
@@ -54,7 +54,7 @@ main > div {
     padding: 3% 13% 3% 13%;
   }
 
-  .ovir-kataloga-cijena {
+  .okvirKatalogaCijena {
     margin-bottom: 10%;
   }
 }

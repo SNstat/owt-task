@@ -1,4 +1,4 @@
-.okvir-korisnickog-prirucnika {
+#okvirKorisnickogPrirucnika {
   border-radius: 25px;
   padding: 30px;
   margin-right: 8%;
@@ -11,7 +11,7 @@
     0px 32px 100px rgba(3, 7, 18, 0.08);
 }
 
-.okvir-korisnickog-prirucnika li {
+#okvirKorisnickogPrirucnika li {
   margin: 8px;
 }
 
@@ -33,13 +33,17 @@ td {
   border: 1px solid black;
 }
 
+tr > td:nth-child(2) {
+  font-style: italic;
+}
+
 caption {
   font-size: large;
   margin: 2% 0 2% 0;
   text-align: left;
 }
 
-.opis-slike {
+figure {
   font-size: large;
   margin: 6% 0 0 2%;
 }
@@ -48,7 +52,7 @@ ol ol {
   list-style-type: lower-alpha;
 }
 
-.slika-upravljacka-ploca {
+figure img {
   width: 70%;
   margin: 2%;
 }
@@ -56,7 +60,7 @@ ol ol {
 /* media prilagodba - TABLET*/
 
 @media (max-width: 1050px) {
-  .okvir-korisnickog-prirucnika {
+  #okvirKorisnickogPrirucnika {
     margin: 0;
   }
 }
@@ -64,17 +68,17 @@ ol ol {
 /* media prilagodba - MOBITEL*/
 
 @media (max-width: 600px) {
-
-  .slika-upravljacka-ploca {
+  figure img {
     width: 100%;
-  } 
+  }
 
   table {
     font-size: small;
     margin: 0;
   }
 
-  table th,td {
+  table th,
+  td {
     padding: 1px;
   }
 }

@@ -1,0 +1,73 @@
+main {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+#glavniOkvirZaProizvod {
+  border-radius: 25px;
+  display: flex;
+  flex-grow: 1;
+  margin: 3.5% auto 4% auto;
+  padding: 20px;
+  gap: 40px;
+  width: 60%;
+
+  box-shadow:
+    0px 1px 4px rgba(3, 7, 18, 0.02),
+    0px 5px 16px rgba(57, 81, 150, 0.03),
+    0px 12px 36px rgba(3, 7, 18, 0.05),
+    0px 20px 64px rgba(3, 7, 18, 0.06),
+    0px 32px 100px rgba(3, 7, 18, 0.08);
+}
+
+#glavniOkvirTekstProizvoda {
+  margin-left: 4%;
+}
+
+#glavniOkvirTekstProizvoda h1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(15, 127, 80);
+}
+
+#glavniOkvirSlikaProizvoda img {
+  width: 90%;
+  padding: 30px;
+}
+
+#okvirZaStatistiku {
+  margin-top: 5%;
+  margin: 0;
+  background-color: rgb(215, 231, 217);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#okvirZaStatistiku div {
+  margin: 3%;
+}
+
+#okvirZaStatistiku p {
+  font-size: x-large;
+  color: rgb(15, 127, 80);
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+/* media prilagodba - TABLET i MOBITEL*/
+
+@media (max-width: 1050px) {
+  #glavniOkvirZaProizvod {
+    flex-direction: column;
+    text-align: center;
+    width: 75%;
+    margin: 8% auto 8% auto;
+  }
+
+  #okvirZaStatistiku {
+    flex-direction: column;
+  }
+}

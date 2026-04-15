@@ -1,15 +1,15 @@
-.okvir-slike-tim {
+#okvirSlikaTima {
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.okvir-slike-tim > div {
+#okvirSlikaTima > div {
   margin: 3%;
 }
 
-.okvir-slike-tim img {
+#okvirSlikaTima img {
   width: 200px;
   border-radius: 50%;
 
@@ -24,11 +24,11 @@
 /* media prilagodba TABLET*/
 
 @media (max-width: 1050px) {
-  .okvir-slike-tim {
+  #okvirSlikaTima {
     flex-direction: column;
   }
 
-  .okvir-slike-tim img {
+  #okvirSlikaTima img {
     width: 300px;
   }
 }
@@ -36,11 +36,11 @@
 /* media prilagodba MOBITEL*/
 
 @media (max-width: 600px) {
-  .okvir-slike-tim {
+  #okvirSlikaTima {
     flex-direction: column;
   }
 
-  .okvir-slike-tim img {
+  #okvirSlikaTima img {
     max-width: 200px;
   }
 }

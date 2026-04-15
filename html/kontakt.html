@@ -13,20 +13,20 @@
     <header>
       <nav>
         <ul>
-          <li><a href="../index.html" class="naslov-stranice">HIPO</a></li>
-          <li><a href="../index.html">Početna stranica</a></li>
+          <li><a href="index.html">HIPO</a></li>
+          <li><a href="index.html">Početna stranica</a></li>
           <li><a href="proizvod.html">Proizvod</a></li>
           <li><a href="upute.html">Upute</a></li>
           <li><a href="katalog.html">Katalog</a></li>
           <li><a href="tim.html">Tim</a></li>
-          <li><a href="kontakt.html" class="aktivna-stranica">Kontakt</a></li>
+          <li><a href="kontakt.html" class="aktivnaStranica">Kontakt</a></li>
           <li><a href="dokumentacija.html">Dokumentacija</a></li>
         </ul>
       </nav>
     </header>
     <main>
-      <div class="jednostavan-okvir">
-        <div class="okvir-za-formu">
+      <div class="jednostavanOkvir">
+        <div id="okvirZaFormu">
           <h1>Kontaktirajte nas!</h1>
           <p>
             Obratite nam se s povjerenjem. Odgovoriti ćemo na sva Vaša pitanja,
@@ -37,121 +37,128 @@
             action="https://spider.foi.hr/OWT/materijali/ispis_forme.php"
             method="POST"
           >
-            <label for="unos-ime">Ime:</label>
+            <label for="unosIme">Ime:</label>
             <input
               type="text"
-              id="unos-ime"
-              name="unos-ime"
+              id="unosIme"
+              name="unosIme"
               placeholder="..."
             />
-            <br />
+            <br/>
 
-            <label for="unos-prezime">Prezime:</label>
+            <label for="unosPrezime">Prezime:</label>
             <input
               type="text"
-              id="unos-prezime"
-              name="unos-prezime"
+              id="unosPrezime"
+              name="unosPrezime"
               placeholder="..."
             />
-            <br />
-
-            <label for="unos-organizacija">Naziv organizacije:</label>
+            <br/>
+            
+            <label for="unosLozinka">Lozinka:</label>
             <input
-              type="text"
-              id="unos-organizacija"
-              name="unos-organizacija"
-              placeholder="-"
+              type="password"
+              id="unosLozinka"
+              name="unosLozinka"
+              placeholder="***"
             />
-            <br />
+            <br/>
 
-            <label for="unos-email">E-mail adresa:</label>
+            <label for="unosWebStraniceOrganizacije">Web stranica organizacije:</label>
+            <input
+              type="url"
+              id="unosWebStraniceOrganizacije"
+              name="unosWebStraniceOrganizacije"
+              placeholder="hipo.hr"
+            />
+            <br/>
+
+            <label for="unosEmail">E-mail adresa:</label>
             <input
               type="email"
-              id="unos-email"
-              name="unos-email"
+              id="unosEmail"
+              name="unosEmail"
               placeholder="netko@mail.com"
             />
-            <br />
+            <br/>
 
-            <label for="unos-telefon">Broj telefona:</label>
+            <label for="unosTelefona">Broj telefona:</label>
             <input
               type="tel"
-              id="unos-telefon"
-              name="unos-telefon"
+              id="unosTelefona"
+              name="unosTelefona"
               placeholder="+385 0000 000"
             />
-            <br />
+            <br/>
 
-            <label for="odabir-razlog">Razlog poruke:</label>
-            <select name="odabir-razlog" id="odabir-razlog">
+            <label for="unosDatuma">Današnji datum:</label>
+            <input
+              type="date"
+              id="unosDatuma"
+              name="unosDatuma"
+              value="2026-04-01"
+            />
+            <br/>
+
+            <label for="unosZadovoljstvo">Zadovoljstvo:</label> <br>
+            <input
+              type="range"
+              id="unosZadovoljstvo"
+              name="unosZadovoljstvo"
+              min="1"
+              max="5"
+              value="3"
+            />
+            <br/>
+
+            <label for="unosRazlog">Razlog poruke:</label>
+            <select name="unosRazlog" id="unosRazlog">
               <option value="Pitanje">Pitanje</option>
               <option value="Recenzija">Recenzija</option>
               <option value="Reklamacija">Reklamacija</option>
             </select>
-            <br />
+            <br/><br>
 
-            <label for="odabir-posjedovanje-paketa"
-              >Posjedovanje proizvoda:</label
-            >
-            <select
-              name="odabir-posjedovanje-paketa"
-              id="odabir-posjedovanje-paketa"
-            >
-              <option value="Ne posjedujem niti jedan HiPo proizvod">
-                Ne posjedujem niti jedan HiPo proizvod
-              </option>
-              <option value="Posjedujem jedan HiPo proizvod">
-                Posjedujem jedan HiPo proizvod
-              </option>
-              <option value="Posjedujem više od jednog HiPo proizvoda">
-                Posjedujem više od jednog HiPo proizvoda
-              </option>
-            </select>
-            <br />
+          
 
-            <label for="unos-naslov-poruke">Naslov poruke:</label>
+            <label for="unosNaslovPoruke">Naslov poruke:</label>
             <input
               type="text"
-              id="unos-naslov-poruke"
-              name="unos-naslov-poruke"
+              id="unosNaslovPoruke"
+              name="unosNaslovPoruke"
               placeholder="..."
             />
-            <br />
+            <br/>
 
-            <label for="unos-sadrzaj-poruke">Sadržaj poruke:</label>
+            <label for="unosSadrzajPoruke">Sadržaj poruke:</label>
             <textarea
-              name="unos-sadrzaj-poruke"
-              id="unos-sadrzaj-poruke"
+              name="unosSadrzajPoruke"
+              id="unosSadrzajPoruke"
             ></textarea>
 
-            <label for="datoteka">Prenesite datoteku:</label>
-            <input type="file" id="datoteka" name="datoteka" /> <br />
+            <label for="unosDatoteke">Prenesite datoteku:</label>
+            <input type="file" id="unosDatoteke" name="unosDatoteke" /> <br/>
 
             <input
               type="checkbox"
-              id="odabir-obavijesti"
-              name="odabir-obavijesti"
+              id="odabirObavijesti"
+              name="odabirObavijesti"
             />
-            <label for="odabir-obavijesti"
+            <label for="odabirObavijesti"
               >Želim dobivati obavijesti na e-mail</label
             >
 
-            <input type="submit" value="Pošalji" class="zelena-tipka" />
+            <input type="submit" value="Pošalji" class="zelenaTipka" />
           </form>
         </div>
         <div></div>
       </div>
     </main>
     <footer>
-      <a href="#"
+      <a href="http://validator.w3.org/check?URI=https://spider.foi.hr/OWT/2026/zadaca_01/scosic24/html/kontakt.html"
         ><img
           src="https://spider.foi.hr/OWT/materijali/slike/HTML5.png"
           alt="Ikona HTML5 validatora"
-      /></a>
-      <a href="#"
-        ><img
-          src="https://spider.foi.hr/OWT/materijali/slike/CSS3.png"
-          alt="Ikona CSS validatora"
       /></a>
     </footer>
   </body>

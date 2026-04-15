@@ -1,4 +1,4 @@
-.okvir-za-formu {
+#okvirZaFormu {
   border-radius: 25px;
   padding: 40px;
   margin: 1%;
@@ -25,17 +25,14 @@ label[for="odabir-obavijesti"] {
   display: inline;
 }
 
-input[type="text"],
-input[type="file"],
-input[type="email"],
-input[type="tel"] {
+input[id^=unos] {
   width: 50%;
   margin: 1.5%;
   padding: 6px;
   border: 1px solid gray;
 }
 
-input[type="submit"] {
+input[type=submit] {
   margin-top: 5%;
   display: block;
 }
@@ -76,16 +73,8 @@ textarea {
     display: block;
   }
 
-  input[type="submit"] {
-    width: 80%;
-    display: block;
-  }
-
-  input[type="text"],
-  input[type="file"],
-  input[type="email"],
-  input[type="tel"] {
-    width: 80%;
+  input[id^=unos] {
+    min-width: 80%;
     display: block;
   }
 
