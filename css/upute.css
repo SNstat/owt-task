@@ -63,6 +63,10 @@ figure img {
   #okvirKorisnickogPrirucnika {
     margin: 0;
   }
+
+  p {
+    font-size: large;
+  }
 }
 
 /* media prilagodba - MOBITEL*/
