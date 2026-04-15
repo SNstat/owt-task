@@ -1,0 +1,15 @@
+nav ul {
+  padding: 12px;
+}
+
+.lista-css-datoteka img {
+    width: 40px;
+}
+
+#slikaAutora {
+    border-radius: 50%;
+}
+
+.figure a:hover img {
+    filter: opacity(0.6);
+}
