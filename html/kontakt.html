@@ -2,106 +2,108 @@
 <html lang="hr">
 
 <head>
-    <title>Kontakt</title>
-    <meta charset="UTF-8">
-    <meta name="author" content="Šimun Ćosić">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/scosic24.css">
-    <link rel="stylesheet" type="text/css" href="../css/kontakt.css">
-    <script src="../js/scosic24.js"></script>
+	<title>Kontakt</title>
+	<meta charset="UTF-8">
+	<meta name="author" content="Šimun Ćosić">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="../css/scosic24.css">
+	<link rel="stylesheet" type="text/css" href="../css/kontakt.css">
+	<script src="../js/scosic24.js"></script>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">HIPO</a></li>
-                <li><a href="index.html">Početna stranica</a></li>
-                <li><a href="proizvod.html">Proizvod</a></li>
-                <li><a href="upute.html">Upute</a></li>
-                <li><a href="katalog.html">Katalog</a></li>
-                <li><a href="tim.html">Tim</a></li>
-                <li><a href="kontakt.html" class="aktivnaStranica">Kontakt</a></li>
-                <li><a href="dokumentacija.html">Dokumentacija</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <div class="jednostavanOkvir">
-            <div id="okvirZaFormu">
-                <h1>Kontaktirajte nas!</h1>
-                <p>
-                    Obratite nam se s povjerenjem. Odgovoriti ćemo na sva Vaša pitanja, kritike i pohvale u najbržem mogućem roku!
-                </p>
+	<header>
+		<nav>
+			<ul>
+				<li><a href="index.html">HIPO</a></li>
+				<li><a href="index.html">Početna stranica</a></li>
+				<li><a href="proizvod.html">Proizvod</a></li>
+				<li><a href="upute.html">Upute</a></li>
+				<li><a href="katalog.html">Katalog</a></li>
+				<li><a href="tim.html">Tim</a></li>
+				<li><a href="kontakt.html" class="aktivnaStranica">Kontakt</a></li>
+				<li><a href="dokumentacija.html">Dokumentacija</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<div class="jednostavanOkvir">
+			<div id="okvirZaFormu">
+				<h1>Kontaktirajte nas!</h1>
+				<p>
+					Obratite nam se s povjerenjem. Odgovoriti ćemo na sva Vaša pitanja, kritike i pohvale u najbržem
+					mogućem roku!
+				</p>
 
-                <form action="https://spider.foi.hr/OWT/materijali/ispis_forme.php" method="POST">
-                    <label for="unosIme">Ime:</label>
-                    <input type="text" id="unosIme" name="unosIme" placeholder="...">
-                    <br>
+				<form action="https://spider.foi.hr/OWT/materijali/ispis_forme.php" method="POST">
+					<label for="unosIme">Ime:</label>
+					<input type="text" id="unosIme" name="Ime" placeholder="...">
+					<br>
 
-                    <label for="unosPrezime">Prezime:</label>
-                    <input type="text" id="unosPrezime" name="unosPrezime" placeholder="...">
-                    <br>
+					<label for="unosPrezime">Prezime:</label>
+					<input type="text" id="unosPrezime" name="Prezime" placeholder="...">
+					<br>
 
-                    <label for="unosLozinka">Lozinka:</label>
-                    <input type="password" id="unosLozinka" name="unosLozinka" placeholder="***">
-                    <br>
+					<label for="unosLozinka">Lozinka:</label>
+					<input type="password" id="unosLozinka" name="Lozinka" placeholder="***">
+					<br>
 
-                    <label for="unosWebStraniceOrganizacije">Web stranica organizacije:</label>
-                    <input type="url" id="unosWebStraniceOrganizacije" name="unosWebStraniceOrganizacije" placeholder="hipo.hr">
-                    <br>
+					<label for="unosWebStraniceOrganizacije">Web stranica organizacije:</label>
+					<input type="url" id="unosWebStraniceOrganizacije" name="AdresaWebStranice" placeholder="hipo.hr">
+					<br>
 
-                    <label for="unosEmail">E-mail adresa:</label>
-                    <input type="email" id="unosEmail" name="unosEmail" placeholder="netko@mail.com">
-                    <br>
+					<label for="unosEmail">E-mail adresa:</label>
+					<input type="email" id="unosEmail" name="Email" placeholder="netko@mail.com">
+					<br>
 
-                    <label for="unosTelefona">Broj telefona:</label>
-                    <input type="tel" id="unosTelefona" name="unosTelefona" placeholder="+385 0000 000">
-                    <br>
+					<label for="unosTelefona">Broj telefona:</label>
+					<input type="tel" id="unosTelefona" name="Telefon" placeholder="+385 0000 000">
+					<br>
 
-                    <label for="unosDatuma">Današnji datum:</label>
-                    <input type="date" id="unosDatuma" name="unosDatuma" value="2026-04-01">
-                    <br>
+					<label for="unosDatuma">Današnji datum:</label>
+					<input type="date" id="unosDatuma" name="DanasnjiDatum" value="2026-04-01">
+					<br>
 
-                    <label for="unosZadovoljstvo">Zadovoljstvo:</label>
-                    <br>
-                    <input type="range" id="unosZadovoljstvo" name="unosZadovoljstvo" min="1" max="5" value="3">
-                    <br>
+					<label for="unosZadovoljstvo">Zadovoljstvo:</label>
+					<br>
+					<input type="range" id="unosZadovoljstvo" name="Zadovoljstvo" min="1" max="5" value="3">
+					<br>
 
-                    <label for="unosRazlog">Razlog poruke:</label>
-                    <select name="unosRazlog" id="unosRazlog">
-                        <option value="Pitanje">Pitanje</option>
-                        <option value="Recenzija">Recenzija</option>
-                        <option value="Reklamacija">Reklamacija</option>
-                    </select>
-                    <br>
-                    <br>
+					<label for="unosRazlog">Razlog poruke:</label>
+					<select name="RazlogPoruke" id="unosRazlog">
+						<option value="Pitanje">Pitanje</option>
+						<option value="Recenzija">Recenzija</option>
+						<option value="Reklamacija">Reklamacija</option>
+					</select>
+					<br>
+					<br>
 
-                    <label for="unosNaslovPoruke">Naslov poruke:</label>
-                    <input type="text" id="unosNaslovPoruke" name="unosNaslovPoruke" placeholder="...">
-                    <br>
+					<label for="unosNaslovPoruke">Naslov poruke:</label>
+					<input type="text" id="unosNaslovPoruke" name="NaslovPoruke" placeholder="...">
+					<br>
 
-                    <label for="unosSadrzajPoruke">Sadržaj poruke:</label>
-                    <textarea name="unosSadrzajPoruke" id="unosSadrzajPoruke"></textarea>
+					<label for="unosSadrzajPoruke">Sadržaj poruke:</label>
+					<textarea name="SadrzajPoruke" id="SadrzajPoruke"></textarea>
 
-                    <label for="unosDatoteke">Prenesite datoteku:</label>
-                    <input type="file" id="unosDatoteke" name="unosDatoteke">
-                    <br>
+					<label for="unosDatoteke">Prenesite datoteku:</label>
+					<input type="file" id="unosDatoteke" name="Datoteka">
+					<br>
 
-                    <input type="checkbox" id="odabirObavijesti" name="odabirObavijesti">
-                    <label for="odabirObavijesti">Želim dobivati obavijesti na e-mail</label>
+					<input type="checkbox" id="odabirObavijesti" name="IzabranaObavijest">
+					<label for="odabirObavijesti">Želim dobivati obavijesti na e-mail</label>
 
-                    <input type="submit" value="Pošalji" class="zelenaTipka">
-                </form>
-            </div>
-            <div></div>
-        </div>
-    </main>
-    <footer>
-        <a href="http://validator.w3.org/check?uri=https://spider.foi.hr/OWT/2026/zadaca_01/scosic24/html/kontakt.html" target="_blank">
-          <img src="https://spider.foi.hr/OWT/materijali/slike/HTML5.png" alt="Ikona HTML5 validatora">
-        </a>
-    </footer>
+					<input type="submit" value="Pošalji" class="zelenaTipka">
+				</form>
+			</div>
+			<div></div>
+		</div>
+	</main>
+	<footer>
+		<a href="http://validator.w3.org/check?uri=https://spider.foi.hr/OWT/2026/zadaca_01/scosic24/html/kontakt.html"
+			target="_blank">
+			<img src="https://spider.foi.hr/OWT/materijali/slike/HTML5.png" alt="Ikona HTML5 validatora">
+		</a>
+	</footer>
 </body>
 
 </html>

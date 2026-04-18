@@ -1,95 +1,91 @@
 #tipkaPremaUputama {
-  margin: 20px 20px 20px 0;
+	margin: 20px 20px 20px 0;
 }
 
 #okvirVideoHidroponika {
-  margin: 0;
-  background-color: rgb(236, 238, 236);
-  text-align: center;
-  padding: 20px;
+	margin: 0;
+	background-color: rgb(236, 238, 236);
+	text-align: center;
+	padding: 20px;
 }
 
 #okvirVideoHidroponika h1 {
-  text-align: center;
-  margin-top: 30px;
-  color: rgb(41, 105, 80);
+	text-align: center;
+	margin-top: 30px;
+	color: rgb(41, 105, 80);
 }
 
 iframe {
-  margin: 2% 0 3% 0;
-  border: 0;
-  aspect-ratio: 16 / 9;
-  width: 50%;
-  height: auto;
+	margin: 2% 0 3% 0;
+	border: 0;
+	aspect-ratio: 16 / 9;
+	width: 50%;
+	height: auto;
 }
 
 #galerijaSlika {
-  display: grid;
-  place-items: center;
+	display: grid;
+	place-items: center;
 
-  margin: 3% 0 3% 0;
-  overflow: hidden;
-  max-height: 400px;
-  width: 100%;
+	margin: 3% 0 3% 0;
+	overflow: hidden;
+	max-height: 400px;
+	width: 100%;
 }
 
 #galerijaSlika > img {
-  grid-area: 1 / 1;
+	grid-area: 1 / 1;
 
-  max-height: 400px;
+	max-height: 400px;
 
-  opacity: 0;
-  animation: galerijaSlika 15s infinite;
+	opacity: 0;
+	animation: galerijaSlika 15s infinite;
 }
 
 /* definicija animacije galerije slika */
 
 @keyframes galerijaSlika {
-  0% {
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-  }
-  20% {
-    opacity: 1;
-  }
-  25% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
+	0% {
+		opacity: 0;
+	} 5% {
+		opacity: 1;
+	} 20% {
+		opacity: 1;
+	} 25% {
+		opacity: 0;
+	} 100% {
+		opacity: 0;
+	}
 }
 
 #galerijaSlika > img:nth-child(1) {
-  animation-delay: 0s;
+	animation-delay: 0s;
 }
 
 #galerijaSlika > img:nth-child(2) {
-  animation-delay: 3s;
+	animation-delay: 3s;
 }
 
 #galerijaSlika > img:nth-child(3) {
-  animation-delay: 6s;
+	animation-delay: 6s;
 }
 
 #galerijaSlika > img:nth-child(4) {
-  animation-delay: 9s;
+	animation-delay: 9s;
 }
 
 #galerijaSlika > img:nth-child(5) {
-  animation-delay: 12s;
+	animation-delay: 12s;
 }
 
 /* media prilagodba - TABLET i MOBITEL*/
 
 @media (max-width: 1050px) {
-  iframe {
-    width: 80%;
-  }
+	iframe {
+		width: 80%;
+	}
 
-  #galerijaSlika img {
-    max-width: 80%;
-  }
+	#galerijaSlika img {
+		max-width: 80%;
+	}
 }

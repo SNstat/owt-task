@@ -1,60 +1,60 @@
-main > div {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 2% 10% 0% 10%;
-  margin-bottom: 5%;
-  font-size: medium;
+main>div {
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 2% 10% 0% 10%;
+	margin-bottom: 5%;
+	font-size: medium;
 
-  display: flex;
-  gap: 5%;
+	display: flex;
+	gap: 5%;
 }
 
 .okvirKatalogaCijena {
-  flex: 1;
-  padding: 15px;
-  border-radius: 25px;
+	flex: 1;
+	padding: 15px;
+	border-radius: 25px;
 
-  box-shadow:
-    0px 1px 4px rgba(3, 7, 18, 0.02),
-    0px 5px 16px rgba(57, 81, 150, 0.03),
-    0px 12px 36px rgba(3, 7, 18, 0.05),
-    0px 20px 64px rgba(3, 7, 18, 0.06),
-    0px 32px 100px rgba(3, 7, 18, 0.08);
+	box-shadow:
+		0px 1px 4px rgba(3, 7, 18, 0.02),
+		0px 5px 16px rgba(57, 81, 150, 0.03),
+		0px 12px 36px rgba(3, 7, 18, 0.05),
+		0px 20px 64px rgba(3, 7, 18, 0.06),
+		0px 32px 100px rgba(3, 7, 18, 0.08);
 }
 
 .okvirKatalogaCijena h2 {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 .okvirKatalogaCijena p {
-  margin-top: 7.5%;
-  margin-bottom: 7.5%;
+	margin-top: 7.5%;
+	margin-bottom: 7.5%;
 }
 
 .okvirKatalogaCijena ul {
-  text-align: left;
+	text-align: left;
 }
 
 .okvirKatalogaCijena li {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 .katalogZeleniOkvir {
-  color: #f4fff8;
-  border: 2px solid #4a756b;
-  background-color: #1d8770;
+	color: #f4fff8;
+	border: 2px solid #4a756b;
+	background-color: #1d8770;
 }
 
 /* media prilagodba TABLET I MOBITEL*/
 
 @media (max-width: 1050px) {
-  main > div {
-    flex-direction: column;
-    padding: 3% 13% 3% 13%;
-  }
+	main>div {
+		flex-direction: column;
+		padding: 3% 13% 3% 13%;
+	}
 
-  .okvirKatalogaCijena {
-    margin-bottom: 10%;
-  }
+	.okvirKatalogaCijena {
+		margin-bottom: 10%;
+	}
 }

@@ -1,227 +1,227 @@
 html {
-  overflow-x: hidden;
-  height: 100%;
+	overflow-x: hidden;
+	height: 100%;
 }
 
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 /* navigacijska traka */
 nav ul {
-  list-style-type: none;
-  margin: 0;
-  background-color: #4fa08e;
-  color: #f4fff8;
-  display: flex;
-  padding: 15px;
+	list-style-type: none;
+	margin: 0;
+	background-color: #4fa08e;
+	color: #f4fff8;
+	display: flex;
+	padding: 15px;
 }
 
 nav ul a {
-  color: #f4fff8;
-  padding: 15px;
-  text-decoration: none;
+	color: #f4fff8;
+	padding: 15px;
+	text-decoration: none;
 }
 
 nav ul li a:hover {
-  color: #383f41;
+	color: #383f41;
 
-  box-shadow:
-    0px 1px 4px rgba(3, 7, 18, 0.02),
-    0px 5px 16px rgba(3, 7, 18, 0.03),
-    0px 12px 36px rgba(3, 7, 18, 0.05),
-    0px 20px 64px rgba(3, 7, 18, 0.06),
-    0px 32px 100px rgba(3, 7, 18, 0.08);
+	box-shadow:
+		0px 1px 4px rgba(3, 7, 18, 0.02),
+		0px 5px 16px rgba(3, 7, 18, 0.03),
+		0px 12px 36px rgba(3, 7, 18, 0.05),
+		0px 20px 64px rgba(3, 7, 18, 0.06),
+		0px 32px 100px rgba(3, 7, 18, 0.08);
 }
 
 nav ul li:first-child a {
-  font-weight: bold;
-  background-color: white;
-  color: #4fa08e;
-  padding: 3px;
-  margin-right: 10px;
+	font-weight: bold;
+	background-color: white;
+	color: #4fa08e;
+	padding: 3px;
+	margin-right: 10px;
 }
 
 .aktivnaStranica {
-  background-color: white;
-  color: #4fa08e;
-  font-weight: bold;
+	background-color: white;
+	color: #4fa08e;
+	font-weight: bold;
 }
 
 /* struktura stranice i okvir */
 main {
-  flex-grow: 1;
+	flex-grow: 1;
 }
 
 main > h1 {
-  text-align: center;
-  font-size: x-large;
-  margin-top: 30px;
-  color: #1d8770;
+	text-align: center;
+	font-size: x-large;
+	margin-top: 30px;
+	color: #1d8770;
 }
 
 .jednostavanOkvir {
-  margin: 2%;
-  display: flex;
+	margin: 2%;
+	display: flex;
 }
 
 .jednostavanOkvir > div {
-  flex: 1;
+	flex: 1;
 }
 
 .jednostavanOkvir h1 {
-  color: #1d8770;
-  margin-top: 0;
+	color: #1d8770;
+	margin-top: 0;
 }
 
 .jednostavanOkvir h2 {
-  font-size: larger;
-  color: #1d8770;
-  margin-top: 40px;
+	font-size: larger;
+	color: #1d8770;
+	margin-top: 40px;
 }
 
-/* cesta stilska oblikovanja teksta */
+/* stilska oblikovanja teksta */
 
 .masniTekst {
-  font-weight: bold;
-  color: #1d8770;
+	font-weight: bold;
+	color: #1d8770;
 }
 
 .bijeliTekst {
-  color: white;
+	color: white;
 }
 
 /* footer */
 footer {
-  background-color: #212829;
-  max-width: 100%;
-  padding: 20px;
-  gap: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	background-color: #212829;
+	max-width: 100%;
+	padding: 20px;
+	gap: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 footer img {
-  width: 50px;
+	width: 50px;
 }
 
 /* oblikovanja tipka */
 
 .bijelaTipka {
-  display: inline-block;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: large;
-  padding: 17px 35px;
-  margin: 10px;
-  color: #1d8770;
-  border: 2px solid #1d8770;
-  background-color: white;
-  border-radius: 20px;
+	display: inline-block;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: large;
+	padding: 17px 35px;
+	margin: 10px;
+	color: #1d8770;
+	border: 2px solid #1d8770;
+	background-color: white;
+	border-radius: 20px;
 
-  box-shadow:
-    0px 1px 4px rgba(3, 7, 18, 0.02),
-    0px 5px 16px rgba(57, 81, 150, 0.03),
-    0px 12px 36px rgba(3, 7, 18, 0.05),
-    0px 20px 64px rgba(3, 7, 18, 0.06),
-    0px 32px 100px rgba(3, 7, 18, 0.08);
+	box-shadow:
+		0px 1px 4px rgba(3, 7, 18, 0.02),
+		0px 5px 16px rgba(57, 81, 150, 0.03),
+		0px 12px 36px rgba(3, 7, 18, 0.05),
+		0px 20px 64px rgba(3, 7, 18, 0.06),
+		0px 32px 100px rgba(3, 7, 18, 0.08);
 }
 
 .bijelaTipka:hover {
-  background-color: #1d8770;
-  color: white;
+	background-color: #1d8770;
+	color: white;
 }
 
 .zelenaTipka {
-  display: inline-block;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: large;
-  padding: 17px 35px;
-  margin: 10px;
-  color: white;
-  border: 2px solid white;
-  background-color: #1d8770;
-  border-radius: 20px;
+	display: inline-block;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: large;
+	padding: 17px 35px;
+	margin: 10px;
+	color: white;
+	border: 2px solid white;
+	background-color: #1d8770;
+	border-radius: 20px;
 
-  box-shadow:
-    0px 1px 4px rgba(3, 7, 18, 0.02),
-    0px 5px 16px rgba(57, 81, 150, 0.03),
-    0px 12px 36px rgba(3, 7, 18, 0.05),
-    0px 20px 64px rgba(3, 7, 18, 0.06),
-    0px 32px 100px rgba(3, 7, 18, 0.08);
+	box-shadow:
+		0px 1px 4px rgba(3, 7, 18, 0.02),
+		0px 5px 16px rgba(57, 81, 150, 0.03),
+		0px 12px 36px rgba(3, 7, 18, 0.05),
+		0px 20px 64px rgba(3, 7, 18, 0.06),
+		0px 32px 100px rgba(3, 7, 18, 0.08);
 }
 
 .zelenaTipka:hover {
-  background-color: white;
-  color: #1d8770;
+	background-color: white;
+	color: #1d8770;
 }
 
 /* media prilagodba - TABLET i MOBITEL*/
 
 @media (max-width: 1050px) {
-  body {
-    font-size: larger;
-  }
+	body {
+		font-size: larger;
+	}
 
-  main p {
-    font-size: large;
-  }
+	main p {
+		font-size: large;
+	}
 
-  main ul {
-    font-size: large;
-  }
+	main ul {
+		font-size: large;
+	}
 
-  /* navigacijska traka */
-  nav ul {
-    font-size: larger;
-    flex-direction: column;
-    text-align: center;
-  }
+	/* navigacijska traka */
+	nav ul {
+		font-size: larger;
+		flex-direction: column;
+		text-align: center;
+	}
 
-  nav ul li {
-    margin: 1.5%;
-  }
+	nav ul li {
+		margin: 1.5%;
+	}
 
-  nav ul a {
-    padding: 10px;
-  }
+	nav ul a {
+		padding: 10px;
+	}
 
-  .aktivnaStranica {
-    background-color: transparent;
-    color: #f4fff8;
-  }
+	.aktivnaStranica {
+		background-color: transparent;
+		color: #f4fff8;
+	}
 
-  /* opce koristeni elementi */
-  .jednostavanOkvir {
-    flex-direction: column;
-    margin: 6%;
-  }
+	/* opce koristeni elementi */
+	.jednostavanOkvir {
+		flex-direction: column;
+		margin: 6%;
+	}
 
-  /* footer */
+	/* footer */
 
-  footer img {
-    width: 70px;
-  }
+	footer img {
+		width: 70px;
+	}
 }
 
 /* media prilagodba - dodatno za MOBITEL */
 
 @media (max-width: 600px) {
-  h1 {
-    font-size: xx-large;
-  }
+	h1 {
+		font-size: xx-large;
+	}
 
-  nav ul {
-    font-size: large;
-  }
+	nav ul {
+		font-size: large;
+	}
 
-  footer img {
-    width: 60px;
-  }
+	footer img {
+		width: 60px;
+	}
 }
