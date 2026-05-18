@@ -21,10 +21,6 @@ p {
 	padding-bottom: 20px;
 }
 
-label[for="odabir-obavijesti"] {
-	display: inline;
-}
-
 input[id^=unos] {
 	width: 50%;
 	margin: 1.5%;
