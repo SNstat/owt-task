@@ -52,6 +52,27 @@ nav ul li:first-child a {
 	font-weight: bold;
 }
 
+nav button {
+	position: absolute;
+	display: none;
+	background-color: #1d8770;
+	border: 0;
+}
+
+nav button:hover {
+	background-color: #102f28;
+}
+
+nav h1 {
+	position: relative;
+	left: 70px;
+	top: -5px;
+	display: none;
+	font-weight: bolder;
+	color: #1d8770;
+	font-size: xxx-large;
+}
+
 /* struktura stranice i okvir */
 main {
 	flex-grow: 1;
@@ -178,10 +199,29 @@ footer img {
 	}
 
 	/* navigacijska traka */
+
+	nav ul li:first-child {
+		display: none;
+	}
+
+	#tipkaZaMobilniIzbornik {
+		display: inline;
+	}
+
+	nav h1 {
+		display: inline;
+		padding-bottom: 20px;
+	}
+
 	nav ul {
-		font-size: larger;
+		display: none;
 		flex-direction: column;
+		font-size: larger;
 		text-align: center;
+	}
+
+	.otvorenNavigacijskiIzbornik {
+		display: flex;
 	}
 
 	nav ul li {
