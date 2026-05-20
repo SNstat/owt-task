@@ -21,14 +21,18 @@ p {
 	padding-bottom: 20px;
 }
 
-input[id^=unos] {
+.greskaValidacije {
+	background-color: mistyrose;
+}
+
+input[id^="unos"] {
 	width: 50%;
 	margin: 1.5%;
 	padding: 6px;
 	border: 1px solid gray;
 }
 
-input[type=submit] {
+input[type="submit"] {
 	margin-top: 5%;
 	display: block;
 }
@@ -50,7 +54,6 @@ textarea {
 /* media prilagodba - TABLET*/
 
 @media (max-width: 1050px) {
-
 	input,
 	select,
 	textarea {
@@ -70,7 +73,7 @@ textarea {
 		display: block;
 	}
 
-	input[id^=unos] {
+	input[id^="unos"] {
 		min-width: 80%;
 		display: block;
 	}

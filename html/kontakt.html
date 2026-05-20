@@ -15,8 +15,7 @@
 <body>
 	<header>
 		<nav>
-			<button id="tipkaZaMobilniIzbornik" onclick="PromjeniIzbornik()"><img src=" ../resursi/slike/ikonaIzbornik.png"
-					alt="ikona izbornik"></button>
+			<button id="tipkaZaMobilniIzbornik"><img src=" ../resursi/slike/ikonaIzbornik.png" alt="ikona izbornik"></button>
 			<h1>HiPo</h1>
 			<ul>
 				<li><a href="index.html">HIPO</a></li>
@@ -39,17 +38,17 @@
 					mogućem roku!
 				</p>
 
-				<form action="https://spider.foi.hr/OWT/materijali/ispis_forme.php" method="POST">
+				<form novalidate id="obrazacZaKontakt">
 					<label for="unosIme">Ime:</label>
-					<input type="text" id="unosIme" name="Ime" placeholder="...">
+					<input type="text" id="unosIme" name="Ime" placeholder="..." required>
 					<br>
 
 					<label for="unosPrezime">Prezime:</label>
 					<input type="text" id="unosPrezime" name="Prezime" placeholder="...">
 					<br>
 
-					<label for="unosLozinka">Lozinka:</label>
-					<input type="password" id="unosLozinka" name="Lozinka" placeholder="***">
+					<label for="unosLozinka">Lozinka (min. 10 znakova):</label>
+					<input type="password" id="unosLozinka" name="Lozinka" placeholder="***" required>
 					<br>
 
 					<label for="unosWebStraniceOrganizacije">Web stranica organizacije:</label>
@@ -64,8 +63,12 @@
 					<input type="tel" id="unosTelefona" name="Telefon" placeholder="+385 0000 000">
 					<br>
 
-					<label for="unosDatuma">Današnji datum:</label>
-					<input type="date" id="unosDatuma" name="DanasnjiDatum" value="2026-04-01">
+					<label for="unosDanasnjegDatuma">Današnji datum:</label>
+					<input type="date" id="unosDanasnjegDatuma" name="DanasnjiDatum" value="2026-04-01">
+					<br>
+
+					<label for="unosDatumaDogadaja">Datum događaja/incidenta:</label>
+					<input type="date" id="unosDatumaDogadaja" name="DatumDogadaja" value="2026-04-01">
 					<br>
 
 					<label for="unosZadovoljstvo">Zadovoljstvo:</label>
@@ -89,11 +92,11 @@
 					<label for="unosSadrzajPoruke">Sadržaj poruke:</label>
 					<textarea name="SadrzajPoruke" id="unosSadrzajPoruke"></textarea>
 
-					<label for="unosDatoteke">Prenesite datoteku:</label>
+					<label for="unosDatoteke (.pdf)">Prenesite datoteku:</label>
 					<input type="file" id="unosDatoteke" name="Datoteka">
 					<br>
 
-					<input type="checkbox" id="odabirObavijesti" name="IzabranaObavijest">
+					<input type="checkbox" id="odabirObavijesti" name="IzabranaObavijest" onchange="ProvjeriEmail()">
 					<label for="odabirObavijesti">Želim dobivati obavijesti na e-mail</label>
 
 					<input type="submit" value="Pošalji" class="zelenaTipka">

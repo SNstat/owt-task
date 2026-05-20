@@ -1,6 +1,6 @@
 {
 	"workbench.iconTheme": "material-icon-theme",
-	"workbench.colorTheme": "Default Dark+",
+	"workbench.colorTheme": "Dark+",
 	"window.zoomLevel": 0.5,
 	"editor.fontSize": 13,
 	"terminal.integrated.ontSize": 13,
