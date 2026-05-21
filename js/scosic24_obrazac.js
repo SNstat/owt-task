@@ -1,27 +1,34 @@
-document.querySelector("form").addEventListener("submit", function (e) {
-	ResetirajStaticneElementeGresaka();
+document.addEventListener("DOMContentLoaded", () => {
+	document.getElementById("unosEmail").addEventListener("change", ProvjeriIspravnostEmaila);
+	document.getElementById("odabirObavijesti").addEventListener("change", ProvjeriIspravnostEmaila);
+	document.getElementById("unosDanasnjegDatuma").addEventListener("change", ProvjeriSmislenostDatuma);
+	document.getElementById("unosDatumaDogadaja").addEventListener("change", ProvjeriSmislenostDatuma);
 
-	let ispravnostImena = ProvjeriPostojanostImena();
-	let ispravnostEmaila = ProvjeriIspravnostEmaila();
-	let ispravnostLozinke = ProvjeriIspravnostLozinke();
-	let ispravnostDatuma = ProvjeriSmislenostDatuma();
-	let ispravnostPoruke = ProvjeriPostojanjeNaslovaPoruke();
-	let ispravnostDatoteke = ProvjeriFormatDatoteke();
+	document.querySelector("form").addEventListener("submit", function (e) {
+		ResetirajStaticneElementeGresaka();
 
-	if (
-		!(
-			ispravnostImena &&
-			ispravnostEmaila &&
-			ispravnostLozinke &&
-			ispravnostDatuma &&
-			ispravnostPoruke &&
-			ispravnostDatoteke
-		)
-	) {
-		e.preventDefault();
-		window.scrollTo(0, 0);
-		alert("Postoje neispravna polja u obrascu, provjerite uvjete!");
-	}
+		let ispravnostImena = ProvjeriPostojanostImena();
+		let ispravnostEmaila = ProvjeriIspravnostEmaila();
+		let ispravnostLozinke = ProvjeriIspravnostLozinke();
+		let ispravnostDatuma = ProvjeriSmislenostDatuma();
+		let ispravnostPoruke = ProvjeriPostojanjeNaslovaPoruke();
+		let ispravnostDatoteke = ProvjeriFormatDatoteke();
+
+		if (
+			!(
+				ispravnostImena &&
+				ispravnostEmaila &&
+				ispravnostLozinke &&
+				ispravnostDatuma &&
+				ispravnostPoruke &&
+				ispravnostDatoteke
+			)
+		) {
+			e.preventDefault();
+			window.scrollTo(0, 0);
+			alert("Postoje neispravna polja u obrascu, provjerite uvjete!");
+		}
+	});
 });
 
 function ProvjeriPostojanostImena() {
@@ -49,7 +56,7 @@ function ProvjeriIspravnostLozinke() {
 
 function ProvjeriIspravnostEmaila() {
 	let unosEmail = document.getElementById("unosEmail");
-	let regularniIzrazZaEmail = /[a-z0-9]+([._-][a-z0-9]+)*@[a-z0-9]+\.[a-z0-9]+(\.[a-z0-9]+)*/;
+	let regularniIzrazZaEmail = /[a-z0-9]+(\.[a-z0-9]+)*@[a-z0-9]+\.[a-z0-9]+(\.[a-z0-9]+)*/g;
 	let porukaGreske = document.getElementById("porukaGreskeEmail");
 
 	if (odabirObavijesti.checked) {
@@ -109,8 +116,9 @@ function ProvjeriFormatDatoteke() {
 
 	if (unosDatoteke.files.length != 0) {
 		let datoteka = unosDatoteke.files[0].name.toLowerCase();
+		let ekstenzijaDatoteke = datoteka.substring(datoteka.lastIndexOf("."));
 
-		if (!datoteka.endsWith(".pdf") && !datoteka.endsWith(".jpg")) {
+		if (ekstenzijaDatoteke != ".pdf" && ekstenzijaDatoteke != ".jpg") {
 			unosDatoteke.classList.add("greskaValidacije");
 			document.getElementById("porukaGreskeDatoteke").innerHTML =
 				"<br>Jedine datoteke koje se smiju slati su PDF dokumenti ili JPG slike!<br>";

@@ -1,15 +1,21 @@
-document.addEventListener("DOMContentLoaded", PostavljanjeAktivneStranice);
+document.addEventListener("DOMContentLoaded", () => {
+	PostavljanjeAktivneStranice();
+
+	document.getElementById("tipkaZaMobilniIzbornik").addEventListener("click", PromjeniIzbornik);
+});
 
 function PostavljanjeAktivneStranice() {
-	const aktivnaStranica = document.URL.split("/").pop();
+	const aktivnaStranica = document.URL.substring(document.URL.lastIndexOf("/") + 1);
+
+	console.log(aktivnaStranica);
 
 	const navigacijskeVeze = document.querySelectorAll("nav a");
 
-	navigacijskeVeze.forEach((navigacijskaVeza) => {
+	for (let navigacijskaVeza of navigacijskeVeze) {
 		if (aktivnaStranica === navigacijskaVeza.getAttribute("href")) {
 			navigacijskaVeza.classList.add("aktivnaStranica");
 		}
-	});
+	}
 }
 
 function PromjeniIzbornik() {
