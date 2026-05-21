@@ -33,7 +33,7 @@ td {
 	border: 1px solid black;
 }
 
-tr>td:nth-child(2) {
+tr > td:nth-child(2) {
 	font-style: italic;
 }
 
@@ -55,6 +55,36 @@ ol ol {
 figure img {
 	width: 70%;
 	margin: 2%;
+	margin-bottom: 8%;
+}
+
+select {
+	border: 1px solid gray;
+	background-color: white;
+	padding: 6px 6px;
+	margin: 1.5%;
+	font-size: medium;
+}
+
+#unosZaPretrazivanje {
+	width: 50%;
+	margin: 1.5%;
+	padding: 6px;
+	border: 1px solid gray;
+	font-size: medium;
+}
+
+.nevidljiRedak {
+	display: none;
+}
+
+.izjavaNemaRezultata {
+	display: none;
+	text-align: center;
+}
+
+.vidljivaIzjavaRezultata {
+	display: block;
 }
 
 /* media prilagodba - TABLET*/

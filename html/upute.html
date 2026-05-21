@@ -57,7 +57,7 @@
 								Prva lampica označava općenite greške te detaljno objašnjenje se prikazuje na zaslonu.
 							</li>
 							<li>
-								Druga lampica upozorava na previsoku temperaturu prostorije iznad 45 °C.
+								Druga lampica upozorava na previsoku temperaturu prostorije iznad 45 .
 							</li>
 							<li>
 								Treća lampica obavještava da je posuda za unos vode prazna.
@@ -89,6 +89,28 @@
 					<img src="../resursi/slike/upravljackaPloca.png" alt="upravljačka ploća HiPo sustava">
 				</figure>
 
+				<label for="padajuciIzbornikZaOdabraniStupac">Odabrano polje: </label>
+				<select name="OdabranoPolje" id="padajuciIzbornikZaOdabraniStupac">
+					<option value="1">Hrvatski naziv</option>
+					<option value="2">Latinski naziv</option>
+					<option value="3">Kiselost (pH)</option>
+					<option value="4">Temperatura klijanja</option>
+					<option value="5">Količina vode (L)</option>
+				</select>
+
+				<br>
+
+				<label for="padajuciIzbornikZaMetoduSortiranja">Sortiranje:</label>
+				<select name="MetodaSortiranja" id="padajuciIzbornikZaMetoduSortiranja">
+					<option value="uzlazno">Uzlazno (a-z)</option>
+					<option value="silazno">Silazno (z-a)</option>
+				</select>
+
+				<br>
+
+				<label for="unosZaPretrazivanje">Pretraživanje: </label>
+				<input type="text" id="unosZaPretrazivanje" name="KljucZaPretragu" placeholder="&#128269;">
+
 				<table id="tablicaSjemenja">
 					<caption>
 						Sjemenje koje se može saditi:
@@ -98,7 +120,7 @@
 							<th>Hrvatski naziv</th>
 							<th>Latinski naziv</th>
 							<th>Kiselost (pH)</th>
-							<th>Temperatura klijanja</th>
+							<th>Temperatura klijanja (°C)</th>
 							<th>Količina vode (L)</th>
 						</tr>
 					</thead>
@@ -107,60 +129,61 @@
 							<td>Cikla</td>
 							<td>Beta vulgaris</td>
 							<td>6</td>
-							<td>22 °C</td>
-							<td>5 L</td>
+							<td>22</td>
+							<td>5</td>
 						</tr>
 						<tr>
 							<td>Kupus</td>
 							<td>Brassica oleracea</td>
 							<td>7</td>
-							<td>20°C</td>
-							<td>10 L</td>
+							<td>20</td>
+							<td>10</td>
 						</tr>
 						<tr>
 							<td>Krastavac</td>
 							<td>Cucumis sativus</td>
 							<td>5</td>
-							<td>24°C</td>
-							<td>12 L</td>
+							<td>24</td>
+							<td>12</td>
 						</tr>
 						<tr>
 							<td>Patliđan</td>
 							<td>Solanum melongena</td>
 							<td>6</td>
-							<td>26°C</td>
-							<td>10 L</td>
+							<td>26</td>
+							<td>10</td>
 						</tr>
 						<tr>
 							<td>Paprika</td>
 							<td>Capsicum annuum</td>
 							<td>6</td>
-							<td>24°C</td>
-							<td>10 L</td>
+							<td>24</td>
+							<td>11</td>
 						</tr>
 						<tr>
 							<td>Rajčica</td>
 							<td>Solanum lycopersicum</td>
 							<td>6</td>
-							<td>24°C</td>
-							<td>12 L</td>
+							<td>24</td>
+							<td>12</td>
 						</tr>
 						<tr>
 							<td>Tikva</td>
 							<td>Cucurbita pepo</td>
 							<td>5</td>
-							<td>26°C</td>
-							<td>14 L</td>
+							<td>26</td>
+							<td>14</td>
 						</tr>
 						<tr>
 							<td>Zelena salata</td>
 							<td>Lactuca sativa</td>
 							<td>6</td>
-							<td>20°C</td>
-							<td>2 L</td>
+							<td>20</td>
+							<td>2</td>
 						</tr>
 					</tbody>
 				</table>
+				<p class="izjavaNemaRezultata">- Nema rezultata -</p>
 			</div>
 		</div>
 	</main>
