@@ -21,8 +21,18 @@ p {
 	padding-bottom: 20px;
 }
 
+.informacijeUvjetaUnosa {
+	font-style: italic;
+	color: #21997f;
+}
+
 .greskaValidacije {
 	background-color: mistyrose;
+}
+
+.porukaGreske {
+	color: brown;
+	display: inline;
 }
 
 input[id^="unos"] {
