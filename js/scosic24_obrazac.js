@@ -56,8 +56,9 @@ function ProvjeriIspravnostLozinke() {
 
 function ProvjeriIspravnostEmaila() {
 	let unosEmail = document.getElementById("unosEmail");
-	let regularniIzrazZaEmail = /[a-z0-9]+(\.[a-z0-9]+)*@[a-z0-9]+\.[a-z0-9]+(\.[a-z0-9]+)*/g;
+	let regularniIzrazZaEmail = /^[a-z0-9]+(\.[a-z0-9]+)*@[a-z0-9]+\.[a-z0-9]+(\.[a-z0-9]+)*$/g;
 	let porukaGreske = document.getElementById("porukaGreskeEmail");
+	let odabirObavijesti = document.getElementById("odabirObavijesti");
 
 	if (odabirObavijesti.checked) {
 		if (unosEmail.value == "") {
@@ -104,8 +105,8 @@ function ProvjeriPostojanjeNaslovaPoruke() {
 
 	if (unosSadrzajPoruke.value.length > 0 && unosNaslovPoruke.value.length == 0) {
 		unosNaslovPoruke.classList.add("greskaValidacije");
-		document.getElementById("porukaGreskeNaslovProuke").innerHTML =
-			"<br>Polje 'Naslov prouke' je obavezno ako šaljete sadržaj poruke!<br>";
+		document.getElementById("porukaGreskeNaslovPoruke").innerHTML =
+			"<br>Polje 'Naslov poruke' je obavezno ako šaljete sadržaj poruke!<br>";
 		return false;
 	}
 	return true;
@@ -135,7 +136,7 @@ function ResetirajStaticneElementeGresaka() {
 	document.getElementById("porukaGreskeLozinka").innerHTML = "";
 	document.getElementById("unosLozinka").classList.remove("greskaValidacije");
 
-	document.getElementById("porukaGreskeNaslovProuke").innerHTML = "";
+	document.getElementById("porukaGreskeNaslovPoruke").innerHTML = "";
 	document.getElementById("unosNaslovPoruke").classList.remove("greskaValidacije");
 
 	document.getElementById("porukaGreskeDatoteke").innerHTML = "";

@@ -1,13 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
-	PostavljanjeAktivneStranice();
 	document.getElementById("tipkaZaMobilniIzbornik").addEventListener("click", PromjeniIzbornik);
 
-	IniciranjeInteraktivneTablice();
-	document.getElementById("padajuciIzbornikZaOdabraniStupac").addEventListener("change", IniciranjeInteraktivneTablice);
-	document
-		.getElementById("padajuciIzbornikZaMetoduSortiranja")
-		.addEventListener("change", IniciranjeInteraktivneTablice);
-	document.getElementById("unosZaPretrazivanje").addEventListener("change", IniciranjeInteraktivneTablice);
+	PostavljanjeAktivneStranice();
+
+	if (document.getElementById("padajuciIzbornikZaOdabraniStupac")) {
+		document
+			.getElementById("padajuciIzbornikZaOdabraniStupac")
+			.addEventListener("change", IniciranjeInteraktivneTablice);
+	}
+
+	if (document.getElementById("padajuciIzbornikZaMetoduSortiranja")) {
+		document
+			.getElementById("padajuciIzbornikZaMetoduSortiranja")
+			.addEventListener("change", IniciranjeInteraktivneTablice);
+	}
+
+	if (document.getElementById("unosZaPretrazivanje")) {
+		document.getElementById("unosZaPretrazivanje").addEventListener("change", IniciranjeInteraktivneTablice);
+	}
 });
 
 function PostavljanjeAktivneStranice() {
@@ -85,11 +95,11 @@ function SortirajTablicu(odabraniStupac, odabranaPolja) {
 		max = indexI;
 
 		for (let indexJ = indexI + 1; indexJ < n; indexJ++) {
-			privElementMax = poljaNiz[max].innerHTML.toLowerCase();
-			let privMax = isNaN(parseInt(privElementMax)) ? privElementMax : parseInt(privElementMax);
+			let privElementMax = poljaNiz[max].innerHTML.toLowerCase();
+			let privMax = isNaN(parseFloat(privElementMax)) ? privElementMax : parseFloat(privElementMax);
 
-			privElement = poljaNiz[indexJ].innerHTML.toLowerCase();
-			let priv = isNaN(parseInt(privElement)) ? privElement : parseInt(privElement);
+			let privElement = poljaNiz[indexJ].innerHTML.toLowerCase();
+			let priv = isNaN(parseFloat(privElement)) ? privElement : parseFloat(privElement);
 
 			if (metodaSortiranja == "silazno") {
 				if (priv > privMax) {
