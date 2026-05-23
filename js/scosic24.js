@@ -3,20 +3,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	PostavljanjeAktivneStranice();
 
-	if (document.getElementById("padajuciIzbornikZaOdabraniStupac")) {
+	let padajuciIzbornikZaOdabraniStupac = document.getElementById("padajuciIzbornikZaOdabraniStupac");
+	let padajuciIzbornikZaMetoduSortiranja = document.getElementById("padajuciIzbornikZaMetoduSortiranja");
+	let unosZaPretrazivanje = document.getElementById("unosZaPretrazivanje");
+
+	if (padajuciIzbornikZaOdabraniStupac) {
 		document
 			.getElementById("padajuciIzbornikZaOdabraniStupac")
 			.addEventListener("change", IniciranjeInteraktivneTablice);
 	}
 
-	if (document.getElementById("padajuciIzbornikZaMetoduSortiranja")) {
+	if (padajuciIzbornikZaMetoduSortiranja) {
 		document
 			.getElementById("padajuciIzbornikZaMetoduSortiranja")
 			.addEventListener("change", IniciranjeInteraktivneTablice);
 	}
 
-	if (document.getElementById("unosZaPretrazivanje")) {
+	if (unosZaPretrazivanje) {
 		document.getElementById("unosZaPretrazivanje").addEventListener("change", IniciranjeInteraktivneTablice);
+	}
+
+	if (padajuciIzbornikZaOdabraniStupac && padajuciIzbornikZaMetoduSortiranja && unosZaPretrazivanje) {
+		IniciranjeInteraktivneTablice();
 	}
 });
 
