@@ -54,6 +54,12 @@ server.get("/dokumentacija", (zahtjev, odgovor) => {
 	odgovor.sendFile(putanja + "/html/dokumentacija.html");
 });
 
+//.csv podaci
+
+server.get("/podaci", (zahtjev, odgovor) => {
+	odgovor.sendFile(putanja + "/podaci/podaci.csv");
+});
+
 //za nepostojece putanje
 
 server.use((zahtjev, odgovor) => {
