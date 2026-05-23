@@ -7,12 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
 	document.querySelector("form").addEventListener("submit", function (e) {
 		ResetirajStaticneElementeGresaka();
 
-		let ispravnostImena = ProvjeriPostojanostImena();
-		let ispravnostEmaila = ProvjeriIspravnostEmaila();
-		let ispravnostLozinke = ProvjeriIspravnostLozinke();
-		let ispravnostDatuma = ProvjeriSmislenostDatuma();
-		let ispravnostPoruke = ProvjeriPostojanjeNaslovaPoruke();
-		let ispravnostDatoteke = ProvjeriFormatDatoteke();
+		const ispravnostImena = ProvjeriPostojanostImena();
+		const ispravnostEmaila = ProvjeriIspravnostEmaila();
+		const ispravnostLozinke = ProvjeriIspravnostLozinke();
+		const ispravnostDatuma = ProvjeriSmislenostDatuma();
+		const ispravnostPoruke = ProvjeriPostojanjeNaslovaPoruke();
+		const ispravnostDatoteke = ProvjeriFormatDatoteke();
 
 		if (
 			!(
@@ -26,15 +26,14 @@ document.addEventListener("DOMContentLoaded", () => {
 		) {
 			e.preventDefault();
 			window.scrollTo(0, 0);
-			alert("Postoje neispravna polja u obrascu, provjerite uvjete!");
 		}
 	});
 });
 
 function ProvjeriPostojanostImena() {
-	let unosIme = document.getElementById("unosIme");
+	const unosIme = document.getElementById("unosIme");
 
-	if (unosIme.value.length == 0) {
+	if (unosIme.value.length === 0) {
 		unosIme.classList.add("greskaValidacije");
 		document.getElementById("porukaGreskeIme").innerHTML = "<br>Polje 'Ime' je obavezno i ne smije biti prazno!<br>";
 		return false;
@@ -43,7 +42,7 @@ function ProvjeriPostojanostImena() {
 }
 
 function ProvjeriIspravnostLozinke() {
-	let unosLozinka = document.getElementById("unosLozinka");
+	const unosLozinka = document.getElementById("unosLozinka");
 
 	if (unosLozinka.value.length < 10) {
 		unosLozinka.classList.add("greskaValidacije");
@@ -55,13 +54,13 @@ function ProvjeriIspravnostLozinke() {
 }
 
 function ProvjeriIspravnostEmaila() {
-	let unosEmail = document.getElementById("unosEmail");
-	let regularniIzrazZaEmail = /^[a-z0-9]+(\.[a-z0-9]+)*@[a-z0-9]+\.[a-z0-9]+(\.[a-z0-9]+)*$/g;
-	let porukaGreske = document.getElementById("porukaGreskeEmail");
-	let odabirObavijesti = document.getElementById("odabirObavijesti");
+	const unosEmail = document.getElementById("unosEmail");
+	const regularniIzrazZaEmail = /^[a-z0-9]+(\.[a-z0-9]+)*@[a-z0-9]+\.[a-z0-9]+(\.[a-z0-9]+)*$/g;
+	const porukaGreske = document.getElementById("porukaGreskeEmail");
+	const odabirObavijesti = document.getElementById("odabirObavijesti");
 
 	if (odabirObavijesti.checked) {
-		if (unosEmail.value == "") {
+		if (unosEmail.value === "") {
 			window.scrollTo(0, 0);
 			unosEmail.classList.add("greskaValidacije");
 			porukaGreske.innerHTML = "<br>Polje 'E-mail' je obavezno ako želite dobivati obavijesti na e-mail!<br>";
@@ -82,9 +81,9 @@ function ProvjeriIspravnostEmaila() {
 }
 
 function ProvjeriSmislenostDatuma() {
-	let unosDanasnjegDatuma = document.getElementById("unosDanasnjegDatuma");
-	let unosDatumaDogadaja = document.getElementById("unosDatumaDogadaja");
-	let porukaGreske = document.getElementById("porukaGreskeDatuma");
+	const unosDanasnjegDatuma = document.getElementById("unosDanasnjegDatuma");
+	const unosDatumaDogadaja = document.getElementById("unosDatumaDogadaja");
+	const porukaGreske = document.getElementById("porukaGreskeDatuma");
 
 	if (unosDanasnjegDatuma.value < unosDatumaDogadaja.value) {
 		unosDanasnjegDatuma.classList.add("greskaValidacije");
@@ -100,10 +99,10 @@ function ProvjeriSmislenostDatuma() {
 }
 
 function ProvjeriPostojanjeNaslovaPoruke() {
-	let unosNaslovPoruke = document.getElementById("unosNaslovPoruke");
-	let unosSadrzajPoruke = document.getElementById("unosSadrzajPoruke");
+	const unosNaslovPoruke = document.getElementById("unosNaslovPoruke");
+	const unosSadrzajPoruke = document.getElementById("unosSadrzajPoruke");
 
-	if (unosSadrzajPoruke.value.length > 0 && unosNaslovPoruke.value.length == 0) {
+	if (unosSadrzajPoruke.value.length > 0 && unosNaslovPoruke.value.length === 0) {
 		unosNaslovPoruke.classList.add("greskaValidacije");
 		document.getElementById("porukaGreskeNaslovPoruke").innerHTML =
 			"<br>Polje 'Naslov poruke' je obavezno ako šaljete sadržaj poruke!<br>";
@@ -113,13 +112,13 @@ function ProvjeriPostojanjeNaslovaPoruke() {
 }
 
 function ProvjeriFormatDatoteke() {
-	let unosDatoteke = document.getElementById("unosDatoteke");
+	const unosDatoteke = document.getElementById("unosDatoteke");
 
-	if (unosDatoteke.files.length != 0) {
-		let datoteka = unosDatoteke.files[0].name.toLowerCase();
-		let ekstenzijaDatoteke = datoteka.substring(datoteka.lastIndexOf("."));
+	if (unosDatoteke.files.length !== 0) {
+		const datoteka = unosDatoteke.files[0].name.toLowerCase();
+		const ekstenzijaDatoteke = datoteka.substring(datoteka.lastIndexOf("."));
 
-		if (ekstenzijaDatoteke != ".pdf" && ekstenzijaDatoteke != ".jpg") {
+		if (ekstenzijaDatoteke !== ".pdf" && ekstenzijaDatoteke !== ".jpg") {
 			unosDatoteke.classList.add("greskaValidacije");
 			document.getElementById("porukaGreskeDatoteke").innerHTML =
 				"<br>Jedine datoteke koje se smiju slati su PDF dokumenti ili JPG slike!<br>";

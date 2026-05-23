@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	PostavljanjeAktivneStranice();
 
-	let padajuciIzbornikZaOdabraniStupac = document.getElementById("padajuciIzbornikZaOdabraniStupac");
-	let padajuciIzbornikZaMetoduSortiranja = document.getElementById("padajuciIzbornikZaMetoduSortiranja");
-	let unosZaPretrazivanje = document.getElementById("unosZaPretrazivanje");
+	const padajuciIzbornikZaOdabraniStupac = document.getElementById("padajuciIzbornikZaOdabraniStupac");
+	const padajuciIzbornikZaMetoduSortiranja = document.getElementById("padajuciIzbornikZaMetoduSortiranja");
+	const unosZaPretrazivanje = document.getElementById("unosZaPretrazivanje");
 
 	if (padajuciIzbornikZaOdabraniStupac) {
 		document
@@ -29,19 +29,26 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function PostavljanjeAktivneStranice() {
-	const aktivnaStranica = document.URL.substring(document.URL.lastIndexOf("/") + 1);
+	const aktivnaStranica = window.location.pathname;
 
 	const navigacijskeVeze = document.querySelectorAll("nav a");
 
-	for (let navigacijskaVeza of navigacijskeVeze) {
+	let prviIndexLink = 0;
+
+	for (const navigacijskaVeza of navigacijskeVeze) {
 		if (aktivnaStranica === navigacijskaVeza.getAttribute("href")) {
+			if (aktivnaStranica === "/" && prviIndexLink === 0) {
+				prviIndexLink = 1;
+				continue;
+			}
 			navigacijskaVeza.classList.add("aktivnaStranica");
+			break;
 		}
 	}
 }
 
 function PromjeniIzbornik() {
-	let navigacijskaTraka = document.querySelector("nav ul");
+	const navigacijskaTraka = document.querySelector("nav ul");
 
 	if (navigacijskaTraka.classList.contains("otvorenNavigacijskiIzbornik")) {
 		navigacijskaTraka.classList.remove("otvorenNavigacijskiIzbornik");
@@ -51,20 +58,20 @@ function PromjeniIzbornik() {
 }
 
 function IniciranjeInteraktivneTablice() {
-	let odabraniStupac = document.getElementById("padajuciIzbornikZaOdabraniStupac").value;
-	let odabranaPolja = document.querySelectorAll("table td:nth-child(" + odabraniStupac + ")");
+	const odabraniStupac = document.getElementById("padajuciIzbornikZaOdabraniStupac").value;
+	const odabranaPolja = document.querySelectorAll("table td:nth-child(" + odabraniStupac + ")");
 
 	PretraziTablicu(odabraniStupac, odabranaPolja);
 	SortirajTablicu(odabraniStupac, odabranaPolja);
 }
 
 function PretraziTablicu(odabraniStupac, odabranaPolja) {
-	let kljucPretrage = document.getElementById("unosZaPretrazivanje").value.toLowerCase();
+	const kljucPretrage = document.getElementById("unosZaPretrazivanje").value.toLowerCase();
 
 	let brojacNevidljivihRedaka = 0;
 
-	for (let polje of odabranaPolja) {
-		if (polje.innerHTML.toLowerCase().indexOf(kljucPretrage) == -1) {
+	for (const polje of odabranaPolja) {
+		if (polje.innerHTML.toLowerCase().indexOf(kljucPretrage) === -1) {
 			polje.parentElement.classList.add("nevidljiRedak");
 			brojacNevidljivihRedaka++;
 		} else {
@@ -72,9 +79,9 @@ function PretraziTablicu(odabraniStupac, odabranaPolja) {
 		}
 	}
 
-	let izjavaNemaRezultata = document.querySelector(".izjavaNemaRezultata");
+	const izjavaNemaRezultata = document.querySelector(".izjavaNemaRezultata");
 
-	if (brojacNevidljivihRedaka == odabranaPolja.length) {
+	if (brojacNevidljivihRedaka === odabranaPolja.length) {
 		izjavaNemaRezultata.classList.add("vidljivaIzjavaRezultata");
 	} else {
 		izjavaNemaRezultata.classList.remove("vidljivaIzjavaRezultata");
@@ -82,17 +89,17 @@ function PretraziTablicu(odabraniStupac, odabranaPolja) {
 }
 
 function SortirajTablicu(odabraniStupac, odabranaPolja) {
-	let tablicaTijelo = document.querySelector("table tbody");
-	let tablicaTijeloSadrzaj = document.querySelectorAll("table tbody tr");
+	const tablicaTijelo = document.querySelector("table tbody");
+	const tablicaTijeloSadrzaj = document.querySelectorAll("table tbody tr");
 
 	const metodaSortiranja = document.getElementById("padajuciIzbornikZaMetoduSortiranja").value;
 
-	let max = 0;
+	let max;
 	let privremen;
-	let n = tablicaTijeloSadrzaj.length;
+	const n = tablicaTijeloSadrzaj.length;
 
-	let redoviNiz = [];
-	let poljaNiz = [];
+	const redoviNiz = [];
+	const poljaNiz = [];
 
 	for (let i = 0; i < n; i++) {
 		redoviNiz.push(tablicaTijeloSadrzaj[i]);
@@ -103,13 +110,13 @@ function SortirajTablicu(odabraniStupac, odabranaPolja) {
 		max = indexI;
 
 		for (let indexJ = indexI + 1; indexJ < n; indexJ++) {
-			let privElementMax = poljaNiz[max].innerHTML.toLowerCase();
-			let privMax = isNaN(parseFloat(privElementMax)) ? privElementMax : parseFloat(privElementMax);
+			const privElementMax = poljaNiz[max].innerHTML.toLowerCase();
+			const privMax = isNaN(parseFloat(privElementMax)) ? privElementMax : parseFloat(privElementMax);
 
-			let privElement = poljaNiz[indexJ].innerHTML.toLowerCase();
-			let priv = isNaN(parseFloat(privElement)) ? privElement : parseFloat(privElement);
+			const privElement = poljaNiz[indexJ].innerHTML.toLowerCase();
+			const priv = isNaN(parseFloat(privElement)) ? privElement : parseFloat(privElement);
 
-			if (metodaSortiranja == "silazno") {
+			if (metodaSortiranja === "silazno") {
 				if (priv > privMax) {
 					max = indexJ;
 				}
@@ -124,7 +131,7 @@ function SortirajTablicu(odabraniStupac, odabranaPolja) {
 		redoviNiz[indexI] = redoviNiz[max];
 		redoviNiz[max] = privremen;
 
-		let privremenoPolje = poljaNiz[indexI];
+		const privremenoPolje = poljaNiz[indexI];
 		poljaNiz[indexI] = poljaNiz[max];
 		poljaNiz[max] = privremenoPolje;
 	}
