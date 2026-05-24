@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-	document.getElementById("tipkaZaMobilniIzbornik").addEventListener("click", PromjeniIzbornik);
+	document.getElementById("tipkaZaMobilniIzbornik").addEventListener("click", promjeniIzbornik);
 
-	PostavljanjeAktivneStranice();
+	postavljanjeAktivneStranice();
 
 	const padajuciIzbornikZaOdabraniStupac = document.getElementById("padajuciIzbornikZaOdabraniStupac");
 	const padajuciIzbornikZaMetoduSortiranja = document.getElementById("padajuciIzbornikZaMetoduSortiranja");
@@ -10,25 +10,25 @@ document.addEventListener("DOMContentLoaded", () => {
 	if (padajuciIzbornikZaOdabraniStupac) {
 		document
 			.getElementById("padajuciIzbornikZaOdabraniStupac")
-			.addEventListener("change", IniciranjeInteraktivneTablice);
+			.addEventListener("change", iniciranjeInteraktivneTablice);
 	}
 
 	if (padajuciIzbornikZaMetoduSortiranja) {
 		document
 			.getElementById("padajuciIzbornikZaMetoduSortiranja")
-			.addEventListener("change", IniciranjeInteraktivneTablice);
+			.addEventListener("change", iniciranjeInteraktivneTablice);
 	}
 
 	if (unosZaPretrazivanje) {
-		document.getElementById("unosZaPretrazivanje").addEventListener("change", IniciranjeInteraktivneTablice);
+		document.getElementById("unosZaPretrazivanje").addEventListener("change", iniciranjeInteraktivneTablice);
 	}
 
 	if (padajuciIzbornikZaOdabraniStupac && padajuciIzbornikZaMetoduSortiranja && unosZaPretrazivanje) {
-		IniciranjeInteraktivneTablice();
+		iniciranjeInteraktivneTablice();
 	}
 });
 
-function PostavljanjeAktivneStranice() {
+function postavljanjeAktivneStranice() {
 	const aktivnaStranica = window.location.pathname;
 
 	const navigacijskeVeze = document.querySelectorAll("nav a");
@@ -47,7 +47,7 @@ function PostavljanjeAktivneStranice() {
 	}
 }
 
-function PromjeniIzbornik() {
+function promjeniIzbornik() {
 	const navigacijskaTraka = document.querySelector("nav ul");
 
 	if (navigacijskaTraka.classList.contains("otvorenNavigacijskiIzbornik")) {
@@ -57,15 +57,15 @@ function PromjeniIzbornik() {
 	}
 }
 
-function IniciranjeInteraktivneTablice() {
+function iniciranjeInteraktivneTablice() {
 	const odabraniStupac = document.getElementById("padajuciIzbornikZaOdabraniStupac").value;
 	const odabranaPolja = document.querySelectorAll("table td:nth-child(" + odabraniStupac + ")");
 
-	PretraziTablicu(odabraniStupac, odabranaPolja);
-	SortirajTablicu(odabraniStupac, odabranaPolja);
+	pretraziTablicu(odabraniStupac, odabranaPolja);
+	sortirajTablicu(odabraniStupac, odabranaPolja);
 }
 
-function PretraziTablicu(odabraniStupac, odabranaPolja) {
+function pretraziTablicu(odabraniStupac, odabranaPolja) {
 	const kljucPretrage = document.getElementById("unosZaPretrazivanje").value.toLowerCase();
 
 	let brojacNevidljivihRedaka = 0;
@@ -88,7 +88,7 @@ function PretraziTablicu(odabraniStupac, odabranaPolja) {
 	}
 }
 
-function SortirajTablicu(odabraniStupac, odabranaPolja) {
+function sortirajTablicu(odabraniStupac, odabranaPolja) {
 	const tablicaTijelo = document.querySelector("table tbody");
 	const tablicaTijeloSadrzaj = document.querySelectorAll("table tbody tr");
 
@@ -102,8 +102,8 @@ function SortirajTablicu(odabraniStupac, odabranaPolja) {
 	const poljaNiz = [];
 
 	for (let i = 0; i < n; i++) {
-		redoviNiz.push(tablicaTijeloSadrzaj[i]);
-		poljaNiz.push(odabranaPolja[i]);
+		redoviNiz[i] = tablicaTijeloSadrzaj[i];
+		poljaNiz[i] = odabranaPolja[i];
 	}
 
 	for (let indexI = 0; indexI < n; indexI++) {
@@ -121,7 +121,7 @@ function SortirajTablicu(odabraniStupac, odabranaPolja) {
 					max = indexJ;
 				}
 			} else {
-				if (priv <= privMax) {
+				if (priv < privMax) {
 					max = indexJ;
 				}
 			}
@@ -137,7 +137,8 @@ function SortirajTablicu(odabraniStupac, odabranaPolja) {
 	}
 
 	tablicaTijelo.innerHTML = "";
+
 	for (let i = 0; i < n; i++) {
-		tablicaTijelo.appendChild(redoviNiz[i]);
+		tablicaTijelo.innerHTML += "<tr>" + redoviNiz[i].innerHTML + "</tr>";
 	}
 }

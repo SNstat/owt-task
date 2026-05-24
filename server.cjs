@@ -24,6 +24,12 @@ server.use("/JSklijent", express.static(putanja + "/js/klijent"));
 server.use("/dizajn", express.static(putanja + "/css"));
 server.use("/resursi", express.static(putanja + "/resursi"));
 
+//.csv zapisi
+
+server.get("/zapisi", (zahtjev, odgovor) => {
+	odgovor.sendFile(putanja + "/zapisi.csv");
+});
+
 //html stranice
 
 server.get("/", (zahtjev, odgovor) => {
@@ -52,12 +58,6 @@ server.get("/upute", (zahtjev, odgovor) => {
 
 server.get("/dokumentacija", (zahtjev, odgovor) => {
 	odgovor.sendFile(putanja + "/html/dokumentacija.html");
-});
-
-//.csv podaci
-
-server.get("/podaci", (zahtjev, odgovor) => {
-	odgovor.sendFile(putanja + "/podaci/podaci.csv");
 });
 
 //za nepostojece putanje

@@ -1,18 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
-	document.getElementById("unosEmail").addEventListener("change", ProvjeriIspravnostEmaila);
-	document.getElementById("odabirObavijesti").addEventListener("change", ProvjeriIspravnostEmaila);
-	document.getElementById("unosDanasnjegDatuma").addEventListener("change", ProvjeriSmislenostDatuma);
-	document.getElementById("unosDatumaDogadaja").addEventListener("change", ProvjeriSmislenostDatuma);
+	document.getElementById("unosEmail").addEventListener("change", provjeriIspravnostEmaila);
+	document.getElementById("odabirObavijesti").addEventListener("change", provjeriIspravnostEmaila);
+	document.getElementById("unosDanasnjegDatuma").addEventListener("change", provjeriSmislenostDatuma);
+	document.getElementById("unosDatumaDogadaja").addEventListener("change", provjeriSmislenostDatuma);
 
 	document.querySelector("form").addEventListener("submit", function (e) {
-		ResetirajStaticneElementeGresaka();
+		resetirajStaticneElementeGresaka();
 
-		const ispravnostImena = ProvjeriPostojanostImena();
-		const ispravnostEmaila = ProvjeriIspravnostEmaila();
-		const ispravnostLozinke = ProvjeriIspravnostLozinke();
-		const ispravnostDatuma = ProvjeriSmislenostDatuma();
-		const ispravnostPoruke = ProvjeriPostojanjeNaslovaPoruke();
-		const ispravnostDatoteke = ProvjeriFormatDatoteke();
+		const ispravnostImena = provjeriPostojanostImena();
+		const ispravnostEmaila = provjeriIspravnostEmaila();
+		const ispravnostLozinke = provjeriIspravnostLozinke();
+		const ispravnostDatuma = provjeriSmislenostDatuma();
+		const ispravnostPoruke = provjeriPostojanjeNaslovaPoruke();
+		const ispravnostDatoteke = provjeriFormatDatoteke();
 
 		if (
 			!(
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 });
 
-function ProvjeriPostojanostImena() {
+function provjeriPostojanostImena() {
 	const unosIme = document.getElementById("unosIme");
 
 	if (unosIme.value.length === 0) {
@@ -41,7 +41,7 @@ function ProvjeriPostojanostImena() {
 	return true;
 }
 
-function ProvjeriIspravnostLozinke() {
+function provjeriIspravnostLozinke() {
 	const unosLozinka = document.getElementById("unosLozinka");
 
 	if (unosLozinka.value.length < 10) {
@@ -53,7 +53,7 @@ function ProvjeriIspravnostLozinke() {
 	return true;
 }
 
-function ProvjeriIspravnostEmaila() {
+function provjeriIspravnostEmaila() {
 	const unosEmail = document.getElementById("unosEmail");
 	const regularniIzrazZaEmail = /^[a-z0-9]+(\.[a-z0-9]+)*@[a-z0-9]+\.[a-z0-9]+(\.[a-z0-9]+)*$/g;
 	const porukaGreske = document.getElementById("porukaGreskeEmail");
@@ -80,7 +80,7 @@ function ProvjeriIspravnostEmaila() {
 	return true;
 }
 
-function ProvjeriSmislenostDatuma() {
+function provjeriSmislenostDatuma() {
 	const unosDanasnjegDatuma = document.getElementById("unosDanasnjegDatuma");
 	const unosDatumaDogadaja = document.getElementById("unosDatumaDogadaja");
 	const porukaGreske = document.getElementById("porukaGreskeDatuma");
@@ -98,7 +98,7 @@ function ProvjeriSmislenostDatuma() {
 	return true;
 }
 
-function ProvjeriPostojanjeNaslovaPoruke() {
+function provjeriPostojanjeNaslovaPoruke() {
 	const unosNaslovPoruke = document.getElementById("unosNaslovPoruke");
 	const unosSadrzajPoruke = document.getElementById("unosSadrzajPoruke");
 
@@ -111,7 +111,7 @@ function ProvjeriPostojanjeNaslovaPoruke() {
 	return true;
 }
 
-function ProvjeriFormatDatoteke() {
+function provjeriFormatDatoteke() {
 	const unosDatoteke = document.getElementById("unosDatoteke");
 
 	if (unosDatoteke.files.length !== 0) {
@@ -128,7 +128,7 @@ function ProvjeriFormatDatoteke() {
 	return true;
 }
 
-function ResetirajStaticneElementeGresaka() {
+function resetirajStaticneElementeGresaka() {
 	document.getElementById("porukaGreskeIme").innerHTML = "";
 	document.getElementById("unosIme").classList.remove("greskaValidacije");
 
