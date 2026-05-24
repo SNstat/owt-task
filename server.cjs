@@ -60,6 +60,23 @@ server.get("/dokumentacija", (zahtjev, odgovor) => {
 	odgovor.sendFile(putanja + "/html/dokumentacija.html");
 });
 
+server.get("/pregled", (zahtjev, odgovor) => {
+	const Modul = require("./js/server/modul.cjs");
+	const modul = new Modul(putanja);
+
+	const rezultat = modul.dohvatiSve();
+	console.log(rezultat);
+
+	odgovor.write("<html>");
+	odgovor.write("<body>");
+	odgovor.write("<p>Pero");
+	// odgovor.write(modul.dohvatiSve());
+	odgovor.write("</p>");
+	odgovor.write("</body>");
+	odgovor.write("</html>");
+	odgovor.end();
+});
+
 //za nepostojece putanje
 
 server.use((zahtjev, odgovor) => {
@@ -69,8 +86,6 @@ server.use((zahtjev, odgovor) => {
 server.listen(port, () => {
 	console.log("Server pokrenut na portu: " + port);
 });
-
-console.log(putanja + "/css");
 
 //http://localhost:12222/
 
