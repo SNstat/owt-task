@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang='hr'>
+
+<head>
+	<title>Dinamična stranica</title>
+	<meta charset='UTF-8'>
+	<meta name='author' content='Šimun Ćosić'>
+</head>
+
+<body>
+
+	<label for="unosPojma">Pojam pretraživanja</label>
+	<input type="text" id="unosPojma" name="pojam">
+
+	<label for="odabirKategorije">Pojam pretraživanja</label>
+	<select name="kategorija" id="odabirKategorije">
+		<option value="">neodabrano</option>
+		<option value="paket">paket</option>
+		<option value="oprema">oprema</option>
+		<option value="sjemenje">sjemenje</option>
+		<option value="usluga">usluga</option>
+	</select>
+
+	<input type="submit" value="Primjeni">
+
+	<p>bobo</p>
+
+	<a href="/pregled/${red.id}">Prikaži</a>
+
+	<form action="post" action="/pregled/obrisi/${red.id}">
+		<input type="submit" value="Obriši">
+	</form>
+
+</body>
+
+</html>

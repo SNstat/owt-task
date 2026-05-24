@@ -24,12 +24,6 @@ server.use("/JSklijent", express.static(putanja + "/js/klijent"));
 server.use("/dizajn", express.static(putanja + "/css"));
 server.use("/resursi", express.static(putanja + "/resursi"));
 
-//.csv zapisi
-
-server.get("/zapisi", (zahtjev, odgovor) => {
-	odgovor.sendFile(putanja + "/zapisi.csv");
-});
-
 //html stranice
 
 server.get("/", (zahtjev, odgovor) => {
@@ -60,21 +54,127 @@ server.get("/dokumentacija", (zahtjev, odgovor) => {
 	odgovor.sendFile(putanja + "/html/dokumentacija.html");
 });
 
+//dinamicne stranice /pregled
+
+const pocetakStranice = `<!doctype html>
+	<html lang='hr'>
+	<head>
+	<title>Dinamična stranica</title>
+	<meta charset='UTF-8'>
+	<meta name='author' content='Šimun Ćosić'>
+	</head>
+	<body>`;
+
+const krajStranice = "</body></html>";
+
+const opcijePregleda = `
+		<form method="get" action="/pregled">
+		<label for="unosPojma">Pojam pretraživanja</label>
+		<input type="text" id="unosPojma" name="pojam">
+
+		<label for="odabirKategorije">Pojam pretraživanja</label>
+		<select name="kategorija" id="odabirKategorije">
+			<option value="">neodabrano</option>
+			<option value="paket">paket</option>
+			<option value="oprema">oprema</option>
+			<option value="sjemenje">sjemenje</option>
+			<option value="usluga">usluga</option>
+		</select>
+
+		<input type="submit" value="Primjeni">
+		</form>
+		<br>
+`;
+
 server.get("/pregled", (zahtjev, odgovor) => {
 	const Modul = require("./js/server/modul.cjs");
 	const modul = new Modul(putanja);
 
-	const rezultat = modul.dohvatiSve();
-	console.log(rezultat);
+	console.log(zahtjev.query.pojam);
+	console.log(zahtjev.query.kategorija);
 
-	odgovor.write("<html>");
-	odgovor.write("<body>");
-	odgovor.write("<p>Pero");
-	// odgovor.write(modul.dohvatiSve());
-	odgovor.write("</p>");
-	odgovor.write("</body>");
-	odgovor.write("</html>");
+	const podaci = modul.dohvatiSve(zahtjev.query.pojam, zahtjev.query.kategorija);
+	console.log(podaci);
+
+	odgovor.write(pocetakStranice);
+	odgovor.write(opcijePregleda);
+
+	odgovor.write(`
+		<table border="1">
+			<tr>
+				<th>Id</th>
+				<th>Naziv</th>
+				<th>Opis</th>
+				<th>Kategorija</th>
+				<th>Datum unosa</th>
+				<th>Prikaz</th>
+				<th>Brisanje</th>
+			</tr>
+		`);
+
+	for (const red of podaci) {
+		odgovor.write(
+			`<tr>
+				<td>${red.id}</td>
+				<td>${red.naziv}</td>
+				<td>${red.opis}</td>
+				<td>${red.kategorija}</td>
+				<td>${red.datumUnosa}</td>
+				<td>
+					<a href="/pregled/${red.id}">Prikaži</a>
+				</td>
+				<td>
+					<form action="post" action="/pregled/obrisi/${red.id}">
+						<input type="submit" value="Obriši">
+					</form>
+				</td>
+			</tr>
+			`,
+		);
+	}
+
+	odgovor.write("</table>");
+
+	odgovor.write(krajStranice);
 	odgovor.end();
+});
+
+server.get("/pregled/:id", (zahtjev, odgovor) => {
+	const Modul = require("./js/server/modul.cjs");
+	const modul = new Modul(putanja);
+
+	const id = zahtjev.params.id;
+	const podatak = modul.dohvatiPoIdentifikatoru(id);
+
+	odgovor.write(pocetakStranice);
+
+	if (podatak === null) {
+		odgovor.write("<i>Traženi zapis nije pronađen!</i><br>");
+	} else {
+		odgovor.write(
+			`
+			<p>Id: ${podatak.id}</p>
+			<p>Naziv: ${podatak.naziv}</p>
+			<p>Opis: ${podatak.opis}</p>
+			<p>Kategrija: ${podatak.kategorija}</p>
+			<p>Datum unosa: ${podatak.datumUnosa}</p>
+			`,
+		);
+	}
+
+	odgovor.write("<a href='/pregled'>Povratak na pregled</a>");
+
+	odgovor.write(krajStranice);
+	odgovor.end();
+});
+
+server.post("/pregled/obrisi/:id", (zahtjev, odgovor) => {
+	const Modul = require("./js/server/modul.cjs");
+	const modul = new Modul(putanja);
+
+	modul.ukloniPoIdentifikatoru(zahtjev.params.id);
+
+	odgovor.redirect("/pregled");
 });
 
 //za nepostojece putanje
@@ -86,62 +186,3 @@ server.use((zahtjev, odgovor) => {
 server.listen(port, () => {
 	console.log("Server pokrenut na portu: " + port);
 });
-
-//http://localhost:12222/
-
-/*
-
-server.get("/", (zahtjev, odgovor) => {
-	odgovor.sendFile(putanja + "/html/index.html");
-});
-
-server.get("/", (zahtjev, odgovor) => {
-	odgovor.sendFile(putanja + "/index.html");
-});
-
-//dozvola za pristup čitavom direktoriju
-server.use("/css", express.static(putanja + "/css"));
-//dozvolite pristup do resursa
-server.use("/dokumenti", express.static(putanja + "/resursi"));
-
-server.get("/obrazac", (zahtjev, odgovor) => {
-	console.log(zahtjev.query);
-	odgovor.sendFile(putanja + "/html/obrasci.html");
-});
-
-server.get("/javascript", (zahtjev, odgovor) => {
-	odgovor.sendFile(putanja + "/js/scosic24.js");
-});
-
-const ds = require("fs");
-const mojModul = require("./dajTablicu.cjs");
-
-server.get("/dinamicna", (zahtjev, odgovor) => {
-	let zaglavlje = ds.readFileSync("zaglavlje.txt", "utf-8");
-	let podnozje = ds.readFileSync("podnozje.txt", "utf-8");
-	//console.log(zaglavlje, podnozje);
-
-	odgovor.write(zaglavlje);
-	odgovor.write("<h2 class='naslov'>Dinamična stranica</h2>");
-	odgovor.write(mojModul.dajTablicu());
-	odgovor.write(podnozje);
-
-	odgovor.end();
-});
-
-//iključivanje posrednika za uključivanje POST parametra:
-server.use(express.urlencoded({ extended: true }));
-
-server.post("/ispisObrazac", (zahtjev, odgovor) => {
-	console.log(zahtjev.body);
-	odgovor.sendFile(putanja + "/html/obrasci.html");
-});
-
-server.use((zahtjev, odgovor) => {
-	odgovor.send("Stranica nije pronađena!");
-});
-
-server.listen(port, () => {
-	console.log(`Server pokrenut na portu: ${port}`);
-});
-*/
