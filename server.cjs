@@ -16,6 +16,8 @@ const port = dajPort("scosic24");
 const express = require("/usr/lib/node_modules/express");
 const server = express();
 
+server.use(express.json());
+
 const putanja = __dirname;
 
 //prava direktorijima
@@ -90,11 +92,7 @@ server.get("/pregled", (zahtjev, odgovor) => {
 	const Modul = require("./js/server/modul.cjs");
 	const modul = new Modul(putanja);
 
-	console.log(zahtjev.query.pojam);
-	console.log(zahtjev.query.kategorija);
-
 	const podaci = modul.dohvatiSve(zahtjev.query.pojam, zahtjev.query.kategorija);
-	console.log(podaci);
 
 	odgovor.write(pocetakStranice);
 	odgovor.write(opcijePregleda);
@@ -124,7 +122,7 @@ server.get("/pregled", (zahtjev, odgovor) => {
 					<a href="/pregled/${red.id}">Prikaži</a>
 				</td>
 				<td>
-					<form action="post" action="/pregled/obrisi/${red.id}">
+					<form method="post" action="/pregled/obrisi/${red.id}">
 						<input type="submit" value="Obriši">
 					</form>
 				</td>
@@ -175,6 +173,104 @@ server.post("/pregled/obrisi/:id", (zahtjev, odgovor) => {
 	modul.ukloniPoIdentifikatoru(zahtjev.params.id);
 
 	odgovor.redirect("/pregled");
+});
+
+//REST servis /api/zapisi
+
+server.get("/api/zapisi", (zahtjev, odgovor) => {
+	const Modul = require("./js/server/modul.cjs");
+	const modul = new Modul(putanja);
+
+	const podaci = modul.dohvatiSve(zahtjev.query.pojam, zahtjev.query.kategorija);
+
+	odgovor.type("json");
+	odgovor.status(200).send(podaci);
+});
+
+server.post("/api/zapisi", (zahtjev, odgovor) => {
+	const Modul = require("./js/server/modul.cjs");
+	const modul = new Modul(putanja);
+
+	const noveVrijednosti = zahtjev.body;
+
+	const noviObjekt = modul.dodajNovi(noveVrijednosti);
+
+	odgovor.type("json");
+
+	if (noviObjekt !== null) {
+		odgovor.status(201).send(noviObjekt);
+	} else {
+		odgovor.status(400).send({ greska: "Neispravni ili nepotpuni podaci za zapis." });
+	}
+});
+
+server.put("/api/zapisi", (zahtjev, odgovor) => {
+	odgovor.type("json");
+	odgovor.status(405).send({ greska: "Metoda nije dopuštena za kolekciju zapisa." });
+});
+
+server.delete("/api/zapisi", (zahtjev, odgovor) => {
+	odgovor.type("json");
+	odgovor.status(405).send({ greska: "Metoda nije dopuštena za kolekciju zapisa." });
+});
+
+//REST servis /api/zapisi/{id}
+
+server.get("/api/zapisi/:id", (zahtjev, odgovor) => {
+	const Modul = require("./js/server/modul.cjs");
+	const modul = new Modul(putanja);
+
+	const id = zahtjev.params.id;
+	const podatak = modul.dohvatiPoIdentifikatoru(id);
+
+	odgovor.type("json");
+
+	if (podatak !== null) {
+		odgovor.status(200).send(podatak);
+	} else {
+		odgovor.status(404).send({ greska: "Zapis s traženim identifikatorom nije pronađen." });
+	}
+});
+
+server.post("/api/zapisi/:id", (zahtjev, odgovor) => {
+	odgovor.type("json");
+	odgovor.status(405).send({ greska: "Metoda nije dopuštena za pojedinačni zapis." });
+});
+
+server.put("/api/zapisi/:id", (zahtjev, odgovor) => {
+	const Modul = require("./js/server/modul.cjs");
+	const modul = new Modul(putanja);
+
+	const id = zahtjev.params.id;
+	const noveVrijednosti = zahtjev.body;
+
+	const azuriraniObjekt = modul.azurirajPostojeci(noveVrijednosti);
+
+	odgovor.type("json");
+
+	if (azuriraniObjekt !== null) {
+		odgovor.status(200).send(id, azuriraniObjekt);
+	} else if (azuriraniObjekt === "kriviPodaci") {
+		odgovor.status(400).send({ greska: "Neispravni podaci za ažuriranje." });
+	} else {
+		odgovor.status(404).send({ greska: "Zapis s traženim id-im nije pronađen za ažuriranje." });
+	}
+});
+
+server.delete("/api/zapisi/:id", (zahtjev, odgovor) => {
+	const Modul = require("./js/server/modul.cjs");
+	const modul = new Modul(putanja);
+
+	const id = zahtjev.params.id;
+	const statusBrisanja = modul.ukloniPoIdentifikatoru(id);
+
+	odgovor.type("json");
+
+	if (statusBrisanja) {
+		odgovor.status(200).send({ poruka: "Zapis je uspješno obrisan." });
+	} else {
+		odgovor.status(404).send({ greska: "Zapis s traženim identifikatorom nije pronađen za brisanje." });
+	}
 });
 
 //za nepostojece putanje
