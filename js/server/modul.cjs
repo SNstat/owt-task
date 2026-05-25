@@ -4,11 +4,11 @@ class Modul {
 	citanje = require("readline");
 
 	constructor(putanja) {
-		this.putanja = putanja;
+		this.putanja = putanja + "/resursi/ostalo/zapisi.csv";
 	}
 
 	#citajDatoteku() {
-		const sadrzaj = this.datotecniSustav.readFileSync(this.putanja + "/js/server/zapisi.csv", "utf-8");
+		const sadrzaj = this.datotecniSustav.readFileSync(this.putanja, "utf-8");
 		const redovi = sadrzaj.split("\n");
 
 		const rezultat = [];
@@ -117,7 +117,7 @@ class Modul {
 			"#" +
 			noviObjekt.datumUnosa;
 
-		this.datotecniSustav.writeFileSync(this.putanja + "/js/server/zapisi.csv", noviRed, {
+		this.datotecniSustav.writeFileSync(this.putanja, noviRed, {
 			flag: "a+",
 			encoding: "utf-8",
 		});
@@ -179,7 +179,7 @@ class Modul {
 		}
 
 		if (pronadjenZapis) {
-			this.datotecniSustav.writeFileSync(this.putanja + "/js/server/zapisi.csv", noviZapisi, "utf-8");
+			this.datotecniSustav.writeFileSync(this.putanja, noviZapisi, "utf-8");
 			return azuriraniObjekt;
 		}
 		return null;
@@ -215,7 +215,7 @@ class Modul {
 		}
 
 		if (pronadjenZapis) {
-			this.datotecniSustav.writeFileSync(this.putanja + "/js/server/zapisi.csv", noviZapisi, "utf-8");
+			this.datotecniSustav.writeFileSync(this.putanja, noviZapisi, "utf-8");
 			return true;
 		}
 		return false;

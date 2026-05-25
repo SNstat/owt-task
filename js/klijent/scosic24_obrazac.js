@@ -1,4 +1,4 @@
-window.onload = function () {
+window.addEventListener("load", function () {
 	document.getElementById("unosEmail").addEventListener("change", provjeriIspravnostEmaila);
 	document.getElementById("odabirObavijesti").addEventListener("change", provjeriIspravnostEmaila);
 	document.getElementById("unosDanasnjegDatuma").addEventListener("change", provjeriSmislenostDatuma);
@@ -28,7 +28,7 @@ window.onload = function () {
 			window.scrollTo(0, 0);
 		}
 	});
-};
+});
 
 function provjeriPostojanostImena() {
 	const unosIme = document.getElementById("unosIme");
@@ -55,7 +55,7 @@ function provjeriIspravnostLozinke() {
 
 function provjeriIspravnostEmaila() {
 	const unosEmail = document.getElementById("unosEmail");
-	const regularniIzrazZaEmail = /^[a-z0-9]+(\.[a-z0-9]+)*@[a-z0-9]+\.[a-z0-9]+(\.[a-z0-9]+)*$/g;
+	const regularniIzrazZaEmail = RegExp(/^[a-z0-9]+(\.[a-z0-9]+)*@[a-z0-9]+\.[a-z0-9]+(\.[a-z0-9]+)*$/);
 	const porukaGreske = document.getElementById("porukaGreskeEmail");
 	const odabirObavijesti = document.getElementById("odabirObavijesti");
 
