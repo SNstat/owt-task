@@ -65,119 +65,16 @@ server.get("/obrValidacija", (zahtjev, odgovor) => {
 
 //dinamicne stranice /pregled
 
-/*
-const pocetakStranice = `<!doctype html>
-	<html lang='hr'>
-	<head>
-	<title>Dinamična stranica</title>
-	<meta charset='UTF-8'>
-	<meta name='author' content='Šimun Ćosić'>
-	</head>
-	<body>`;
-
-const krajStranice = "</body></html>";
-
-const opcijePregleda = `
-		<form method="get" action="/pregled">
-		<label for="unosPojma">Pojam pretraživanja:</label>
-		<input type="text" id="unosPojma" name="pojam">
-
-		<label for="odabirKategorije">Kategorija:</label>
-		<select name="kategorija" id="odabirKategorije">
-			<option value="">neodabrano</option>
-			<option value="paket">paket</option>
-			<option value="oprema">oprema</option>
-			<option value="sjemenje">sjemenje</option>
-			<option value="usluga">usluga</option>
-		</select>
-
-		<input type="submit" value="Primjeni">
-		</form>
-		<br>
-`;
-
-server.get("/pregled", (zahtjev, odgovor) => {
-	const modulZapisi = new ModulZapisi(putanja);
-
-	const podaci = modulZapisi.dohvatiSve(zahtjev.query.pojam, zahtjev.query.kategorija);
-
-	odgovor.write(pocetakStranice);
-	odgovor.write(opcijePregleda);
-
-	odgovor.write(`
-		<table border="1">
-			<tr>
-				<th>Id</th>
-				<th>Naziv</th>
-				<th>Opis</th>
-				<th>Kategorija</th>
-				<th>Datum unosa</th>
-				<th>Prikaz</th>
-				<th>Brisanje</th>
-			</tr>
-		`);
-
-	for (const red of podaci) {
-		odgovor.write(
-			`<tr>
-				<td>${red.id}</td>
-				<td>${red.naziv}</td>
-				<td>${red.opis}</td>
-				<td>${red.kategorija}</td>
-				<td>${red.datumUnosa}</td>
-				<td>
-					<a href="/pregled/${red.id}">Prikaži</a>
-				</td>
-				<td>
-					<form method="post" action="/pregled/obrisi/${red.id}">
-						<input type="submit" value="Obriši">
-					</form>
-				</td>
-			</tr>
-			`,
-		);
-	}
-
-	odgovor.write("</table>");
-
-	odgovor.write(krajStranice);
-	odgovor.end();
-});
-
-server.get("/pregled/:id", (zahtjev, odgovor) => {
-	const modulZapisi = new ModulZapisi(putanja);
-
-	const id = zahtjev.params.id;
-	const podatak = modulZapisi.dohvatiPoIdentifikatoru(id);
-
-	odgovor.write(pocetakStranice);
-
-	if (podatak === null) {
-		odgovor.write("<i>Traženi zapis nije pronađen!</i><br>");
-	} else {
-		odgovor.write(
-			`
-			<p>Id: ${podatak.id}</p>
-			<p>Naziv: ${podatak.naziv}</p>
-			<p>Opis: ${podatak.opis}</p>
-			<p>Kategrija: ${podatak.kategorija}</p>
-			<p>Datum unosa: ${podatak.datumUnosa}</p>
-			`,
-		);
-	}
-
-	odgovor.write("<a href='/pregled'>Povratak na pregled</a>");
-
-	odgovor.write(krajStranice);
-	odgovor.end();
-});
-*/
-
 server.get("/pregled", (zahtjev, odgovor) => {
 	const modulZapisi = new ModulZapisi(putanja);
 	const modulDinamicnaStranica = new ModulDinamicnaStranica();
 
 	const podaci = modulZapisi.dohvatiSve(zahtjev.query.pojam, zahtjev.query.kategorija);
+
+	odgovor.write(modulDinamicnaStranica.DohvatiPocetakStranice());
+	odgovor.write(modulDinamicnaStranica.DohvatiMogucnostiPregleda());
+	odgovor.write(modulDinamicnaStranica.DohvatiTablicu(podaci));
+	odgovor.write(modulDinamicnaStranica.DohvatiKrajStranice());
 
 	odgovor.end();
 });
@@ -188,6 +85,10 @@ server.get("/pregled/:id", (zahtjev, odgovor) => {
 
 	const id = zahtjev.params.id;
 	const podatak = modulZapisi.dohvatiPoIdentifikatoru(id);
+
+	odgovor.write(modulDinamicnaStranica.DohvatiPocetakStranice());
+	odgovor.write(modulDinamicnaStranica.DohvatiPregledPoId(podatak));
+	odgovor.write(modulDinamicnaStranica.DohvatiKrajStranice());
 
 	odgovor.end();
 });

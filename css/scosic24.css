@@ -115,6 +115,10 @@ main > h1 {
 	color: white;
 }
 
+.kurzivniTekst {
+	font-style: italic;
+}
+
 /* footer */
 footer {
 	background-color: #212829;
