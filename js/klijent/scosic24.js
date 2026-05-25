@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+window.onload = function () {
 	document.getElementById("tipkaZaMobilniIzbornik").addEventListener("click", promjeniIzbornik);
 
 	postavljanjeAktivneStranice();
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	if (padajuciIzbornikZaOdabraniStupac && padajuciIzbornikZaMetoduSortiranja && unosZaPretrazivanje) {
 		iniciranjeInteraktivneTablice();
 	}
-});
+};
 
 function postavljanjeAktivneStranice() {
 	const aktivnaStranica = window.location.pathname;

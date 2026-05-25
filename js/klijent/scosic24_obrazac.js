@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+window.onload = function () {
 	document.getElementById("unosEmail").addEventListener("change", provjeriIspravnostEmaila);
 	document.getElementById("odabirObavijesti").addEventListener("change", provjeriIspravnostEmaila);
 	document.getElementById("unosDanasnjegDatuma").addEventListener("change", provjeriSmislenostDatuma);
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			window.scrollTo(0, 0);
 		}
 	});
-});
+};
 
 function provjeriPostojanostImena() {
 	const unosIme = document.getElementById("unosIme");
