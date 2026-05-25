@@ -1,4 +1,4 @@
-class Modul {
+class ModulZapisi {
 	putanja = "";
 	datotecniSustav = require("fs");
 	citanje = require("readline");
@@ -222,4 +222,4 @@ class Modul {
 	}
 }
 
-module.exports = Modul;
+module.exports = ModulZapisi;

@@ -41,7 +41,7 @@ function postavljanjeAktivneStranice() {
 				prviIndexLink = 1;
 				continue;
 			}
-			navigacijskaVeza.classList.add("aktivnaStranica");
+			navigacijskaVeza.className += "aktivnaStranica";
 			break;
 		}
 	}
