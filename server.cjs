@@ -71,10 +71,10 @@ const krajStranice = "</body></html>";
 
 const opcijePregleda = `
 		<form method="get" action="/pregled">
-		<label for="unosPojma">Pojam pretraživanja</label>
+		<label for="unosPojma">Pojam pretraživanja:</label>
 		<input type="text" id="unosPojma" name="pojam">
 
-		<label for="odabirKategorije">Pojam pretraživanja</label>
+		<label for="odabirKategorije">Kategorija:</label>
 		<select name="kategorija" id="odabirKategorije">
 			<option value="">neodabrano</option>
 			<option value="paket">paket</option>
@@ -244,16 +244,16 @@ server.put("/api/zapisi/:id", (zahtjev, odgovor) => {
 	const id = zahtjev.params.id;
 	const noveVrijednosti = zahtjev.body;
 
-	const azuriraniObjekt = modul.azurirajPostojeci(noveVrijednosti);
+	const azuriraniObjekt = modul.azurirajPostojeci(id, noveVrijednosti);
 
 	odgovor.type("json");
 
-	if (azuriraniObjekt !== null) {
-		odgovor.status(200).send(id, azuriraniObjekt);
-	} else if (azuriraniObjekt === "kriviPodaci") {
+	if (azuriraniObjekt === null) {
+		odgovor.status(404).send({ greska: "Zapis s traženim id-im nije pronađen za ažuriranje." });
+	} else if (azuriraniObjekt === noveVrijednosti) {
 		odgovor.status(400).send({ greska: "Neispravni podaci za ažuriranje." });
 	} else {
-		odgovor.status(404).send({ greska: "Zapis s traženim id-im nije pronađen za ažuriranje." });
+		odgovor.status(200).send(azuriraniObjekt);
 	}
 });
 

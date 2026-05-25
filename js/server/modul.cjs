@@ -1,6 +1,5 @@
 class Modul {
 	putanja = "";
-	arr = [];
 	datotecniSustav = require("fs");
 	citanje = require("readline");
 
@@ -30,216 +29,196 @@ class Modul {
 	}
 
 	dohvatiSve(pojam, kategorija) {
-		try {
-			const redovi = this.#citajDatoteku();
+		const redovi = this.#citajDatoteku();
 
-			pojam = pojam === undefined ? "" : pojam.toLowerCase();
-			kategorija = kategorija === undefined ? "" : kategorija.toLowerCase();
+		pojam = pojam === undefined ? "" : pojam.toLowerCase();
+		kategorija = kategorija === undefined ? "" : kategorija.toLowerCase();
 
-			if (pojam === "" && kategorija === "") {
-				return redovi;
-			}
+		if (pojam === "" && kategorija === "") {
+			return redovi;
+		}
 
-			const rezultat = [];
+		const rezultat = [];
 
-			for (let i = 0; i < redovi.length; i++) {
-				const red = redovi[i];
-				if (kategorija === "") {
-					if (red.naziv.toLowerCase().indexOf(pojam) !== -1 || red.opis.toLowerCase().indexOf(pojam) !== -1) {
-						rezultat.push(red);
-					}
-				} else if (pojam === "") {
-					if (red.kategorija.toLowerCase().indexOf(kategorija) !== -1) {
-						rezultat.push(red);
-					}
-				} else if (
-					(red.naziv.toLowerCase().indexOf(pojam) !== -1 || red.opis.toLowerCase().indexOf(pojam) !== -1) &&
-					red.kategorija.toLowerCase().indexOf(kategorija) !== -1
-				) {
+		for (let i = 0; i < redovi.length; i++) {
+			const red = redovi[i];
+			if (kategorija === "") {
+				if (red.naziv.toLowerCase().indexOf(pojam) !== -1 || red.opis.toLowerCase().indexOf(pojam) !== -1) {
 					rezultat.push(red);
 				}
+			} else if (pojam === "") {
+				if (red.kategorija.toLowerCase().indexOf(kategorija) !== -1) {
+					rezultat.push(red);
+				}
+			} else if (
+				(red.naziv.toLowerCase().indexOf(pojam) !== -1 || red.opis.toLowerCase().indexOf(pojam) !== -1) &&
+				red.kategorija.toLowerCase().indexOf(kategorija) !== -1
+			) {
+				rezultat.push(red);
 			}
-
-			return rezultat;
-		} catch {
-			return null;
 		}
+
+		return rezultat;
 	}
 
 	dohvatiPoIdentifikatoru(id) {
-		try {
-			const redovi = this.#citajDatoteku();
+		const redovi = this.#citajDatoteku();
 
-			let povrat = null;
+		let povrat = null;
 
-			for (let i = 0; i < redovi.length; i++) {
-				if (redovi[i].id === id.toString()) {
-					povrat = redovi[i];
-					break;
-				}
+		for (let i = 0; i < redovi.length; i++) {
+			if (redovi[i].id === id.toString()) {
+				povrat = redovi[i];
+				break;
 			}
-
-			return povrat;
-		} catch {
-			return null;
 		}
+
+		return povrat;
 	}
 
 	dodajNovi(noveVrijednosti) {
-		try {
-			if (
-				noveVrijednosti.naziv === "" ||
-				noveVrijednosti.opis === "" ||
-				noveVrijednosti.kategorija === "" ||
-				noveVrijednosti.datumUnosa === ""
-			) {
-				return null;
-			}
-
-			let maxId = 0;
-			const redovi = this.#citajDatoteku();
-
-			for (let i = 0; i < redovi.length; i++) {
-				if (parseInt(redovi[i].id) > maxId) {
-					maxId = parseInt(redovi[i].id);
-				}
-			}
-
-			maxId += 1;
-
-			const noviObjekt = {
-				id: maxId.toString(),
-				naziv: noveVrijednosti.naziv,
-				opis: noveVrijednosti.opis,
-				kategorija: noveVrijednosti.kategorija,
-				datumUnosa: noveVrijednosti.datumUnosa,
-			};
-
-			const noviRed =
-				"\n" +
-				noviObjekt.id +
-				"#" +
-				noviObjekt.naziv +
-				"#" +
-				noviObjekt.opis +
-				"#" +
-				noviObjekt.kategorija +
-				"#" +
-				noviObjekt.datumUnosa;
-
-			this.datotecniSustav.writeFileSync(this.putanja + "/js/server/zapisi.csv", noviRed, {
-				flag: "a+",
-				encoding: "utf-8",
-			});
-
-			return noviObjekt;
-		} catch {
+		if (
+			noveVrijednosti.naziv === "" ||
+			noveVrijednosti.opis === "" ||
+			noveVrijednosti.kategorija === "" ||
+			noveVrijednosti.datumUnosa === ""
+		) {
 			return null;
 		}
+
+		let maxId = 0;
+		const redovi = this.#citajDatoteku();
+
+		for (let i = 0; i < redovi.length; i++) {
+			if (parseInt(redovi[i].id) > maxId) {
+				maxId = parseInt(redovi[i].id);
+			}
+		}
+
+		maxId += 1;
+
+		const noviObjekt = {
+			id: maxId.toString(),
+			naziv: noveVrijednosti.naziv,
+			opis: noveVrijednosti.opis,
+			kategorija: noveVrijednosti.kategorija,
+			datumUnosa: noveVrijednosti.datumUnosa,
+		};
+
+		const noviRed =
+			"\n" +
+			noviObjekt.id +
+			"#" +
+			noviObjekt.naziv +
+			"#" +
+			noviObjekt.opis +
+			"#" +
+			noviObjekt.kategorija +
+			"#" +
+			noviObjekt.datumUnosa;
+
+		this.datotecniSustav.writeFileSync(this.putanja + "/js/server/zapisi.csv", noviRed, {
+			flag: "a+",
+			encoding: "utf-8",
+		});
+
+		return noviObjekt;
 	}
 
 	azurirajPostojeci(id, noveVrijednosti) {
-		try {
-			if (
-				noveVrijednosti.naziv === "" ||
-				noveVrijednosti.opis === "" ||
-				noveVrijednosti.kategorija === "" ||
-				noveVrijednosti.datumUnosa === ""
-			) {
-				return "kriviPodaci";
-			}
-
-			const redovi = this.#citajDatoteku();
-
-			let noviZapisi = "";
-			let pronadjenZapis = false;
-
-			const azuriraniObjekt = {
-				id: id.toString(),
-				naziv: noveVrijednosti.naziv,
-				opis: noveVrijednosti.opis,
-				kategorija: noveVrijednosti.kategorija,
-				datumUnosa: noveVrijednosti.datumUnosa,
-			};
-
-			for (let i = 0; i < redovi.length; i++) {
-				if (redovi[i].id === id.toString()) {
-					pronadjenZapis = true;
-					noviZapisi +=
-						azuriraniObjekt.id +
-						"#" +
-						azuriraniObjekt.naziv +
-						"#" +
-						azuriraniObjekt.opis +
-						"#" +
-						azuriraniObjekt.kategorija +
-						"#" +
-						azuriraniObjekt.datumUnosa;
-				} else {
-					noviZapisi +=
-						redovi[i].id +
-						"#" +
-						redovi[i].naziv +
-						"#" +
-						redovi[i].opis +
-						"#" +
-						redovi[i].kategorija +
-						"#" +
-						redovi[i].datumUnosa;
-				}
-				if (i < redovi.length - 1) {
-					noviZapisi += "\n";
-				}
-			}
-
-			if (pronadjenZapis) {
-				this.datotecniSustav.writeFileSync(this.putanja + "/js/server/zapisi.csv", noviZapisi, "utf-8");
-				return azuriraniObjekt;
-			}
-			return "nemaZapisaPoId";
-		} catch {
-			return null;
+		if (
+			noveVrijednosti.naziv === "" ||
+			noveVrijednosti.opis === "" ||
+			noveVrijednosti.kategorija === "" ||
+			noveVrijednosti.datumUnosa === ""
+		) {
+			return noveVrijednosti;
 		}
+
+		const redovi = this.#citajDatoteku();
+
+		let noviZapisi = "";
+		let pronadjenZapis = false;
+
+		const azuriraniObjekt = {
+			id: id.toString(),
+			naziv: noveVrijednosti.naziv,
+			opis: noveVrijednosti.opis,
+			kategorija: noveVrijednosti.kategorija,
+			datumUnosa: noveVrijednosti.datumUnosa,
+		};
+
+		for (let i = 0; i < redovi.length; i++) {
+			if (redovi[i].id === id.toString()) {
+				pronadjenZapis = true;
+				noviZapisi +=
+					azuriraniObjekt.id +
+					"#" +
+					azuriraniObjekt.naziv +
+					"#" +
+					azuriraniObjekt.opis +
+					"#" +
+					azuriraniObjekt.kategorija +
+					"#" +
+					azuriraniObjekt.datumUnosa;
+			} else {
+				noviZapisi +=
+					redovi[i].id +
+					"#" +
+					redovi[i].naziv +
+					"#" +
+					redovi[i].opis +
+					"#" +
+					redovi[i].kategorija +
+					"#" +
+					redovi[i].datumUnosa;
+			}
+			if (i < redovi.length - 1) {
+				noviZapisi += "\n";
+			}
+		}
+
+		if (pronadjenZapis) {
+			this.datotecniSustav.writeFileSync(this.putanja + "/js/server/zapisi.csv", noviZapisi, "utf-8");
+			return azuriraniObjekt;
+		}
+		return null;
 	}
 
 	ukloniPoIdentifikatoru(id) {
-		try {
-			const redovi = this.#citajDatoteku();
+		const redovi = this.#citajDatoteku();
 
-			let noviZapisi = "";
-			let brojacUnesenihRedova = 0;
-			let pronadjenZapis = false;
+		let noviZapisi = "";
+		let brojacUnesenihRedova = 0;
+		let pronadjenZapis = false;
 
-			for (let i = 0; i < redovi.length; i++) {
-				if (redovi[i].id === id.toString()) {
-					pronadjenZapis = true;
-					continue;
-				} else {
-					if (brojacUnesenihRedova > 0) {
-						noviZapisi += "\n";
-					}
-					brojacUnesenihRedova++;
-					noviZapisi +=
-						redovi[i].id +
-						"#" +
-						redovi[i].naziv +
-						"#" +
-						redovi[i].opis +
-						"#" +
-						redovi[i].kategorija +
-						"#" +
-						redovi[i].datumUnosa;
+		for (let i = 0; i < redovi.length; i++) {
+			if (redovi[i].id === id.toString()) {
+				pronadjenZapis = true;
+				continue;
+			} else {
+				if (brojacUnesenihRedova > 0) {
+					noviZapisi += "\n";
 				}
+				brojacUnesenihRedova++;
+				noviZapisi +=
+					redovi[i].id +
+					"#" +
+					redovi[i].naziv +
+					"#" +
+					redovi[i].opis +
+					"#" +
+					redovi[i].kategorija +
+					"#" +
+					redovi[i].datumUnosa;
 			}
-
-			if (pronadjenZapis) {
-				this.datotecniSustav.writeFileSync(this.putanja + "/js/server/zapisi.csv", noviZapisi, "utf-8");
-				return true;
-			}
-			return false;
-		} catch {
-			return false;
 		}
+
+		if (pronadjenZapis) {
+			this.datotecniSustav.writeFileSync(this.putanja + "/js/server/zapisi.csv", noviZapisi, "utf-8");
+			return true;
+		}
+		return false;
 	}
 }
 
