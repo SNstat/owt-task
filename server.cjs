@@ -56,6 +56,10 @@ server.get("/dokumentacija", (zahtjev, odgovor) => {
 	odgovor.sendFile(putanja + "/html/dokumentacija.html");
 });
 
+server.get("/obrValidacija", (zahtjev, odgovor) => {
+	odgovor.sendFile(putanja + "/html/kontakt.html");
+});
+
 //dinamicne stranice /pregled
 
 const pocetakStranice = `<!doctype html>

@@ -27,14 +27,125 @@
 				<li><a href="/tim">Tim</a></li>
 				<li><a href="/kontakt">Kontakt</a></li>
 				<li><a href="/dokumentacija">Dokumentacija</a></li>
+				<li><a href="/obrValidacija">obrValidacija</a></li>
+				<li><a href="/pregled">Dinamička stranica</a></li>
+				<li><a href="/api/zapisi">REST servis</a></li>
 			</ul>
 		</nav>
 	</header>
 
 	<main class="container mt-4">
+		<h2>Popis sadržaja (Zadaća 2.)</h2>
+
+		<div class="row my-4">
+			<table class="table table-bordered caption-top">
+				<caption>Tablica 1. JavaScript klijent</caption>
+				<thead>
+					<tr>
+						<th>Stavka</th>
+						<th>Status</th>
+						<th>Napomena</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1. Vanjske datoteke</td>
+						<td><span class="badge bg-success">Napravljeno</span></td>
+						<td>Postoje datoteke scosic24.js i scosic24_obrazac.js.</td>
+					</tr>
+					<tr>
+						<td>2. Validacija obrasca</td>
+						<td><span class="badge bg-success">Napravljeno</span></td>
+						<td>Implementirano najmanje 5 pravila nad 4+ elementa; 2 pravila uključuju odnos između polja.</td>
+					</tr>
+					<tr>
+						<td>3. Interaktivnost - navigacijski izbornik</td>
+						<td><span class="badge bg-success">Napravljeno</span></td>
+						<td>Najmanje 2 funkcionalnosti; promjena prikaza izbornika i snalaženje korisnika.</td>
+					</tr>
+					<tr>
+						<td>4. Interaktivnost - tablica</td>
+						<td><span class="badge bg-success">Napravljeno</span></td>
+						<td>Najmanje 2 funkcionalnosti nad stvarnim podacima tablice bez ponovog učitanja stranice.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="row my-4">
+			<table class="table table-bordered caption-top">
+				<caption>Tablica 2. Poslužiteljska strana</caption>
+				<thead>
+					<tr>
+						<th>Stavka</th>
+						<th>Status</th>
+						<th>Napomena</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1. Port za NodeJS poslužitelj</td>
+						<td><span class="badge bg-success">Napravljeno</span></td>
+						<td>Vlastiti NodeJS poslužitelj pokrenut na dodijeljenom portu.</td>
+					</tr>
+					<tr>
+						<td>2. Posluživanje HTML stranica</td>
+						<td><span class="badge bg-success">Napravljeno</span></td>
+						<td>Svaka HTML stranica poslužena zasebno; korijenska putanja preusmjeraava na početnu stranicu.</td>
+					</tr>
+					<tr>
+						<td>3. Posluživanje direktorija</td>
+						<td><span class="badge bg-success">Napravljeno</span></td>
+						<td>Putanje /JSklijent, /dizajn i /resursi ispravno rade.</td>
+					</tr>
+					<tr>
+						<td>4. JavaScript datoteke na poslužiteljskoj strani</td>
+						<td><span class="badge bg-success">Napravljeno</span></td>
+						<td>Sve JavaScript datoteke na poslužiteljskoj strani imaju ekstenziju .cjs.</td>
+					</tr>
+					<tr>
+						<td>5. Nepostojeće putanje</td>
+						<td><span class="badge bg-success">Napravljeno</span></td>
+						<td>Vraća 404 i poruku "Stranica ne postoji!" s poveznicom na početnu stranicu.</td>
+					</tr>
+					<tr>
+						<td>6. Dinamička stranica /pregled</td>
+						<td><span class="badge bg-success">Napravljeno</span></td>
+						<td>Prikaz, filtriranje i brisanje zapisa iz zapisi.csv</td>
+					</tr>
+					<tr>
+						<td>7. Dinamička stranica /pregled{id}</td>
+						<td><span class="badge bg-success">Napravljeno</span></td>
+						<td>Prikaz pojedinačnih zapisa ili poruka ako zapis ne postoji.</td>
+					</tr>
+					<tr>
+						<td>8. REST servis /api/zapisi</td>
+						<td><span class="badge bg-success">Napravljeno</span></td>
+						<td>GET, POST, PUT 405, DELETE 405.</td>
+					</tr>
+					<tr>
+						<td>9. REST servis /api/zapisi/{id}</td>
+						<td><span class="badge bg-success">Napravljeno</span></td>
+						<td>GET, POST 405, PUT, DELETE.</td>
+					</tr>
+					<tr>
+						<td>10. Vlastiti modul</td>
+						<td><span class="badge bg-success">Napravljeno</span></td>
+						<td>Implemtirane funkcije: dohvatiSve, dohvatiPoIdentifikatoru, dodajNovi, azurirajPostojeci,
+							ukloniPoIdentifikatoru.</td>
+					</tr>
+					<tr>
+						<td>11. Poruke grešaka</td>
+						<td><span class="badge bg-success">Napravljeno</span></td>
+						<td>Sve REST greške vraćaju atribut "greska" u JSON odgovoru</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
 		<div class="row my-4">
 			<div class="col-12">
-				<h2 class="mb-3">Popis sadržaja</h2>
+				<h2 class="mb-3">Popis sadržaja (Zadaća 1.)</h2>
 			</div>
 			<div class="col-md-6">
 				<h3 class="mb-3">Lista poveznica sadržajnog minimuma</h3>
