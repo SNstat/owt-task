@@ -44,6 +44,7 @@ select {
 /* prikaz tablice na /pregled */
 
 table {
+	width: 96%;
 	text-align: left;
 	margin: 0% 0% 2% 2%;
 	border-collapse: collapse;

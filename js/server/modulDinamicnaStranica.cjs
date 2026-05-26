@@ -38,8 +38,11 @@ class DinamicnaStranica {
 			</tr>
 		`;
 
-		for (const red of podaci) {
-			tablicaOznake += `<tr>
+		if (podaci.length === 0) {
+			tablicaOznake += "<tr><td colspan='7'>Nema rezultata za uneseni pojam i/ili kategoriju!</td></tr>";
+		} else {
+			for (const red of podaci) {
+				tablicaOznake += `<tr>
 				<td>${red.id}</td>
 				<td>${red.naziv}</td>
 				<td>${red.opis}</td>
@@ -55,6 +58,7 @@ class DinamicnaStranica {
 				</td>
 			</tr>
 			`;
+			}
 		}
 
 		tablicaOznake += "</table>";
