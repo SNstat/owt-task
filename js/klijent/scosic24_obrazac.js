@@ -24,6 +24,7 @@ window.addEventListener("load", function () {
 				ispravnostDatoteke
 			)
 		) {
+			console.log("yes");
 			e.preventDefault();
 			window.scrollTo(0, 0);
 		}
@@ -34,7 +35,7 @@ function provjeriPostojanostImena() {
 	const unosIme = document.getElementById("unosIme");
 
 	if (unosIme.value.length === 0) {
-		unosIme.style.add("greskaValidacije");
+		dodajCssKlasu(unosIme, "greskaValidacije");
 		document.getElementById("porukaGreskeIme").innerHTML = "<br>Polje 'Ime' je obavezno i ne smije biti prazno!<br>";
 		return false;
 	}
@@ -45,7 +46,7 @@ function provjeriIspravnostLozinke() {
 	const unosLozinka = document.getElementById("unosLozinka");
 
 	if (unosLozinka.value.length < 10) {
-		unosLozinka.unosLozinka.classList.add("greskaValidacije");
+		dodajCssKlasu(unosLozinka, "greskaValidacije");
 		document.getElementById("porukaGreskeLozinka").innerHTML =
 			"<br>Polje 'Lozinka' je obavezno i mora sadržavati barem 10 znakova!<br>";
 		return false;
@@ -62,13 +63,13 @@ function provjeriIspravnostEmaila() {
 	if (odabirObavijesti.checked) {
 		if (unosEmail.value === "") {
 			window.scrollTo(0, 0);
-			unosEmail.classList.add("greskaValidacije");
+			dodajCssKlasu(unosEmail, "greskaValidacije");
 			porukaGreske.innerHTML = "<br>Polje 'E-mail' je obavezno ako želite dobivati obavijesti na e-mail!<br>";
 			return false;
 		}
 
 		if (!regularniIzrazZaEmail.test(unosEmail.value)) {
-			unosEmail.classList.add("greskaValidacije");
+			dodajCssKlasu(unosEmail, "greskaValidacije");
 			porukaGreske.innerHTML =
 				"<br>E-mail adresa mora biti u ispravnom formatu (npr. netko1@mail.com ili netko1.netko1@mail.com)<br>!";
 			return false;
@@ -76,7 +77,7 @@ function provjeriIspravnostEmaila() {
 	}
 
 	porukaGreske.innerHTML = "";
-	unosEmail.classList.remove("greskaValidacije");
+	odmakniCssKlasu(unosEmail, "greskaValidacije");
 	return true;
 }
 
@@ -86,14 +87,14 @@ function provjeriSmislenostDatuma() {
 	const porukaGreske = document.getElementById("porukaGreskeDatuma");
 
 	if (unosDanasnjegDatuma.value < unosDatumaDogadaja.value) {
-		unosDanasnjegDatuma.classList.add("greskaValidacije");
-		unosDatumaDogadaja.classList.add("greskaValidacije");
+		dodajCssKlasu(unosDanasnjegDatuma, "greskaValidacije");
+		dodajCssKlasu(unosDatumaDogadaja, "greskaValidacije");
 		porukaGreske.innerHTML = "<br>Datum incidenta/događaja ne može biti nakon današnjeg datuma!<br>";
 		return false;
 	}
 
-	unosDanasnjegDatuma.classList.remove("greskaValidacije");
-	unosDatumaDogadaja.classList.remove("greskaValidacije");
+	odmakniCssKlasu(unosDanasnjegDatuma, "greskaValidacije");
+	odmakniCssKlasu(unosDatumaDogadaja, "greskaValidacije");
 	porukaGreske.innerHTML = "";
 	return true;
 }
@@ -103,7 +104,7 @@ function provjeriPostojanjeNaslovaPoruke() {
 	const unosSadrzajPoruke = document.getElementById("unosSadrzajPoruke");
 
 	if (unosSadrzajPoruke.value.length > 0 && unosNaslovPoruke.value.length === 0) {
-		unosNaslovPoruke.classList.add("greskaValidacije");
+		dodajCssKlasu(unosNaslovPoruke, "greskaValidacije");
 		document.getElementById("porukaGreskeNaslovPoruke").innerHTML =
 			"<br>Polje 'Naslov poruke' je obavezno ako šaljete sadržaj poruke!<br>";
 		return false;
@@ -119,7 +120,7 @@ function provjeriFormatDatoteke() {
 		const ekstenzijaDatoteke = datoteka.substring(datoteka.lastIndexOf("."));
 
 		if (ekstenzijaDatoteke !== ".pdf" && ekstenzijaDatoteke !== ".jpg") {
-			unosDatoteke.classList.add("greskaValidacije");
+			dodajCssKlasu(unosDatoteke, "greskaValidacije");
 			document.getElementById("porukaGreskeDatoteke").innerHTML =
 				"<br>Jedine datoteke koje se smiju slati su PDF dokumenti ili JPG slike!<br>";
 			return false;
@@ -130,14 +131,51 @@ function provjeriFormatDatoteke() {
 
 function resetirajStaticneElementeGresaka() {
 	document.getElementById("porukaGreskeIme").innerHTML = "";
-	document.getElementById("unosIme").classList.remove("greskaValidacije");
+	odmakniCssKlasu(document.getElementById("unosIme"), "greskaValidacije");
 
 	document.getElementById("porukaGreskeLozinka").innerHTML = "";
-	document.getElementById("unosLozinka").classList.remove("greskaValidacije");
+	odmakniCssKlasu(document.getElementById("unosLozinka"), "greskaValidacije");
 
 	document.getElementById("porukaGreskeNaslovPoruke").innerHTML = "";
-	document.getElementById("unosNaslovPoruke").classList.remove("greskaValidacije");
+	odmakniCssKlasu(document.getElementById("unosNaslovPoruke"), "greskaValidacije");
 
 	document.getElementById("porukaGreskeDatoteke").innerHTML = "";
-	document.getElementById("unosDatoteke").classList.remove("greskaValidacije");
+	odmakniCssKlasu(document.getElementById("unosDatoteke"), "greskaValidacije");
+}
+
+//funkcije za lakše upravljanje klasama elemenata
+
+function imaCssKlasu(element, klasa) {
+	const listaKlasa = element.className.split(" ");
+
+	for (const k of listaKlasa) {
+		if (k === klasa) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+function dodajCssKlasu(element, klasa) {
+	if (imaCssKlasu(element, klasa) === false) {
+		if (element.className === "") {
+			element.className += klasa;
+		} else {
+			element.className += " " + klasa;
+		}
+	}
+}
+
+function odmakniCssKlasu(element, klasa) {
+	const listaKlasa = element.className.split(" ");
+	const novaListaKlasa = [];
+
+	for (const k of listaKlasa) {
+		if (k !== klasa && k !== "") {
+			novaListaKlasa.push(k);
+		}
+	}
+
+	element.className = novaListaKlasa.join(" ");
 }

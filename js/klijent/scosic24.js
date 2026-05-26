@@ -20,13 +20,15 @@ window.addEventListener("load", function () {
 	}
 
 	if (unosZaPretrazivanje) {
-		document.getElementById("unosZaPretrazivanje").addEventListener("change", iniciranjeInteraktivneTablice);
+		document.getElementById("unosZaPretrazivanje").addEventListener("keyup", iniciranjeInteraktivneTablice);
 	}
 
 	if (padajuciIzbornikZaOdabraniStupac && padajuciIzbornikZaMetoduSortiranja && unosZaPretrazivanje) {
 		iniciranjeInteraktivneTablice();
 	}
 });
+
+//funkcije za interaktivni navigacijski izbornik
 
 function postavljanjeAktivneStranice() {
 	const aktivnaStranica = window.location.pathname;
@@ -41,7 +43,7 @@ function postavljanjeAktivneStranice() {
 				prviIndexLink = 1;
 				continue;
 			}
-			navigacijskaVeza.className += "aktivnaStranica";
+			navigacijskaVeza.className += " aktivnaStranica";
 			break;
 		}
 	}
@@ -50,45 +52,47 @@ function postavljanjeAktivneStranice() {
 function promjeniIzbornik() {
 	const navigacijskaTraka = document.querySelector("nav ul");
 
-	if (navigacijskaTraka.classList.contains("otvorenNavigacijskiIzbornik")) {
-		navigacijskaTraka.classList.remove("otvorenNavigacijskiIzbornik");
+	if (imaCssKlasu(navigacijskaTraka, "otvorenNavigacijskiIzbornik")) {
+		odmakniCssKlasu(navigacijskaTraka, "otvorenNavigacijskiIzbornik");
 	} else {
-		navigacijskaTraka.classList.add("otvorenNavigacijskiIzbornik");
+		dodajCssKlasu(navigacijskaTraka, "otvorenNavigacijskiIzbornik");
 	}
 }
+
+//funkcije za interaktivnu tablicu
 
 function iniciranjeInteraktivneTablice() {
 	const odabraniStupac = document.getElementById("padajuciIzbornikZaOdabraniStupac").value;
 	const odabranaPolja = document.querySelectorAll("table td:nth-child(" + odabraniStupac + ")");
 
-	pretraziTablicu(odabraniStupac, odabranaPolja);
-	sortirajTablicu(odabraniStupac, odabranaPolja);
+	sortirajTablicu(odabranaPolja);
+	pretraziTablicu(odabranaPolja);
 }
 
-function pretraziTablicu(odabraniStupac, odabranaPolja) {
+function pretraziTablicu(odabranaPolja) {
 	const kljucPretrage = document.getElementById("unosZaPretrazivanje").value.toLowerCase();
 
 	let brojacNevidljivihRedaka = 0;
 
 	for (const polje of odabranaPolja) {
 		if (polje.innerHTML.toLowerCase().indexOf(kljucPretrage) === -1) {
-			polje.parentElement.classList.add("nevidljiRedak");
+			dodajCssKlasu(polje.parentElement, "nevidljiviRedak");
 			brojacNevidljivihRedaka++;
 		} else {
-			polje.parentElement.classList.remove("nevidljiRedak");
+			odmakniCssKlasu(polje.parentElement, "nevidljiviRedak");
 		}
 	}
 
 	const izjavaNemaRezultata = document.querySelector(".izjavaNemaRezultata");
 
 	if (brojacNevidljivihRedaka === odabranaPolja.length) {
-		izjavaNemaRezultata.classList.add("vidljivaIzjavaRezultata");
+		dodajCssKlasu(izjavaNemaRezultata, "vidljivaIzjavaRezultata");
 	} else {
-		izjavaNemaRezultata.classList.remove("vidljivaIzjavaRezultata");
+		odmakniCssKlasu(izjavaNemaRezultata, "vidljivaIzjavaRezultata");
 	}
 }
 
-function sortirajTablicu(odabraniStupac, odabranaPolja) {
+function sortirajTablicu(odabranaPolja) {
 	const tablicaTijelo = document.querySelector("table tbody");
 	const tablicaTijeloSadrzaj = document.querySelectorAll("table tbody tr");
 
@@ -139,6 +143,43 @@ function sortirajTablicu(odabraniStupac, odabranaPolja) {
 	tablicaTijelo.innerHTML = "";
 
 	for (let i = 0; i < n; i++) {
-		tablicaTijelo.innerHTML += "<tr>" + redoviNiz[i].innerHTML + "</tr>";
+		tablicaTijelo.appendChild(redoviNiz[i]);
 	}
+}
+
+//funkcije za lakse upravljanje klasama elemenata
+
+function imaCssKlasu(element, klasa) {
+	const listaKlasa = element.className.split(" ");
+
+	for (const k of listaKlasa) {
+		if (k === klasa) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+function dodajCssKlasu(element, klasa) {
+	if (imaCssKlasu(element, klasa) === false) {
+		if (element.className === "") {
+			element.className += klasa;
+		} else {
+			element.className += " " + klasa;
+		}
+	}
+}
+
+function odmakniCssKlasu(element, klasa) {
+	const listaKlasa = element.className.split(" ");
+	const novaListaKlasa = [];
+
+	for (const k of listaKlasa) {
+		if (k !== klasa && k !== "") {
+			novaListaKlasa.push(k);
+		}
+	}
+
+	element.className = novaListaKlasa.join(" ");
 }

@@ -16,8 +16,8 @@ const port = dajPort("scosic24");
 const express = require("/usr/lib/node_modules/express");
 const server = express();
 
-server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
+server.use(express.json());
 
 const putanja = __dirname;
 
