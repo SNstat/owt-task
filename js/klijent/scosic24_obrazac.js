@@ -4,7 +4,7 @@ window.addEventListener("load", function () {
 	document.getElementById("unosDanasnjegDatuma").addEventListener("change", provjeriSmislenostDatuma);
 	document.getElementById("unosDatumaDogadaja").addEventListener("change", provjeriSmislenostDatuma);
 
-	document.querySelector("form").addEventListener("submit", function (e) {
+	document.getElementById("obrazacZaKontakt").addEventListener("submit", function (e) {
 		resetirajStaticneElementeGresaka();
 
 		const ispravnostImena = provjeriPostojanostImena();
@@ -34,7 +34,7 @@ function provjeriPostojanostImena() {
 	const unosIme = document.getElementById("unosIme");
 
 	if (unosIme.value.length === 0) {
-		unosIme.classList.add("greskaValidacije");
+		unosIme.style.add("greskaValidacije");
 		document.getElementById("porukaGreskeIme").innerHTML = "<br>Polje 'Ime' je obavezno i ne smije biti prazno!<br>";
 		return false;
 	}
@@ -45,7 +45,7 @@ function provjeriIspravnostLozinke() {
 	const unosLozinka = document.getElementById("unosLozinka");
 
 	if (unosLozinka.value.length < 10) {
-		unosLozinka.classList.add("greskaValidacije");
+		unosLozinka.unosLozinka.classList.add("greskaValidacije");
 		document.getElementById("porukaGreskeLozinka").innerHTML =
 			"<br>Polje 'Lozinka' je obavezno i mora sadržavati barem 10 znakova!<br>";
 		return false;

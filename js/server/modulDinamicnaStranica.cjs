@@ -1,66 +1,25 @@
 class DinamicnaStranica {
+	putanja = "";
+	datotecniSustav = require("fs");
+
+	constructor(putanja) {
+		this.putanja = putanja + "/resursi/ostalo";
+	}
+
 	DohvatiPocetakStranice() {
-		const pocetakStraniceOznake = `
-			<!doctype html>
-			<html lang="hr">
-
-			<head>
-				<title>Dinamična stranica</title>
-				<meta charset="UTF-8">
-				<meta name="author" content="Šimun Ćosić">
-				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-				<link rel="stylesheet" type="text/css" href="/dizajn/scosic24.css">
-				<link rel="stylesheet" type="text/css" href="/dizajn/dinamicnaStranica.css">
-				<script src="/JSklijent/scosic24.js"></script>
-			</head>
-
-			<body>
-				<header>
-					<nav>
-						<button id="tipkaZaMobilniIzbornik"><img src="/resursi/slike/ikonaIzbornik.png" alt="ikona izbornik"></button>
-						<h1>HiPo</h1>
-						<ul>
-							<li><a href="/">HIPO</a></li>
-							<li><a href="/">Početna stranica</a></li>
-							<li><a href="/proizvod">Proizvod</a></li>
-							<li><a href="/upute">Upute</a></li>
-							<li><a href="/katalog">Katalog</a></li>
-							<li><a href="/tim">Tim</a></li>
-							<li><a href="/kontakt">Kontakt</a></li>
-							<li><a href="/dokumentacija">Dokumentacija</a></li>
-							<li><a href="/obrValidacija">obrValidacija</a></li>
-							<li><a href="/pregled">Dinamična stranica</a></li>
-							<li><a href="/api/zapisi">REST servis</a></li>
-						</ul>
-					</nav>
-				</header>
-				<main>`;
+		const pocetakStraniceOznake = this.datotecniSustav.readFileSync(
+			this.putanja + "/pocetakStraniceOznake.txt",
+			"utf-8",
+		);
 
 		return pocetakStraniceOznake;
 	}
 
 	DohvatiMogucnostiPregleda() {
-		const mogucnostiPregledaOznake = `
-			<form method="get" action="/pregled" id="formaMogucnostiPregleda">
-			<label for="unosPojma">Pojam pretraživanja:</label>
-			<input type="text" id="unosPojma" name="pojam">
-
-			<br>
-
-			<label for="odabirKategorije">Kategorija:</label>
-			<select name="kategorija" id="odabirKategorije">
-				<option value="">neodabrano</option>
-				<option value="paket">paket</option>
-				<option value="oprema">oprema</option>
-				<option value="sjemenje">sjemenje</option>
-				<option value="usluga">usluga</option>
-			</select>
-
-			<br>
-
-			<input type="submit" value="Primjeni">
-			</form>
-			<br>`;
+		const mogucnostiPregledaOznake = this.datotecniSustav.readFileSync(
+			this.putanja + "/mogucnostiPregledaOznake.txt",
+			"utf-8",
+		);
 
 		return mogucnostiPregledaOznake;
 	}

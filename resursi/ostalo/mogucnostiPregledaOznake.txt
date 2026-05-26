@@ -1,0 +1,20 @@
+<form method="get" action="/pregled" id="formaMogucnostiPregleda">
+	<label for="unosPojma">Pojam pretraživanja:</label>
+	<input type="text" id="unosPojma" name="pojam">
+
+	<br>
+
+	<label for="odabirKategorije">Kategorija:</label>
+	<select name="kategorija" id="odabirKategorije">
+		<option value="">neodabrano</option>
+		<option value="paket">paket</option>
+		<option value="oprema">oprema</option>
+		<option value="sjemenje">sjemenje</option>
+		<option value="usluga">usluga</option>
+	</select>
+
+	<br>
+
+	<input type="submit" value="Primjeni">
+</form>
+<br>

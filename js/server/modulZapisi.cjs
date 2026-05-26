@@ -7,7 +7,7 @@ class ModulZapisi {
 		this.putanja = putanja + "/resursi/ostalo/zapisi.csv";
 	}
 
-	#citajDatoteku() {
+	citajDatoteku() {
 		const sadrzaj = this.datotecniSustav.readFileSync(this.putanja, "utf-8");
 		const redovi = sadrzaj.split("\n");
 
@@ -29,7 +29,7 @@ class ModulZapisi {
 	}
 
 	dohvatiSve(pojam, kategorija) {
-		const redovi = this.#citajDatoteku();
+		const redovi = this.citajDatoteku();
 
 		pojam = pojam === undefined ? "" : pojam.toLowerCase();
 		kategorija = kategorija === undefined ? "" : kategorija.toLowerCase();
@@ -62,7 +62,7 @@ class ModulZapisi {
 	}
 
 	dohvatiPoIdentifikatoru(id) {
-		const redovi = this.#citajDatoteku();
+		const redovi = this.citajDatoteku();
 
 		let povrat = null;
 
@@ -87,7 +87,7 @@ class ModulZapisi {
 		}
 
 		let maxId = 0;
-		const redovi = this.#citajDatoteku();
+		const redovi = this.citajDatoteku();
 
 		for (let i = 0; i < redovi.length; i++) {
 			if (parseInt(redovi[i].id) > maxId) {
@@ -135,7 +135,7 @@ class ModulZapisi {
 			return noveVrijednosti;
 		}
 
-		const redovi = this.#citajDatoteku();
+		const redovi = this.citajDatoteku();
 
 		let noviZapisi = "";
 		let pronadjenZapis = false;
@@ -186,7 +186,7 @@ class ModulZapisi {
 	}
 
 	ukloniPoIdentifikatoru(id) {
-		const redovi = this.#citajDatoteku();
+		const redovi = this.citajDatoteku();
 
 		let noviZapisi = "";
 		let brojacUnesenihRedova = 0;

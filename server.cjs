@@ -17,6 +17,7 @@ const express = require("/usr/lib/node_modules/express");
 const server = express();
 
 server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
 
 const putanja = __dirname;
 
@@ -67,7 +68,7 @@ server.get("/obrValidacija", (zahtjev, odgovor) => {
 
 server.get("/pregled", (zahtjev, odgovor) => {
 	const modulZapisi = new ModulZapisi(putanja);
-	const modulDinamicnaStranica = new ModulDinamicnaStranica();
+	const modulDinamicnaStranica = new ModulDinamicnaStranica(putanja);
 
 	const podaci = modulZapisi.dohvatiSve(zahtjev.query.pojam, zahtjev.query.kategorija);
 
@@ -81,7 +82,7 @@ server.get("/pregled", (zahtjev, odgovor) => {
 
 server.get("/pregled/:id", (zahtjev, odgovor) => {
 	const modulZapisi = new ModulZapisi(putanja);
-	const modulDinamicnaStranica = new ModulDinamicnaStranica();
+	const modulDinamicnaStranica = new ModulDinamicnaStranica(putanja);
 
 	const id = zahtjev.params.id;
 	const podatak = modulZapisi.dohvatiPoIdentifikatoru(id);
@@ -109,7 +110,7 @@ server.get("/api/zapisi", (zahtjev, odgovor) => {
 	const podaci = modulZapisi.dohvatiSve(zahtjev.query.pojam, zahtjev.query.kategorija);
 
 	odgovor.type("json");
-	odgovor.status(200).send(podaci);
+	odgovor.status(200).send(JSON.stringify(podaci));
 });
 
 server.post("/api/zapisi", (zahtjev, odgovor) => {
@@ -122,20 +123,20 @@ server.post("/api/zapisi", (zahtjev, odgovor) => {
 	odgovor.type("json");
 
 	if (noviObjekt !== null) {
-		odgovor.status(201).send(noviObjekt);
+		odgovor.status(201).send(JSON.stringify(noviObjekt));
 	} else {
-		odgovor.status(400).send({ greska: "Neispravni ili nepotpuni podaci za zapis." });
+		odgovor.status(400).send(JSON.stringify({ greska: "Neispravni ili nepotpuni podaci za zapis." }));
 	}
 });
 
 server.put("/api/zapisi", (zahtjev, odgovor) => {
 	odgovor.type("json");
-	odgovor.status(405).send({ greska: "Metoda nije dopuštena za kolekciju zapisa." });
+	odgovor.status(405).send(JSON.stringify({ greska: "Metoda nije dopuštena za kolekciju zapisa." }));
 });
 
 server.delete("/api/zapisi", (zahtjev, odgovor) => {
 	odgovor.type("json");
-	odgovor.status(405).send({ greska: "Metoda nije dopuštena za kolekciju zapisa." });
+	odgovor.status(405).send(JSON.stringify({ greska: "Metoda nije dopuštena za kolekciju zapisa." }));
 });
 
 //REST servis /api/zapisi/{id}
@@ -149,15 +150,15 @@ server.get("/api/zapisi/:id", (zahtjev, odgovor) => {
 	odgovor.type("json");
 
 	if (podatak !== null) {
-		odgovor.status(200).send(podatak);
+		odgovor.status(200).send(JSON.stringify(podatak));
 	} else {
-		odgovor.status(404).send({ greska: "Zapis s traženim identifikatorom nije pronađen." });
+		odgovor.status(404).send(JSON.stringify({ greska: "Zapis s traženim identifikatorom nije pronađen." }));
 	}
 });
 
 server.post("/api/zapisi/:id", (zahtjev, odgovor) => {
 	odgovor.type("json");
-	odgovor.status(405).send({ greska: "Metoda nije dopuštena za pojedinačni zapis." });
+	odgovor.status(405).send(JSON.stringify({ greska: "Metoda nije dopuštena za pojedinačni zapis." }));
 });
 
 server.put("/api/zapisi/:id", (zahtjev, odgovor) => {
@@ -171,11 +172,11 @@ server.put("/api/zapisi/:id", (zahtjev, odgovor) => {
 	odgovor.type("json");
 
 	if (azuriraniObjekt === null) {
-		odgovor.status(404).send({ greska: "Zapis s traženim id-im nije pronađen za ažuriranje." });
+		odgovor.status(404).send(JSON.stringify({ greska: "Zapis s traženim id-im nije pronađen za ažuriranje." }));
 	} else if (azuriraniObjekt === noveVrijednosti) {
-		odgovor.status(400).send({ greska: "Neispravni podaci za ažuriranje." });
+		odgovor.status(400).send(JSON.stringify({ greska: "Neispravni podaci za ažuriranje." }));
 	} else {
-		odgovor.status(200).send(azuriraniObjekt);
+		odgovor.status(200).send(JSON.stringify({ greska: "Neispravni podaci za ažuriranje." }));
 	}
 });
 
@@ -188,9 +189,9 @@ server.delete("/api/zapisi/:id", (zahtjev, odgovor) => {
 	odgovor.type("json");
 
 	if (statusBrisanja) {
-		odgovor.status(200).send({ poruka: "Zapis je uspješno obrisan." });
+		odgovor.status(200).send(JSON.stringify({ poruka: "Zapis je uspješno obrisan." }));
 	} else {
-		odgovor.status(404).send({ greska: "Zapis s traženim identifikatorom nije pronađen za brisanje." });
+		odgovor.status(404).send(JSON.stringify({ greska: "Zapis s traženim identifikatorom nije pronađen za brisanje." }));
 	}
 });
 
