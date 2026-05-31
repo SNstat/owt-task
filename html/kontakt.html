@@ -16,7 +16,7 @@
 	<header>
 		<nav>
 			<button id="tipkaZaMobilniIzbornik"><img src="/resursi/slike/ikonaIzbornik.png" alt="ikona izbornik"></button>
-			<h1>HiPo</h1>
+			<div>HiPo</div>
 			<ul>
 				<li><a href="/">HIPO</a></li>
 				<li><a href="/">Početna stranica</a></li>
@@ -43,7 +43,7 @@
 
 				<form novalidate id="obrazacZaKontakt" action="https://spider.foi.hr/OWT/materijali/ispis_forme.php"
 					method="POST">
-					<label for=" unosIme">Ime <span class="informacijeUvjetaUnosa">*</span>: </label>
+					<label for="unosIme">Ime <span class="informacijeUvjetaUnosa">*</span>: </label>
 					<input type="text" id="unosIme" name="Ime" placeholder="..." required>
 					<p class="porukaGreske" id="porukaGreskeIme"></p>
 					<br>
@@ -62,7 +62,7 @@
 					<input type="url" id="unosWebStraniceOrganizacije" name="AdresaWebStranice" placeholder="hipo.hr">
 					<br>
 
-					<label for="unosEmail *">E-mail adresa <span class="informacijeUvjetaUnosa">(* ako želite
+					<label for="unosEmail">E-mail adresa <span class="informacijeUvjetaUnosa">(* ako želite
 							obavijesti)</span>:</label>
 					<input type="email" id="unosEmail" name="Email" placeholder="netko@mail.com">
 					<p class="porukaGreske" id="porukaGreskeEmail"></p>
@@ -120,8 +120,7 @@
 		</div>
 	</main>
 	<footer>
-		<a href=" http://validator.w3.org/check?uri=https://spider.foi.hr/OWT/2026/zadaca_01/scosic24/html/kontakt.html"
-			target="_blank">
+		<a id="vezaZaValidaciju" target="_blank">
 			<img src="https://spider.foi.hr/OWT/materijali/slike/HTML5.png" alt="Ikona HTML5 validatora">
 		</a>
 	</footer>

@@ -1,6 +1,7 @@
 window.addEventListener("load", function () {
 	document.getElementById("tipkaZaMobilniIzbornik").addEventListener("click", promjeniIzbornik);
 
+	postavljanjeVezeZaValidaciju();
 	postavljanjeAktivneStranice();
 
 	const padajuciIzbornikZaOdabraniStupac = document.getElementById("padajuciIzbornikZaOdabraniStupac");
@@ -27,6 +28,21 @@ window.addEventListener("load", function () {
 		iniciranjeInteraktivneTablice();
 	}
 });
+
+//funkcija za dinamicku validaciju HTML stranica
+
+function postavljanjeVezeZaValidaciju() {
+	const aktivnaStranica = window.location.pathname;
+
+	const vezaZaValidacijuHtmlStranice = document.getElementById("vezaZaValidaciju");
+
+	vezaZaValidacijuHtmlStranice.setAttribute(
+		"href",
+		"http://validator.w3.org/check?uri=http://spider.foi.hr:12236" + aktivnaStranica,
+	);
+
+	console.log("http://validator.w3.org/check?uri=http://spider.foi.hr:12236" + aktivnaStranica);
+}
 
 //funkcije za interaktivni navigacijski izbornik
 

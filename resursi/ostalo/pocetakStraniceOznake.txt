@@ -15,7 +15,7 @@
 	<header>
 		<nav>
 			<button id="tipkaZaMobilniIzbornik"><img src="/resursi/slike/ikonaIzbornik.png" alt="ikona izbornik"></button>
-			<h1>HiPo</h1>
+			<div>HiPo</div>
 			<ul>
 				<li><a href="/">HIPO</a></li>
 				<li><a href="/">Početna stranica</a></li>

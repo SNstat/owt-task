@@ -63,7 +63,7 @@ nav button:hover {
 	background-color: #102f28;
 }
 
-nav h1 {
+nav div {
 	position: relative;
 	left: 70px;
 	display: none;
@@ -211,7 +211,7 @@ footer img {
 		display: inline;
 	}
 
-	nav h1 {
+	nav div {
 		display: inline;
 		padding-bottom: 20px;
 	}
