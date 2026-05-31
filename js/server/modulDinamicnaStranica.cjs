@@ -70,7 +70,7 @@ class DinamicnaStranica {
 		const krajStraniceOznake = `
 			</main>
 				<footer>
-					<a target="_blank" id="vezaZaValidaciju">
+					<a target="_blank" id="vezaZaValidaciju" href="">
 						<img src="https://spider.foi.hr/OWT/materijali/slike/HTML5.png" alt="Ikona HTML5 validatora">
 					</a>
 				</footer>
