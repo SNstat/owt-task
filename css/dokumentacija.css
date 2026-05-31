@@ -8,10 +8,17 @@ nav ul {
 
 #slikaAutora {
 	border-radius: 50%;
-	width: 250px;
-	height: 250px;
 }
 
 .figure a:hover img {
 	opacity: 0.6;
+}
+
+@media (max-width: 600px) {
+	.tablicaPopisZaDruguZadacu th,
+	.tablicaPopisZaDruguZadacu td {
+		word-break: break-word;
+		overflow-wrap: break-word;
+		padding: 4px;
+	}
 }
