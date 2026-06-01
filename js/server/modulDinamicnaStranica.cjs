@@ -26,7 +26,7 @@ class DinamicnaStranica {
 
 	DohvatiTablicu(podaci) {
 		let tablicaOznake = `
-		<table border="1">
+		<table>
 			<tr>
 				<th>Id</th>
 				<th>Naziv</th>

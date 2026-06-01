@@ -24,7 +24,6 @@ window.addEventListener("load", function () {
 				ispravnostDatoteke
 			)
 		) {
-			console.log("yes");
 			e.preventDefault();
 			window.scrollTo(0, 0);
 		}

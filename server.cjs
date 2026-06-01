@@ -72,6 +72,8 @@ server.get("/pregled", (zahtjev, odgovor) => {
 
 	const podaci = modulZapisi.dohvatiSve(zahtjev.query.pojam, zahtjev.query.kategorija);
 
+	odgovor.type("html");
+
 	odgovor.write(modulDinamicnaStranica.DohvatiPocetakStranice());
 	odgovor.write(modulDinamicnaStranica.DohvatiMogucnostiPregleda());
 	odgovor.write(modulDinamicnaStranica.DohvatiTablicu(podaci));
@@ -86,6 +88,8 @@ server.get("/pregled/:id", (zahtjev, odgovor) => {
 
 	const id = zahtjev.params.id;
 	const podatak = modulZapisi.dohvatiPoIdentifikatoru(id);
+
+	odgovor.type("html");
 
 	odgovor.write(modulDinamicnaStranica.DohvatiPocetakStranice());
 	odgovor.write(modulDinamicnaStranica.DohvatiPregledPoId(podatak));

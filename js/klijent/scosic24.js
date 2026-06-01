@@ -40,8 +40,6 @@ function postavljanjeVezeZaValidaciju() {
 		"href",
 		"http://validator.w3.org/check?uri=http://spider.foi.hr:12236" + aktivnaStranica,
 	);
-
-	console.log("http://validator.w3.org/check?uri=http://spider.foi.hr:12236" + aktivnaStranica);
 }
 
 //funkcije za interaktivni navigacijski izbornik
