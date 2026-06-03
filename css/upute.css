@@ -15,6 +15,10 @@
 	margin: 8px;
 }
 
+#okvirZaTablicu {
+	min-height: 550px;
+}
+
 table {
 	text-align: center;
 	margin: 2% 8% 2% 2%;
@@ -104,6 +108,10 @@ select {
 @media (max-width: 600px) {
 	figure img {
 		width: 100%;
+	}
+
+	#okvirZaTablicu {
+		min-height: 400px;
 	}
 
 	table {

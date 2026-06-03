@@ -53,7 +53,7 @@ function postavljanjeAktivneStranice() {
 
 	for (const navigacijskaVeza of navigacijskeVeze) {
 		if (aktivnaStranica === navigacijskaVeza.getAttribute("href")) {
-			if (aktivnaStranica === "/" && prviIndexLink === 0) {
+			if (aktivnaStranica === "/index" && prviIndexLink === 0) {
 				prviIndexLink = 1;
 				continue;
 			}
