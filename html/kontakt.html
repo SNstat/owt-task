@@ -72,10 +72,6 @@
 					<input type="tel" id="unosTelefona" name="Telefon" placeholder="+385 0000 000">
 					<br>
 
-					<label for="unosDanasnjegDatuma">Današnji datum <span class="informacijeUvjetaUnosa">*</span>: </label>
-					<input type="date" id="unosDanasnjegDatuma" name="DanasnjiDatum" value="2026-04-01" required>
-					<br>
-
 					<label for="unosDatumaDogadaja">Datum događaja/incidenta <span class="informacijeUvjetaUnosa">*</span>:
 					</label>
 					<input type="date" id="unosDatumaDogadaja" name="DatumDogadaja" value="2026-04-01" required>
@@ -84,11 +80,11 @@
 
 					<label for="unosZadovoljstvo">Zadovoljstvo:</label>
 					<br>
-					<input type="range" id="unosZadovoljstvo" name="Zadovoljstvo" min="1" max="10" value="5">
+					<input type="range" id="unosZadovoljstvo" name="Zadovoljstvo" min="1" max="5" value="3">
 					<br>
 
-					<label for="unosRazlog">Razlog poruke:</label>
-					<select name="RazlogPoruke" id="unosRazlog">
+					<label for="unosRazlogPoruke">Razlog poruke:</label>
+					<select name="RazlogPoruke" id="unosRazlogPoruke">
 						<option value="Pitanje">Pitanje</option>
 						<option value="Recenzija">Recenzija</option>
 						<option value="Reklamacija">Reklamacija</option>
@@ -96,13 +92,15 @@
 					<br>
 					<br>
 
-					<label for="unosNaslovPoruke">Naslov poruke <span class="informacijeUvjetaUnosa">(*ako postoji
+					<label for="unosNaslovPoruke">Naslov poruke <span class="informacijeUvjetaUnosa">(* ako postoji
 							sadržaj)</span>: </label>
 					<input type="text" id="unosNaslovPoruke" name="NaslovPoruke" placeholder="...">
 					<p class="porukaGreske" id="porukaGreskeNaslovPoruke"></p>
 					<br>
 
-					<label for="unosSadrzajPoruke">Sadržaj poruke:</label>
+					<label for="unosSadrzajPoruke">Sadržaj poruke <span class="informacijeUvjetaUnosa">(* ako želite poslati
+							reklamaciju)</span>:</label>
+					<p class="porukaGreske" id="porukaGreskeSadrzaja"></p>
 					<textarea name="SadrzajPoruke" id="unosSadrzajPoruke"></textarea>
 
 					<label for="unosDatoteke">Prenesite datoteku <span class="informacijeUvjetaUnosa">(PDF ili
