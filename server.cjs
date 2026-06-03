@@ -48,16 +48,16 @@ server.get("/kontakt", (zahtjev, odgovor) => {
 	odgovor.sendFile(putanja + "/html/kontakt.html");
 });
 
-server.get("/obrValidacija", (zahtjev, odgovor) => {
-	odgovor.redirect("/kontakt");
-});
-
 server.get("/proizvod", (zahtjev, odgovor) => {
 	odgovor.sendFile(putanja + "/html/proizvod.html");
 });
 
 server.get("/tim", (zahtjev, odgovor) => {
 	odgovor.sendFile(putanja + "/html/tim.html");
+});
+
+server.get("/obrValidacija", (zahtjev, odgovor) => {
+	odgovor.sendFile(putanja + "/html/kontakt.html");
 });
 
 server.get("/upute", (zahtjev, odgovor) => {
