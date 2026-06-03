@@ -33,6 +33,10 @@ server.use("/resursi", express.static(putanja + "/resursi"));
 //html stranice
 
 server.get("/", (zahtjev, odgovor) => {
+	odgovor.redirect("/index");
+});
+
+server.get("/index", (zahtjev, odgovor) => {
 	odgovor.sendFile(putanja + "/html/index.html");
 });
 
@@ -42,6 +46,10 @@ server.get("/katalog", (zahtjev, odgovor) => {
 
 server.get("/kontakt", (zahtjev, odgovor) => {
 	odgovor.sendFile(putanja + "/html/kontakt.html");
+});
+
+server.get("/obrValidacija", (zahtjev, odgovor) => {
+	odgovor.redirect("/kontakt");
 });
 
 server.get("/proizvod", (zahtjev, odgovor) => {
@@ -58,10 +66,6 @@ server.get("/upute", (zahtjev, odgovor) => {
 
 server.get("/dokumentacija", (zahtjev, odgovor) => {
 	odgovor.sendFile(putanja + "/html/dokumentacija.html");
-});
-
-server.get("/obrValidacija", (zahtjev, odgovor) => {
-	odgovor.sendFile(putanja + "/html/kontakt.html");
 });
 
 //dinamicne stranice /pregled
@@ -177,10 +181,10 @@ server.put("/api/zapisi/:id", (zahtjev, odgovor) => {
 
 	if (azuriraniObjekt === null) {
 		odgovor.status(404).send(JSON.stringify({ greska: "Zapis s traženim id-im nije pronađen za ažuriranje." }));
-	} else if (azuriraniObjekt === noveVrijednosti) {
+	} else if (azuriraniObjekt === false) {
 		odgovor.status(400).send(JSON.stringify({ greska: "Neispravni podaci za ažuriranje." }));
 	} else {
-		odgovor.status(200).send(JSON.stringify({ greska: "Neispravni podaci za ažuriranje." }));
+		odgovor.status(200).send(JSON.stringify(azuriraniObjekt));
 	}
 });
 
@@ -202,7 +206,29 @@ server.delete("/api/zapisi/:id", (zahtjev, odgovor) => {
 //za nepostojece putanje
 
 server.use((zahtjev, odgovor) => {
-	odgovor.status(404).send("Stranica ne postoji!");
+	odgovor
+		.status(404)
+		.type("html")
+		.send(
+			`
+		<!doctype html>
+		<html lang="hr">
+
+		<head>
+			<title>Nepostojeća stranica</title>
+			<meta charset="UTF-8">
+			<meta name="author" content="Šimun Ćosić">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		</head>
+
+		<body>
+			<p>Stranica ne postoji!</p>
+			<a href="/index">Poveznica na početnu stranicu</a>
+		</body>
+
+		</html>
+		`,
+		);
 });
 
 server.listen(port, () => {

@@ -77,6 +77,19 @@ class ModulZapisi {
 	}
 
 	dodajNovi(noveVrijednosti) {
+		if (noveVrijednosti === undefined) {
+			return null;
+		}
+
+		if (
+			noveVrijednosti.naziv == null ||
+			noveVrijednosti.opis == null ||
+			noveVrijednosti.kategorija == null ||
+			noveVrijednosti.datumUnosa == null
+		) {
+			return null;
+		}
+
 		if (
 			noveVrijednosti.naziv === "" ||
 			noveVrijednosti.opis === "" ||
@@ -126,13 +139,26 @@ class ModulZapisi {
 	}
 
 	azurirajPostojeci(id, noveVrijednosti) {
+		if (noveVrijednosti === undefined) {
+			return false;
+		}
+
+		if (
+			noveVrijednosti.naziv == null ||
+			noveVrijednosti.opis == null ||
+			noveVrijednosti.kategorija == null ||
+			noveVrijednosti.datumUnosa == null
+		) {
+			return false;
+		}
+
 		if (
 			noveVrijednosti.naziv === "" ||
 			noveVrijednosti.opis === "" ||
 			noveVrijednosti.kategorija === "" ||
 			noveVrijednosti.datumUnosa === ""
 		) {
-			return noveVrijednosti;
+			return false;
 		}
 
 		const redovi = this.citajDatoteku();
