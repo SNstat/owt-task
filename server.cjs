@@ -24,6 +24,8 @@ const putanja = __dirname;
 const ModulZapisi = require("./js/server/modulZapisi.cjs");
 const ModulDinamicnaStranica = require("./js/server/modulDinamicnaStranica.cjs");
 
+const modulZapisi = new ModulZapisi(putanja);
+
 //prava direktorijima
 
 server.use("/JSklijent", express.static(putanja + "/js/klijent"));
@@ -71,7 +73,6 @@ server.get("/dokumentacija", (zahtjev, odgovor) => {
 //dinamicne stranice /pregled
 
 server.get("/pregled", (zahtjev, odgovor) => {
-	const modulZapisi = new ModulZapisi(putanja);
 	const modulDinamicnaStranica = new ModulDinamicnaStranica(putanja);
 
 	const podaci = modulZapisi.dohvatiSve(zahtjev.query.pojam, zahtjev.query.kategorija);
@@ -87,7 +88,6 @@ server.get("/pregled", (zahtjev, odgovor) => {
 });
 
 server.get("/pregled/:id", (zahtjev, odgovor) => {
-	const modulZapisi = new ModulZapisi(putanja);
 	const modulDinamicnaStranica = new ModulDinamicnaStranica(putanja);
 
 	const id = zahtjev.params.id;
@@ -103,8 +103,6 @@ server.get("/pregled/:id", (zahtjev, odgovor) => {
 });
 
 server.post("/pregled/obrisi/:id", (zahtjev, odgovor) => {
-	const modulZapisi = new ModulZapisi(putanja);
-
 	modulZapisi.ukloniPoIdentifikatoru(zahtjev.params.id);
 
 	odgovor.redirect("/pregled");
@@ -113,8 +111,6 @@ server.post("/pregled/obrisi/:id", (zahtjev, odgovor) => {
 //REST servis /api/zapisi
 
 server.get("/api/zapisi", (zahtjev, odgovor) => {
-	const modulZapisi = new ModulZapisi(putanja);
-
 	const podaci = modulZapisi.dohvatiSve(zahtjev.query.pojam, zahtjev.query.kategorija);
 
 	odgovor.type("json");
@@ -122,8 +118,6 @@ server.get("/api/zapisi", (zahtjev, odgovor) => {
 });
 
 server.post("/api/zapisi", (zahtjev, odgovor) => {
-	const modulZapisi = new ModulZapisi(putanja);
-
 	const noveVrijednosti = zahtjev.body;
 
 	const noviObjekt = modulZapisi.dodajNovi(noveVrijednosti);
@@ -150,8 +144,6 @@ server.delete("/api/zapisi", (zahtjev, odgovor) => {
 //REST servis /api/zapisi/{id}
 
 server.get("/api/zapisi/:id", (zahtjev, odgovor) => {
-	const modulZapisi = new ModulZapisi(putanja);
-
 	const id = zahtjev.params.id;
 	const podatak = modulZapisi.dohvatiPoIdentifikatoru(id);
 
@@ -170,8 +162,6 @@ server.post("/api/zapisi/:id", (zahtjev, odgovor) => {
 });
 
 server.put("/api/zapisi/:id", (zahtjev, odgovor) => {
-	const modulZapisi = new ModulZapisi(putanja);
-
 	const id = zahtjev.params.id;
 	const noveVrijednosti = zahtjev.body;
 
@@ -189,8 +179,6 @@ server.put("/api/zapisi/:id", (zahtjev, odgovor) => {
 });
 
 server.delete("/api/zapisi/:id", (zahtjev, odgovor) => {
-	const modulZapisi = new ModulZapisi(putanja);
-
 	const id = zahtjev.params.id;
 	const statusBrisanja = modulZapisi.ukloniPoIdentifikatoru(id);
 

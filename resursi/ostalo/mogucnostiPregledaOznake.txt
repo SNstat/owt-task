@@ -1,4 +1,4 @@
-<form method="get" action="/pregled" id="formaMogucnostiPregleda">
+<form method="GET" action="/pregled" id="formaMogucnostiPregleda">
 	<label for="unosPojma">Pojam pretraživanja:</label>
 	<input type="text" id="unosPojma" name="pojam">
 

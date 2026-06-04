@@ -181,7 +181,7 @@ function resetirajStaticneElementeGresaka() {
 	odmakniCssKlasu(document.getElementById("unosDatoteke"), "greskaValidacije");
 }
 
-//funkcije za lakše upravljanje klasama elemenata
+//funkcije za jednostavnije upravljanje klasama elemenata
 
 function imaCssKlasu(element, klasa) {
 	const listaKlasa = element.className.split(" ");

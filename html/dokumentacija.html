@@ -28,7 +28,7 @@
 				<li><a href="/kontakt">Kontakt</a></li>
 				<li><a href="/dokumentacija">Dokumentacija</a></li>
 				<li><a href="/obrValidacija">obrValidacija</a></li>
-				<li><a href="/pregled">Dinamična stranica</a></li>
+				<li><a href="/pregled">Pregled zapisa</a></li>
 				<li><a href="/api/zapisi">REST servis</a></li>
 			</ul>
 		</nav>
@@ -55,17 +55,28 @@
 					<tr>
 						<td>2. Validacija obrasca</td>
 						<td><span class="badge bg-success">Napravljeno</span></td>
-						<td>Implementirano najmanje 5 pravila nad 4+ elementa; 2 pravila uključuju odnos između polja.</td>
+						<td>Implementirano je najmanje 5 pravila validacije nad 4 ili više elemenata obrasca <a
+								href="/obrValidacija#obrazacZaKontakt">obrValidacija</a>, pri
+							čemu 2 pravila
+							uključuju odnos između polja. Implementirana su sljedeća pravila: polje ime je obavezno, lozinka mora
+							sadržavati najmanje 10 znakova, e-mail je obavezan ako korisnik želi primati obavijesti, naslov je
+							obavezan ako postoji sadržaj poruke, sadržaj poruke je obavezan ako se šalje reklamacija, e-mail mora biti
+							ispravnog formata, moguće je poslati samo datoteke u PDF ili PNG formatu te datum događaja ne smije biti
+							nakon današnjeg datuma.</td>
 					</tr>
 					<tr>
 						<td>3. Interaktivnost - navigacijski izbornik</td>
 						<td><span class="badge bg-success">Napravljeno</span></td>
-						<td>Najmanje 2 funkcionalnosti; promjena prikaza izbornika i snalaženje korisnika.</td>
+						<td>Implementirane su dvije funkcionalnosti izbornika: postavljanje aktivne stranice u navigacijskom
+							izborniku te mogućnost otvaranja i zatvaranja izbornika u prikazu za manje uređaje (mobitele i tablete).
+						</td>
 					</tr>
 					<tr>
 						<td>4. Interaktivnost - tablica</td>
 						<td><span class="badge bg-success">Napravljeno</span></td>
-						<td>Najmanje 2 funkcionalnosti nad stvarnim podacima tablice bez ponovog učitanja stranice.</td>
+						<td>Implementirane su dvije funkcionalnosti nad stvarnim podacima tablice bez ponovnog učitavanja stranice:
+							sortiranje i pretraživanje tablice po odabranom stupcu na <a href="/upute#tablicaSjemenja">tablici
+								sjemenja</a>.</td>
 					</tr>
 				</tbody>
 			</table>
@@ -85,12 +96,12 @@
 					<tr>
 						<td>1. Port za NodeJS poslužitelj</td>
 						<td><span class="badge bg-success">Napravljeno</span></td>
-						<td>Vlastiti NodeJS poslužitelj pokrenut na dodijeljenom portu.</td>
+						<td>Vlastiti NodeJS poslužitelj pokrenut je na dodijeljenom portu 12236.</td>
 					</tr>
 					<tr>
 						<td>2. Posluživanje HTML stranica</td>
 						<td><span class="badge bg-success">Napravljeno</span></td>
-						<td>Svaka HTML stranica poslužena zasebno; korijenska putanja preusmjeraava na početnu stranicu.</td>
+						<td>Svaka HTML stranica poslužuje se zasebno, a korijenska putanja preusmjerava na početnu stranicu.</td>
 					</tr>
 					<tr>
 						<td>3. Posluživanje direktorija</td>
@@ -105,38 +116,46 @@
 					<tr>
 						<td>5. Nepostojeće putanje</td>
 						<td><span class="badge bg-success">Napravljeno</span></td>
-						<td>Vraća 404 i poruku "Stranica ne postoji!" s poveznicom na početnu stranicu.</td>
+						<td>Vraća se status 404 i poruka „Stranica ne postoji!” s poveznicom na početnu stranicu.</td>
 					</tr>
 					<tr>
 						<td>6. Dinamička stranica /pregled</td>
 						<td><span class="badge bg-success">Napravljeno</span></td>
-						<td>Prikaz, filtriranje i brisanje zapisa iz zapisi.csv</td>
+						<td>Implementirana je dinamička stranica <a href="/pregled">Pregled zapisa</a> na putanji /pregled za
+							prikaz,
+							filtriranje i
+							brisanje zapisa iz zapisi.csv</td>
 					</tr>
 					<tr>
 						<td>7. Dinamička stranica /pregled{id}</td>
 						<td><span class="badge bg-success">Napravljeno</span></td>
-						<td>Prikaz pojedinačnih zapisa ili poruka ako zapis ne postoji.</td>
+						<td>Implementirana je dinamička stranica na putanji /pregled/{id} za prikaz pojedinačnih zapisa ili poruke
+							ako zapis ne postoji.</td>
 					</tr>
 					<tr>
 						<td>8. REST servis /api/zapisi</td>
 						<td><span class="badge bg-success">Napravljeno</span></td>
-						<td>GET, POST, PUT 405, DELETE 405.</td>
+						<td>Implementirane su REST metode GET i POST za kolekciju zapisa te odgovori 405 za metode PUT i DELETE uz
+							poruku o nedopuštenoj
+							metodi.</td>
 					</tr>
 					<tr>
 						<td>9. REST servis /api/zapisi/{id}</td>
 						<td><span class="badge bg-success">Napravljeno</span></td>
-						<td>GET, POST 405, PUT, DELETE.</td>
+						<td>Implementirane su REST metode GET, PUT i DELETE za pojedinačan zapis te odgovor 405 za metodu POST uz
+							poruku o nedopuštenoj
+							metodi.</td>
 					</tr>
 					<tr>
 						<td>10. Vlastiti modul</td>
 						<td><span class="badge bg-success">Napravljeno</span></td>
-						<td>Implemtirane funkcije: dohvatiSve, dohvatiPoIdentifikatoru, dodajNovi, azurirajPostojeci,
+						<td>Implemtirane su funkcije: dohvatiSve, dohvatiPoIdentifikatoru, dodajNovi, azurirajPostojeci,
 							ukloniPoIdentifikatoru.</td>
 					</tr>
 					<tr>
 						<td>11. Poruke grešaka</td>
 						<td><span class="badge bg-success">Napravljeno</span></td>
-						<td>Sve REST greške vraćaju atribut "greska" u JSON odgovoru</td>
+						<td>Sve REST greške vraćaju atribut "greska" u JSON odgovoru.</td>
 					</tr>
 				</tbody>
 			</table>
