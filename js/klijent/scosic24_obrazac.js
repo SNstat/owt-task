@@ -6,6 +6,11 @@ window.addEventListener("load", function () {
 	document.getElementById("unosDatumaDogadaja").addEventListener("change", provjeriSmislenostDatuma);
 	document.getElementById("unosNaslovPoruke").addEventListener("input", provjeriPostojanjeNaslovaPoruke);
 	document.getElementById("unosRazlogPoruke").addEventListener("change", provjeriSadrzajZaReklamaciju);
+
+	document.getElementById("unosDatumaDogadaja").addEventListener("keydown", function (e) {
+		e.preventDefault();
+	});
+
 	document.getElementById("unosSadrzajPoruke").addEventListener("input", function () {
 		provjeriPostojanjeNaslovaPoruke();
 		provjeriSadrzajZaReklamaciju();
