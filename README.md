@@ -1,1 +1,1 @@
-Uni project at a web development class
+Uni project for a web development lecture
